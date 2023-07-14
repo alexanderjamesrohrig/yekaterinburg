@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var response: Response?
-    @State private var teamID = 117
+    @AppStorage("settingTeamID") private var teamID = 117
     @State private var season = 2023
     @ObservedObject var model = ContentModel()
     
@@ -22,7 +22,7 @@ struct ContentView: View {
                         ForEach(r.dates, id: \.self) { date in
                             ForEach(date.games, id: \.self) { game in
                                 GridRow {
-                                    Text(game.gameDate)
+                                    Text(model.getStringFrom(date: game.gameDate))
                                     Text(game.teams.away.team.locationName)
                                     Text("at")
                                     Text(game.teams.home.team.locationName)
@@ -33,20 +33,22 @@ struct ContentView: View {
                         }
                         Divider()
                         Text("\(r.copyright)")
+                            .textSelection(.enabled)
                     }
                 }
             }
             Divider()
             Section("CODENAME YEKATERINBURG") {
-                Stepper("TEAM", value: $teamID)
-                Link("VIEW TEAM NUMBERS", destination: URL(string: "")!)
+                Stepper("TEAM \(teamID)", value: $teamID)
+                Link("VIEW TEAM NUMBERS", destination: URL(string: "https://github.com/alexanderjamesrohrig/yekaterinburg/wiki/TEAM-NUMBERS")!)
                 Text("COPYRIGHT ⅯⅯⅩⅩⅢ")
             }
         }
         .padding()
         .task {
             do {
-                try response = await model.getGamesFor(date: "2023-06-30", team: teamID)
+                let todayDate = model.getTodayInAPIFormat()
+                try response = await model.getGamesFor(date: todayDate, team: teamID)
             }
             catch {
                 print("RESPONSE ERROR")
