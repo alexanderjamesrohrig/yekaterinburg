@@ -8,7 +8,7 @@
 import WidgetKit
 import SwiftUI
 
-// MARK: - TIMELINE
+// MARK: - Timeline
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         sampleEntry
@@ -22,28 +22,11 @@ struct Provider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
         
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, teamID: 117, isHome: true, opponentName: "Anaheim", gameDateTime: Date())
-            entries.append(entry)
-        }
+        entries.append(sampleEntry)
 
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
-}
-
-// MARK: - Model
-
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let teamID: Int
-    //let teamLogo: String
-    let isHome: Bool
-    let opponentName: String
-    let gameDateTime: Date
 }
 
 // MARK: - View
@@ -58,29 +41,22 @@ struct macos_widgetEntryView : View {
         ZStack {
             if entry.isHome {
                 Color.white
-            } else {
+            }
+            else {
                 Color.gray
             }
-            VStack {
-                //            Image(title: "ti_\(entry.teamID)")
+            VStack(alignment: .leading) {
                 HStack {
                     Text("Next")
                     Spacer()
-                }
-                HStack{
-                    if entry.isHome {
-                        //                    Image(systemName: "baseball.diamond.bases")
-                        Text(entry.opponentName)
-                    }
-                    else {
-                        //                    Image(systemName: "airplane.departure")
-                    }
-                    Spacer()
+                    Image(systemName: "airplane.departure")
                 }
                 HStack {
-                    Text(entry.gameDateTime, style: .date)
-                    Spacer()
-                    Text(entry.gameDateTime, style: .time)
+                    Text(entry.opponentName)
+                }.font(.headline)
+                Spacer()
+                HStack {
+                    Text(entry.gameDateTime, style: .relative)
                 }
             }.padding()
         }

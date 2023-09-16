@@ -17,7 +17,7 @@ struct ContentView: View {
     
     var body: some View {
         Form {
-            Section("TODAY'S GAMES") {
+            Section("Today") {
                 if let r = response {
                     Grid {
                         ForEach(r.dates, id: \.self) { date in
@@ -40,8 +40,8 @@ struct ContentView: View {
                 }
             }
             Divider()
-            Section() {
-                Stepper("TEAM \(teamID)", value: $teamID)
+            Section("Options") {
+                Stepper("Team \(teamID)", value: $teamID)
                 Button("View Schedule") {
                     print("opening schedule window...")
                     openWindow(id: "sched")
@@ -50,7 +50,7 @@ struct ContentView: View {
                     print("opening teams window...")
                     openWindow(id: "teams")
                 }
-                Text("COPYRIGHT ⅯⅯⅩⅩⅢ")
+                RohrigView()
             }
         }
         .padding()

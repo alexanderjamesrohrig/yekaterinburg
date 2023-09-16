@@ -33,12 +33,12 @@ struct ContentViewiOS: View {
                                 GridRow {
                                     Text(game.teams.away.team.teamCode)
                                         .monospaced()
-                                        .uppercased()
+                                        .textCase(.uppercase)
                                 }
                                 GridRow {
                                     Text(game.teams.home.team.teamCode)
                                         .monospaced()
-                                        .uppercased()
+                                        .textCase(.uppercase)
                                 }
                                 GridRow {
                                     Text("\(game.status.detailedState), \(DateAdapter.timeFrom(gameDate: game.gameDate, withDate: false))")
@@ -49,9 +49,9 @@ struct ContentViewiOS: View {
                     }
                 }
             }
-            Section() {
+            Section("Options") {
                 Stepper("Team \(teamID)", value: $teamID)
-                Text("Copyright ⅯⅯⅩⅩⅢ")
+                RohrigView()
             }
         }
         .task {

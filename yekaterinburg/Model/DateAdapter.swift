@@ -27,4 +27,19 @@ struct DateAdapter {
         
         return dateFormatter.string(from: inputAsDate ?? Date())
     }
+    
+    static func dateForAPI(date: Date) -> String {
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = .autoupdatingCurrent
+        let today = Date()
+        return dateFormatter.string(from: today)
+    }
+    
+    static func dateFromAPI(date: String) -> Date {
+        // 2023-07-01T00:05:00Z
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        let toDate = dateFormatter.date(from: date)
+        return toDate ?? Date()
+    }
 }

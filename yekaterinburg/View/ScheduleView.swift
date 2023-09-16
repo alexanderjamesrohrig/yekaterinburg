@@ -38,9 +38,7 @@ struct ScheduleView: View {
                 }
             }
             Divider().task {
-                // MVC:
-                // games = await Games.all
-                
+                // TODO Team.all
                 do {
                     print("loading schedule...")
                     try schedResponse = await model.getSeasonScheduleFor(season: "2023", team: teamID)
@@ -49,7 +47,6 @@ struct ScheduleView: View {
                     print("RESPONSE ERROR")
                 }
             }
-            // 1871 - 2023
             Text("The One Hundred and Fifty Second Year of Professional Baseball.")
         }.padding()
     }

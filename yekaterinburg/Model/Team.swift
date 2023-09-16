@@ -20,8 +20,8 @@ struct Team {
     let parentOrgName: String
     
     static var all: [Team] { get async {
-//        let url = URL(string: "https://statsapi.mlb.com/api/v1/teams")!
         var teams: [Team] = []
+//        let url = URL(string: "https://statsapi.mlb.com/api/v1/teams")! // TODO connect to API
         let url = Bundle.main.url(forResource: "Team", withExtension: "json") // LOCAL JSON FILE
         do {
 //            let (data, _) = try await URLSession.shared.data(from: url)

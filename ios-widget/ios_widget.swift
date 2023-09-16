@@ -19,28 +19,21 @@ struct Provider: TimelineProvider {
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, teamID: 117, isHome: false, opponentName: "Anaheim", gameDateTime: Date())
-            entries.append(entry)
+        // TODO way for user to change team
+        Task {
+            var entries: [SimpleEntry] = []
+            let currentDate = Date()
+            guard let games = try? await Game.allFor(team: 117) else {
+                return
+            }
+            for x in games {
+                entries.append(SimpleEntry(date: x.date, teamID: 117, isHome: true, opponentName: "Anaheim", gameDateTime: x.date))
+            }
+            let nextUpdate = Calendar.autoupdatingCurrent.date(byAdding: DateComponents(day: 1), to: currentDate)!
+            let timeline = Timeline(entries: entries, policy: .after(nextUpdate))
+            completion(timeline)
         }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
     }
-}
-
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let teamID: Int
-    //let teamLogo: String
-    let isHome: Bool
-    let opponentName: String
-    let gameDateTime: Date
 }
 
 struct ios_widgetEntryView : View {
@@ -50,14 +43,28 @@ struct ios_widgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        VStack {
-            Text("Next")
-            HStack {
-                Image(systemName: "airplane.departure")
-                Text(entry.opponentName)
+        ZStack {
+            if entry.isHome {
+                Color.white
             }
-            Text(entry.gameDateTime, style: .time)
-        }.padding()
+            else {
+                Color.gray
+            }
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Next")
+                    Spacer()
+                    Image(systemName: "airplane.departure")
+                }
+                HStack {
+                    Text(entry.opponentName)
+                }.font(.headline)
+                Spacer()
+                HStack {
+                    Text(entry.gameDateTime, style: .relative)
+                }
+            }.padding()
+        }
     }
 }
 

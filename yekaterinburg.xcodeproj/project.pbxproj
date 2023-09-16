@@ -31,6 +31,19 @@
 		0898EA8E2A61A33D00BBB9B1 /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898EA762A619F3700BBB9B1 /* WidgetModel.swift */; };
 		08A587812AB5E15A00BA4BE9 /* GameAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A587802AB5E15A00BA4BE9 /* GameAdapter.swift */; };
 		08A587832AB5EAD600BA4BE9 /* DateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A587822AB5EAD600BA4BE9 /* DateAdapter.swift */; };
+		08A587852AB5F36D00BA4BE9 /* Rohrig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A587842AB5F36D00BA4BE9 /* Rohrig.swift */; };
+		08A587872AB5F5B400BA4BE9 /* RohrigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A587862AB5F5B400BA4BE9 /* RohrigView.swift */; };
+		08A5878F2AB61F1800BA4BE9 /* MLBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A5878E2AB61F1800BA4BE9 /* MLBAPI.swift */; };
+		08A587902AB6248B00BA4BE9 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C5E8ED2AA7AEEF0000BD28 /* Game.swift */; };
+		08A587912AB6248C00BA4BE9 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C5E8ED2AA7AEEF0000BD28 /* Game.swift */; };
+		08A587922AB6289B00BA4BE9 /* DateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A587822AB5EAD600BA4BE9 /* DateAdapter.swift */; };
+		08A587932AB6289C00BA4BE9 /* DateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A587822AB5EAD600BA4BE9 /* DateAdapter.swift */; };
+		08A587942AB6290300BA4BE9 /* MLBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A5878E2AB61F1800BA4BE9 /* MLBAPI.swift */; };
+		08A587952AB6290300BA4BE9 /* MLBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A5878E2AB61F1800BA4BE9 /* MLBAPI.swift */; };
+		08A587962AB6291200BA4BE9 /* QuickTypeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0805D3E62A4F44E100261EFE /* QuickTypeResponse.swift */; };
+		08A587972AB6291200BA4BE9 /* QuickTypeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0805D3E62A4F44E100261EFE /* QuickTypeResponse.swift */; };
+		08A587982AB6291400BA4BE9 /* QuickTypeTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D99CD22AB38064004C7D43 /* QuickTypeTeam.swift */; };
+		08A587992AB6291500BA4BE9 /* QuickTypeTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D99CD22AB38064004C7D43 /* QuickTypeTeam.swift */; };
 		08C5E8EE2AA7AEEF0000BD28 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C5E8ED2AA7AEEF0000BD28 /* Game.swift */; };
 		08D99CCF2AB37AB3004C7D43 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D99CCE2AB37AB3004C7D43 /* Team.swift */; };
 		08D99CD12AB37FC1004C7D43 /* Team.json in Resources */ = {isa = PBXBuildFile; fileRef = 08D99CD02AB37FC1004C7D43 /* Team.json */; };
@@ -98,6 +111,9 @@
 		0898EA862A61A31500BBB9B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08A587802AB5E15A00BA4BE9 /* GameAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAdapter.swift; sourceTree = "<group>"; };
 		08A587822AB5EAD600BA4BE9 /* DateAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAdapter.swift; sourceTree = "<group>"; };
+		08A587842AB5F36D00BA4BE9 /* Rohrig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rohrig.swift; sourceTree = "<group>"; };
+		08A587862AB5F5B400BA4BE9 /* RohrigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RohrigView.swift; sourceTree = "<group>"; };
+		08A5878E2AB61F1800BA4BE9 /* MLBAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLBAPI.swift; sourceTree = "<group>"; };
 		08C5E8ED2AA7AEEF0000BD28 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		08D99CCE2AB37AB3004C7D43 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		08D99CD02AB37FC1004C7D43 /* Team.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Team.json; sourceTree = "<group>"; };
@@ -139,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				0805D3D22A4F375100261EFE /* yekaterinburg */,
+				08A5878B2AB6140900BA4BE9 /* Widget */,
 				0837AF922A589EF600D8E989 /* macos-widget */,
 				0898EA7F2A61A31300BBB9B1 /* ios-widget */,
 				0898EA8D2A61A32700BBB9B1 /* shared */,
@@ -165,7 +182,6 @@
 				08C5E8F02AA7B3520000BD28 /* View */,
 				08C5E8EF2AA7B3430000BD28 /* Model */,
 				08A5877F2AB5D72900BA4BE9 /* QuickType */,
-				0805D3E22A4F3A9000261EFE /* ContentModel.swift */,
 				0805D3D72A4F375300261EFE /* Assets.xcassets */,
 				0805D3D92A4F375300261EFE /* yekaterinburg.entitlements */,
 				0805D3DA2A4F375300261EFE /* Preview Content */,
@@ -229,6 +245,13 @@
 			path = QuickType;
 			sourceTree = "<group>";
 		};
+		08A5878B2AB6140900BA4BE9 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
 		08C5E8EF2AA7B3430000BD28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +259,9 @@
 				08A587802AB5E15A00BA4BE9 /* GameAdapter.swift */,
 				08D99CCE2AB37AB3004C7D43 /* Team.swift */,
 				08A587822AB5EAD600BA4BE9 /* DateAdapter.swift */,
+				08A587842AB5F36D00BA4BE9 /* Rohrig.swift */,
+				08A5878E2AB61F1800BA4BE9 /* MLBAPI.swift */,
+				0805D3E22A4F3A9000261EFE /* ContentModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,6 +273,7 @@
 				0805D3EA2A4F53D800261EFE /* ContentViewiOS.swift */,
 				08EF177D2A8D5F5E00AC8C0B /* ScheduleView.swift */,
 				0805D3E82A4F51DA00261EFE /* TeamsView.swift */,
+				08A587862AB5F5B400BA4BE9 /* RohrigView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -411,8 +438,11 @@
 				0805D3D42A4F375100261EFE /* yekaterinburgApp.swift in Sources */,
 				08D99CD32AB38064004C7D43 /* QuickTypeTeam.swift in Sources */,
 				0805D3E92A4F51DA00261EFE /* TeamsView.swift in Sources */,
+				08A5878F2AB61F1800BA4BE9 /* MLBAPI.swift in Sources */,
+				08A587852AB5F36D00BA4BE9 /* Rohrig.swift in Sources */,
 				0805D3E32A4F3A9000261EFE /* ContentModel.swift in Sources */,
 				08C5E8EE2AA7AEEF0000BD28 /* Game.swift in Sources */,
+				08A587872AB5F5B400BA4BE9 /* RohrigView.swift in Sources */,
 				08D99CCF2AB37AB3004C7D43 /* Team.swift in Sources */,
 				08A587832AB5EAD600BA4BE9 /* DateAdapter.swift in Sources */,
 			);
@@ -423,7 +453,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0837AF942A589EF600D8E989 /* macos_widget.swift in Sources */,
+				08A587912AB6248C00BA4BE9 /* Game.swift in Sources */,
+				08A587972AB6291200BA4BE9 /* QuickTypeResponse.swift in Sources */,
 				0898EA772A619F3700BBB9B1 /* WidgetModel.swift in Sources */,
+				08A587942AB6290300BA4BE9 /* MLBAPI.swift in Sources */,
+				08A587982AB6291400BA4BE9 /* QuickTypeTeam.swift in Sources */,
+				08A587922AB6289B00BA4BE9 /* DateAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,7 +468,12 @@
 			files = (
 				0898EA8E2A61A33D00BBB9B1 /* WidgetModel.swift in Sources */,
 				0898EA812A61A31300BBB9B1 /* ios_widgetBundle.swift in Sources */,
+				08A587952AB6290300BA4BE9 /* MLBAPI.swift in Sources */,
+				08A587932AB6289C00BA4BE9 /* DateAdapter.swift in Sources */,
+				08A587992AB6291500BA4BE9 /* QuickTypeTeam.swift in Sources */,
 				0898EA832A61A31300BBB9B1 /* ios_widget.swift in Sources */,
+				08A587962AB6291200BA4BE9 /* QuickTypeResponse.swift in Sources */,
+				08A587902AB6248B00BA4BE9 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +620,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Ye;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -594,7 +636,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderrohrig.yekaterinburg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -619,6 +661,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Ye;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -633,7 +677,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderrohrig.yekaterinburg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
