@@ -16,25 +16,42 @@ struct ContentViewiOS: View {
     
     var body: some View {
         Form {
-            Section("TODAY'S GAME") {
+            Section("Today") {
                 if let r = response {
                     ForEach(r.dates, id: \.self) { date in
                         ForEach(date.games, id: \.self) { game in
-                            HStack {
-                                Text(game.teams.away.team.franchiseName)
-                                Spacer()
-                                Text(game.status.detailedState)
-                                Spacer()
-                                Text(game.teams.home.team.franchiseName)
+                            Grid {
+                                GridRow {
+                                    Color.clear.gridCellUnsizedAxes([.horizontal, .vertical])
+                                    ForEach(1 ..< 10) { i in
+                                        Text(i, format: .number)
+                                    }
+                                    Text("R")
+                                    Text("H")
+                                    Text("E")
+                                }
+                                GridRow {
+                                    Text(game.teams.away.team.teamCode)
+                                        .monospaced()
+                                        .uppercased()
+                                }
+                                GridRow {
+                                    Text(game.teams.home.team.teamCode)
+                                        .monospaced()
+                                        .uppercased()
+                                }
+                                GridRow {
+                                    Text("\(game.status.detailedState), \(DateAdapter.timeFrom(gameDate: game.gameDate, withDate: false))")
+                                        .gridCellColumns(13)
+                                }
                             }
                         }
                     }
                 }
             }
             Section() {
-                Stepper("TEAM \(teamID)", value: $teamID)
-                Link("VIEW TEAM NUMBERS", destination: URL(string: "https://github.com/alexanderjamesrohrig/yekaterinburg/wiki/TEAM-NUMBERS")!)
-                Text("COPYRIGHT ⅯⅯⅩⅩⅢ")
+                Stepper("Team \(teamID)", value: $teamID)
+                Text("Copyright ⅯⅯⅩⅩⅢ")
             }
         }
         .task {

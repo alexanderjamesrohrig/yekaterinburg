@@ -30,6 +30,7 @@
 		0898EA892A61A31500BBB9B1 /* ios-widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0898EA7C2A61A31200BBB9B1 /* ios-widgetExtension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0898EA8E2A61A33D00BBB9B1 /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898EA762A619F3700BBB9B1 /* WidgetModel.swift */; };
 		08A587812AB5E15A00BA4BE9 /* GameAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A587802AB5E15A00BA4BE9 /* GameAdapter.swift */; };
+		08A587832AB5EAD600BA4BE9 /* DateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A587822AB5EAD600BA4BE9 /* DateAdapter.swift */; };
 		08C5E8EE2AA7AEEF0000BD28 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C5E8ED2AA7AEEF0000BD28 /* Game.swift */; };
 		08D99CCF2AB37AB3004C7D43 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D99CCE2AB37AB3004C7D43 /* Team.swift */; };
 		08D99CD12AB37FC1004C7D43 /* Team.json in Resources */ = {isa = PBXBuildFile; fileRef = 08D99CD02AB37FC1004C7D43 /* Team.json */; };
@@ -96,6 +97,7 @@
 		0898EA842A61A31500BBB9B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0898EA862A61A31500BBB9B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08A587802AB5E15A00BA4BE9 /* GameAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAdapter.swift; sourceTree = "<group>"; };
+		08A587822AB5EAD600BA4BE9 /* DateAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAdapter.swift; sourceTree = "<group>"; };
 		08C5E8ED2AA7AEEF0000BD28 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		08D99CCE2AB37AB3004C7D43 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		08D99CD02AB37FC1004C7D43 /* Team.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Team.json; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				08C5E8ED2AA7AEEF0000BD28 /* Game.swift */,
 				08A587802AB5E15A00BA4BE9 /* GameAdapter.swift */,
 				08D99CCE2AB37AB3004C7D43 /* Team.swift */,
+				08A587822AB5EAD600BA4BE9 /* DateAdapter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				0805D3E32A4F3A9000261EFE /* ContentModel.swift in Sources */,
 				08C5E8EE2AA7AEEF0000BD28 /* Game.swift in Sources */,
 				08D99CCF2AB37AB3004C7D43 /* Team.swift in Sources */,
+				08A587832AB5EAD600BA4BE9 /* DateAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
