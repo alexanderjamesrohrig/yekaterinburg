@@ -21,7 +21,7 @@ struct Provider: TimelineProvider {
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
-
+        
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
@@ -56,19 +56,27 @@ struct macos_widgetEntryView : View {
 
     var body: some View {
         VStack {
-            Image("ti_\(entry.teamID)")
-            Text("Next")
+//            Image(title: "ti_\(entry.teamID)")
+            HStack {
+                Text("Next")
+                Spacer()
+            }
             HStack{
                 if entry.isHome {
-                    Image(systemName: "baseball.diamond.bases")
+//                    Image(systemName: "baseball.diamond.bases")
                     Text(entry.opponentName)
                 }
                 else {
-                    Image(systemName: "airplane.departure")
+//                    Image(systemName: "airplane.departure")
                 }
+                Spacer()
             }
-            Text(entry.gameDateTime, style: .date)
-        }
+            HStack {
+                Text(entry.gameDateTime, style: .date)
+                Spacer()
+                Text(entry.gameDateTime, style: .time)
+            }
+        }.padding()
     }
 }
 

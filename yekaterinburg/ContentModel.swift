@@ -68,13 +68,23 @@ class ContentModel: ObservableObject {
     
     func getGamesFor(date: String, team: Int) async throws -> Response {
         // 2023-06-29
-        let url = URL(string: baseURL + "schedule?sportId=1&teamId=\(team)&date=\(date)&season=\(season)&hydrate=team")!
+        let url = URL(string: baseURL + "schedule?sportId=1&teamId=\(team)&date=\(date)&season=\(season)&hydrate=team,game(content(media(epg)))")!
 //        let url = Bundle.main.url(forResource: "TEST", withExtension: "json") // LOCAL TEST.json
 //        print(url ?? "")
         let (data, _) = try await URLSession.shared.data(from: url)
 //        let data = try Data(contentsOf: url!) // LOCAL TEST.json
         let decoded = try JSONDecoder().decode(Response.self, from: data)
-        //print(decoded)
+//        print(decoded)
+        return decoded
+    }
+    
+    func getSeasonScheduleFor(season: String, team: Int) async throws -> Response {
+//        let url = URL(string: baseURL + "schedule?sportId=1&teamId=117&season=2023&hydrate=team,game(content(media(epg)))")!
+        let url = Bundle.main.url(forResource: "SCHEDULE", withExtension: "json") // LOCAL SCHEDULE.json
+//        let (data, _) = try await URLSession.shared.data(from: url)
+        let data = try Data(contentsOf: url!) // LOCAL SCHEDULE.json
+        let decoded = try JSONDecoder().decode(Response.self, from: data)
+        print(decoded)
         return decoded
     }
     
