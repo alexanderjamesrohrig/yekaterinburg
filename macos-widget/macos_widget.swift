@@ -55,28 +55,35 @@ struct macos_widgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        VStack {
-//            Image(title: "ti_\(entry.teamID)")
-            HStack {
-                Text("Next")
-                Spacer()
+        ZStack {
+            if entry.isHome {
+                Color.white
+            } else {
+                Color.gray
             }
-            HStack{
-                if entry.isHome {
-//                    Image(systemName: "baseball.diamond.bases")
-                    Text(entry.opponentName)
+            VStack {
+                //            Image(title: "ti_\(entry.teamID)")
+                HStack {
+                    Text("Next")
+                    Spacer()
                 }
-                else {
-//                    Image(systemName: "airplane.departure")
+                HStack{
+                    if entry.isHome {
+                        //                    Image(systemName: "baseball.diamond.bases")
+                        Text(entry.opponentName)
+                    }
+                    else {
+                        //                    Image(systemName: "airplane.departure")
+                    }
+                    Spacer()
                 }
-                Spacer()
-            }
-            HStack {
-                Text(entry.gameDateTime, style: .date)
-                Spacer()
-                Text(entry.gameDateTime, style: .time)
-            }
-        }.padding()
+                HStack {
+                    Text(entry.gameDateTime, style: .date)
+                    Spacer()
+                    Text(entry.gameDateTime, style: .time)
+                }
+            }.padding()
+        }
     }
 }
 

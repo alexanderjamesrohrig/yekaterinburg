@@ -51,7 +51,6 @@ struct ios_widgetEntryView : View {
 
     var body: some View {
         VStack {
-            Image("ti_117")
             Text("Next")
             HStack {
                 Image(systemName: "airplane.departure")

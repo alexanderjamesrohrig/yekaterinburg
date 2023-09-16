@@ -29,16 +29,7 @@ struct ContentView: View {
                                     Text(game.teams.home.team.franchiseName)
                                     Text(game.status.detailedState)
                                     Link("MLB.com", destination: URL(string: "https://www.mlb.com/gameday/\(game.gamePk)")!)
-//                                    if let epg = game.content.media.epg.first {
-//                                        if epg.items.count > 1 {
-//                                            Text("\(epg.items.count) viewing options.")
-//                                        }
-//                                        else {
-//                                            if let c = epg.items.first {
-//                                                Text("\(c.callLetters!)")
-//                                            }
-//                                        }
-//                                    }
+//                                    Text("as of \(Date())") // TODO shorten to time only
                                 }
                             }
                         }
@@ -59,7 +50,6 @@ struct ContentView: View {
                     print("opening teams window...")
                     openWindow(id: "teams")
                 }
-                //Link("VIEW TEAM NUMBERS", destination: URL(string: "https://github.com/alexanderjamesrohrig/yekaterinburg/wiki/TEAM-NUMBERS")!)
                 Text("COPYRIGHT ⅯⅯⅩⅩⅢ")
             }
         }

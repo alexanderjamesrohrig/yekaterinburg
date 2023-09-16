@@ -14,22 +14,26 @@ struct Game {
     var awayTeam: Int
     var date: Date
     var status: String
+    var televisionOptions: String = ""
+    var radioOptions: String = ""
     
-    // TODO
-//    static var all: [Game] = {
-//        get async {
-//            let url = URL(string: "")!
-//            let (data, _) = try await URLSession.shared.data(from: url)
-//            let decoded = try JSONDecoder().decode(Response.self, from: data)
-//        }
-//    }
+//    static var all: [Game] = { get async { } } // TODO get from API
+    
+    private func getTelevisionOptions(game: ResponseDateGame) -> String {
+        return "Apple TV"
+    }
+    
+    private func getRadioOptions(game: ResponseDateGame) -> String {
+        return "ATTH, TEX-ES"
+    }
     
     init(game: ResponseDateGame) {
         self.gameID = game.gamePk
         self.homeTeam = game.teams.home.team.id
         self.awayTeam = game.teams.away.team.id
-//        self.date = game.gameDate
-        self.date = Date() // TODO
+        self.date = Date() // TODO parse date
         self.status = game.status.detailedState
+        self.televisionOptions = getTelevisionOptions(game: game)
+        self.radioOptions = getRadioOptions(game: game)
     }
 }

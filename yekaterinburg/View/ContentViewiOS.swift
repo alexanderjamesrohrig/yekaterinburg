@@ -21,17 +21,17 @@ struct ContentViewiOS: View {
                     ForEach(r.dates, id: \.self) { date in
                         ForEach(date.games, id: \.self) { game in
                             HStack {
-                                VStack {
-                                    //Text("\(game.teams.away.team.locationName) at \(game.teams.home.team.locationName)").font(.headline)
-                                    //Text("\(game.status.detailedState) - \(model.getStringFrom(date: game.gameDate))").font(.subheadline)
-                                }
+                                Text(game.teams.away.team.franchiseName)
+                                Spacer()
+                                Text(game.status.detailedState)
+                                Spacer()
+                                Text(game.teams.home.team.franchiseName)
                             }
                         }
                     }
-                    //Text("\(r.copyright)").font(.caption)
                 }
             }
-            Section("CODENAME YEKATERINBURG") {
+            Section() {
                 Stepper("TEAM \(teamID)", value: $teamID)
                 Link("VIEW TEAM NUMBERS", destination: URL(string: "https://github.com/alexanderjamesrohrig/yekaterinburg/wiki/TEAM-NUMBERS")!)
                 Text("COPYRIGHT ⅯⅯⅩⅩⅢ")

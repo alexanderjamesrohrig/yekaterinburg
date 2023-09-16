@@ -7,25 +7,6 @@
 
 import Foundation
 
-//struct Response: Codable {
-//    var copyright: String
-//    var totalGames: Int
-//    var dates: [ResponseDate]?
-//}
-//
-//struct ResponseDate: Codable, Identifiable {
-//    var id = UUID()
-//    var date: String
-//    var totalGames: Int
-//    var games: [ResponseGame]?
-//}
-//
-//struct ResponseGame: Codable, Identifiable {
-//    var id = UUID()
-//    var gamePk: Int
-//    var gameDate: String
-//}
-
 struct TeamResponse: Codable {
     let copyright: String
     let teams: [TeamResponseTeam]
@@ -40,11 +21,11 @@ struct TeamResponseTeam: Codable {
 
 class ContentModel: ObservableObject {
     
-    let baseURL = "https://statsapi.mlb.com/api/v1/"
-    let season = 2023
-    let dateFormatterResponse = DateFormatter()
-    let dateFormatterUser = DateFormatter()
-    let dateFormatterToday = DateFormatter()
+    private let baseURL = "https://statsapi.mlb.com/api/v1/"
+    private let season = 2023
+    private let dateFormatterResponse = DateFormatter()
+    private let dateFormatterUser = DateFormatter()
+    private let dateFormatterToday = DateFormatter()
     
     func getTodayInAPIFormat() -> String {
         dateFormatterToday.dateFormat = "yyyy-MM-dd"

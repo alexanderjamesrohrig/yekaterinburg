@@ -22,11 +22,13 @@ struct yekaterinburgApp: App {
             ContentView()
             #endif
         }
+        #if os(macOS)
         Window("Schedule", id: "sched") {
             ScheduleView()
         }
         Window("Teams", id:"teams") {
             TeamsView()
         }
+        #endif
     }
 }
