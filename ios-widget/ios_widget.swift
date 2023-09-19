@@ -9,25 +9,26 @@ import WidgetKit
 import SwiftUI
 
 struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        sampleEntry
+    func placeholder(in context: Context) -> GameEntry {
+        sampleGameTimelineEntry
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = sampleEntry
+    func getSnapshot(in context: Context, completion: @escaping (GameEntry) -> ()) {
+        let entry = sampleGameTimelineEntry
         completion(entry)
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        // TODO way for user to change team
+    func getTimeline(in context: Context, completion: @escaping (Timeline<GameEntry>) -> ()) {
+        // TODO way for user to change team, chosen method is user default suite
         Task {
-            var entries: [SimpleEntry] = []
+            var entries: [GameEntry] = []
             let currentDate = Date()
-            guard let games = try? await Game.allFor(team: 117) else {
+            guard let games = try? await Game.gamesFor(team: 117, forDate: currentDate) else {
                 return
             }
             for x in games {
-                entries.append(SimpleEntry(date: x.date, teamID: 117, isHome: true, opponentName: "Anaheim", gameDateTime: x.date))
+                print(x)
+                entries.append(GameEntry(game: x))
             }
             let nextUpdate = Calendar.autoupdatingCurrent.date(byAdding: DateComponents(day: 1), to: currentDate)!
             let timeline = Timeline(entries: entries, policy: .after(nextUpdate))
@@ -37,33 +38,23 @@ struct Provider: TimelineProvider {
 }
 
 struct ios_widgetEntryView : View {
-    @Environment(\.widgetFamily) private var family
-    @Environment(\.colorScheme) private var colorScheme
+    
+    @Environment(\.widgetFamily) private var widgetFamily
+    @Environment(\.widgetRenderingMode) private var widgetRenderingMode // Vibrant on Lockscreen
+    @Environment(\.showsWidgetContainerBackground) var showsWidgetContainerBackground // False if in Standy Mode
     
     var entry: Provider.Entry
 
     var body: some View {
-        ZStack {
-            if entry.isHome {
-                Color.white
-            }
-            else {
-                Color.gray
-            }
-            VStack(alignment: .leading) {
-                HStack {
-                    Text("Next")
-                    Spacer()
-                    Image(systemName: "airplane.departure")
-                }
-                HStack {
-                    Text(entry.opponentName)
-                }.font(.headline)
-                Spacer()
-                HStack {
-                    Text(entry.gameDateTime, style: .relative)
-                }
-            }.padding()
+        switch widgetFamily {
+        case .systemSmall:
+            SmallNextGameView(entry: entry)
+        case .accessoryInline:
+            InlineNextGameView(entry: entry)
+        case .accessoryCircular:
+            CircularNextGameView(entry: entry)
+        default:
+            EmptyView()
         }
     }
 }
@@ -77,12 +68,15 @@ struct ios_widget: Widget {
         }
         .configurationDisplayName("Next Game")
         .description("Show your team's next game.")
+        .supportedFamilies([.systemSmall,
+                            .accessoryInline,
+                            .accessoryCircular,])
     }
 }
 
 struct ios_widget_Previews: PreviewProvider {
     static var previews: some View {
-        ios_widgetEntryView(entry: sampleEntry)
+        ios_widgetEntryView(entry: sampleGameTimelineEntry)
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

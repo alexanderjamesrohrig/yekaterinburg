@@ -50,6 +50,7 @@ struct ContentView: View {
                     print("opening teams window...")
                     openWindow(id: "teams")
                 }
+                Link("Submit issue", destination: URL(string: "https://github.com/alexanderjamesrohrig/yekaterinburg/issues")!)
                 RohrigView()
             }
         }

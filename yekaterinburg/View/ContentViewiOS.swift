@@ -51,6 +51,7 @@ struct ContentViewiOS: View {
             }
             Section("Options") {
                 Stepper("Team \(teamID)", value: $teamID)
+                Link("Submit issue", destination: URL(string: "https://github.com/alexanderjamesrohrig/yekaterinburg/issues")!)
                 RohrigView()
             }
         }
