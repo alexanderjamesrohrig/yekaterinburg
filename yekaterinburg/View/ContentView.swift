@@ -10,48 +10,57 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var response: Response?
+    @State private var hockeyRes: [HockeyResponse.NHLDate.NHLGame]?
     @AppStorage("settingTeamID") private var teamID = 117
+    @AppStorage("settingTeamCollegeFootballID") private var collegeFootballTeamID = 249
+    @AppStorage("settingTeamHockeyID") private var hockeyTeamID = 3
     @State private var season = 2023
     @ObservedObject var model = ContentModel()
-    @Environment(\.openWindow) private var openWindow
+//    @Environment(\.openWindow) private var openWindow
     
     var body: some View {
         Form {
             Section("Today") {
-                if let r = response {
-                    Grid {
+                Grid {
+                    /// Baseball
+                    if let r = response {
                         ForEach(r.dates, id: \.self) { date in
                             ForEach(date.games, id: \.self) { game in
                                 GridRow {
                                     Text(model.getStringFrom(date: game.gameDate))
                                     Text(game.teams.away.team.franchiseName)
+                                        .fontWeight(.bold)
                                     Text("at")
                                     Text(game.teams.home.team.franchiseName)
+                                        .fontWeight(.bold)
                                     Text(game.status.detailedState)
                                     Link("MLB.com", destination: URL(string: "https://www.mlb.com/gameday/\(game.gamePk)")!)
-//                                    Text("as of \(Date())") // TODO shorten to time only
+                                    // Text("as of \(Date())") // TODO shorten to time only
                                 }
                             }
                         }
-                        Divider()
-                        Text("\(r.copyright)")
-                            .textSelection(.enabled)
+                    } else {
+                        Label("No Response", systemImage: ImageManager.shared.baseball)
+                    }
+                    Divider()
+                    /// College Football
+                    Label("No Response", systemImage: ImageManager.shared.football)
+                    Divider()
+                    /// Hockey
+                    GridRow {
+//                        Text(DateAdapter.YeFormatString(from: Date.now))
+                        Text("\(Date.now.formatted(date: .omitted, time: .shortened))")
+                        Text("<A>")
+                            .monospaced()
+                            .fontWeight(.bold)
+                        Text("at")
+                        Text("<H>")
+                            .monospaced()
+                            .fontWeight(.bold)
+                        Text("<Status>")
+                        Text("<Radio/TV>")
                     }
                 }
-            }
-            Divider()
-            Section("Options") {
-                Stepper("Team \(teamID)", value: $teamID)
-                Button("View Schedule") {
-                    print("opening schedule window...")
-                    openWindow(id: "sched")
-                }
-                Button("View Teams") {
-                    print("opening teams window...")
-                    openWindow(id: "teams")
-                }
-                Link("Submit issue", destination: URL(string: "https://github.com/alexanderjamesrohrig/yekaterinburg/issues")!)
-                RohrigView()
             }
         }
         .padding()
@@ -59,9 +68,36 @@ struct ContentView: View {
             do {
                 let todayDate = model.getTodayInAPIFormat()
                 try response = await model.getGamesFor(date: todayDate, team: teamID)
+                hockeyRes = Game.gamesToday(for: .game(.hockey), date: "2024-02-05", team: 3)
             }
             catch {
                 print("RESPONSE ERROR")
+            }
+        }
+        .toolbar {
+//            ToolbarItem(placement: .status) {
+//                Text("Updated \(Date.now.formatted(date: .abbreviated, time: .shortened))")
+//            }
+            ToolbarItem(placement: .automatic) {
+                Button {
+//                    openWindow(id: "teams")
+                } label: {
+                    Label("View Teams", systemImage: ImageManager.shared.teams)
+                }
+            }
+            ToolbarItem(placement: .automatic) {
+                Button {
+//                    openWindow(id: "sched")
+                } label: {
+                    Label("View Schedule", systemImage: ImageManager.shared.schedule)
+                }
+            }
+            ToolbarItem(placement: .automatic) {
+                Button {
+                    print("Refresh")
+                } label: {
+                    Label("Refresh", systemImage: ImageManager.shared.refresh)
+                }
             }
         }
     }
