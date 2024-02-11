@@ -8,8 +8,6 @@
 import Foundation
 
 struct NBAAPI {
-    static let season = 2023
-    
     static func games() -> [BasketballResponse.BBallGame] {
         let url = Bundle.main.url(forResource: "balldontlie", withExtension: "json")
         let decoder = JSONDecoder()

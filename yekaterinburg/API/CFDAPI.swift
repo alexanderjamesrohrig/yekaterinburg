@@ -8,7 +8,6 @@
 import Foundation
 
 struct CFD {
-    static let season = 2023
     static let baseURL = "https://api.collegefootballdata.com"
     static let headerAccept = "application/json"
     static let headerAuth = "Bearer ..."
@@ -26,7 +25,7 @@ struct CFD {
     }
     
     static func media(team: String = "North Texas") async throws -> CollegeFootballMediaResponse {
-        let url = URL(string: "https://api.collegefootballdata.com/games/media?year=2023&team=North%20Texas")!
+        let url = URL(string: "https://api.collegefootballdata.com/games/media?year=\(DateAdapter.yearFrom())&team=North%20Texas")!
         let (data, _) = try await URLSession.shared.data(from: url)
         let decoded = try JSONDecoder().decode(CollegeFootballMediaResponse.self, from: data)
         return decoded
