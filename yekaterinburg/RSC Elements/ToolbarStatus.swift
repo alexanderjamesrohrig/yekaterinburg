@@ -7,12 +7,21 @@
 
 import SwiftUI
 
-struct ToolbarStatus: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct ToolbarStatus: ToolbarContent {
+    
+    var text: String
+    
+    var body: some ToolbarContent {
+        #if os(tvOS)
+        ToolbarItem(placement: .automatic) {
+            Text(text)
+                .font(.caption2)
+        }
+        #else
+        ToolbarItem(placement: .status) {
+            Text(text)
+                .font(.caption2)
+        }
+        #endif
     }
-}
-
-#Preview {
-    ToolbarStatus()
 }
