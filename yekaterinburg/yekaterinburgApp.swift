@@ -9,24 +9,24 @@ import SwiftUI
 
 @main
 struct yekaterinburgApp: App {
-    
-    
-    
     var body: some Scene {
         WindowGroup {
             #if os(macOS)
-            ContentView().frame(minWidth: 700, minHeight: 400)
+            SportCollectionMac()
+                .frame(minWidth: 700, minHeight: 400)
             #elseif os(iOS)
             ContentViewiOS()
+            #elseif os(tvOS)
+            ContentViewForTV()
             #else
             ContentView()
             #endif
         }
         #if os(macOS)
-        Window("Schedule", id: "sched") {
+        Window("Schedule", id: WindowManager.shared.schedule) {
             ScheduleView()
         }
-        Window("Teams", id:"teams") {
+        Window("Teams", id: WindowManager.shared.teams) {
             TeamsView()
         }
         #endif

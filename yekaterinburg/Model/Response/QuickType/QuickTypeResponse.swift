@@ -21,6 +21,10 @@ struct ResponseDate: Codable, Hashable {
     let date: String
     //let totalGames: String
     let games: [ResponseDateGame]
+    
+//    func makeIterator() -> some IteratorProtocol {
+//        games.makeIterator()
+//    }
 }
 
 struct ResponseDateGame: Codable, Hashable {
@@ -52,7 +56,7 @@ struct ResponseDateGameTeams: Codable {
 }
 
 struct ResponseDateGameTeamsSide: Codable {
-    //let score: Int
+    let score: Int?
     let team: ResponseDateGameTeam
 }
 

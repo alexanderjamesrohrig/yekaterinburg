@@ -9,8 +9,7 @@ import Foundation
 
 struct GameAdapter {
     
-    static func getGameFrom(game: ResponseDateGame) -> Game {
+    static func getGameFrom(_ game: ResponseDateGame) -> Game {
         return Game(game: game)
     }
-    
 }

@@ -21,7 +21,6 @@ struct TeamResponseTeam: Codable {
     let locationName: String
 }
 
-@available(*, deprecated)
 class ContentModel: ObservableObject {
     
     private let baseURL = "https://statsapi.mlb.com/api/v1/"
@@ -34,7 +33,7 @@ class ContentModel: ObservableObject {
     func getTodayInAPIFormat() -> String {
         dateFormatterToday.dateFormat = "yyyy-MM-dd"
         dateFormatterToday.timeZone = .autoupdatingCurrent
-        let today = Date()
+        let today = Date.now
         return dateFormatterToday.string(from: today)
     }
     
@@ -49,7 +48,7 @@ class ContentModel: ObservableObject {
         dateFormatterUser.timeStyle = .short
         dateFormatterUser.dateStyle = .medium
         dateFormatterUser.timeZone = .autoupdatingCurrent
-        return dateFormatterUser.string(from: toDate ?? Date())
+        return dateFormatterUser.string(from: toDate ?? Date.now)
     }
     
     @available(*, deprecated, message: "Use Game.gamesFor()")
@@ -83,5 +82,4 @@ class ContentModel: ObservableObject {
         let decoded = try JSONDecoder().decode(TeamResponse.self, from: data)
         return decoded
     }
-    
 }
