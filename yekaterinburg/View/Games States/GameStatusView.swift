@@ -3,12 +3,13 @@ import SwiftUI
 struct GameStatusView: View {
     
     let game: Game
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .shadow(radius: 5)
-//                .foregroundStyle(Color(UIColor.systemBackground))
+                .foregroundStyle(ColorManager.shared.getGameCardColor(colorScheme: colorScheme))
             VStack {
                 HStack {
                     Text("\(game.homeTeamName)")

@@ -1,23 +1,22 @@
 import SwiftUI
 
-// TODO: Rename to FutureGameView
 struct FutureGameView: View {
     
     let game: Game
     let homeString: String
     let awayString: String
     let status: String
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .shadow(radius: 5)
-//                .foregroundStyle(Color(UIColor.systemBackground))
+                .foregroundStyle(ColorManager.shared.getGameCardColor(colorScheme: colorScheme))
             HStack {
                 HStack {
                     VStack {
                         Circle()
-//                            .foregroundStyle(Color(uiColor: UIColor.systemBackground))
                         Text(game.homeTeamName)
                             .fontWeight(.bold)
                             .fontWidth(.expanded)
@@ -25,7 +24,6 @@ struct FutureGameView: View {
                     Divider()
                     VStack {
                         Circle()
-//                            .foregroundStyle(Color(uiColor: UIColor.systemBackground))
                         Text(game.awayTeamName)
                             .fontWeight(.bold)
                             .fontWidth(.expanded)
@@ -58,7 +56,7 @@ struct FutureGameView: View {
                     }
                 }
             }
-//            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
             .padding()
         }
         .padding()
