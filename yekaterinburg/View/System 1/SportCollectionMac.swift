@@ -9,7 +9,10 @@ import SwiftUI
 
 struct SportCollectionMac: View {
     
+    #if os(tvOS)
+    #else
     @Environment(\.openWindow) private var openWindow
+    #endif
     @State private var baseballGames: [ResponseDateGame] = []
     @State private var hockeyGames: [HockeyResponse.NHLDate.NHLGame] = []
     
@@ -29,14 +32,16 @@ struct SportCollectionMac: View {
         .padding()
         .task {
             do {
-                baseballGames = Game.baseballGames(for: Date.now, team: 117)
+//                baseballGames = Game.baseballGames(for: Date.now, team: 117)
                 hockeyGames = Game.gamesToday(for: .game(.hockey), date: "2023-10-12")
             } catch {
                 print(error)
             }
         }
         .toolbar {
+            #if os(tvOS)
             ToolbarStatus(text: "Updated \(Date.now.formatted(date: .abbreviated, time: .shortened))")
+            #else
             ToolbarButton(action: {
                 openWindow(id: WindowManager.shared.teams)
             }, title: "View Teams", systemImage: ImageManager.shared.teams)
@@ -46,6 +51,7 @@ struct SportCollectionMac: View {
             ToolbarButton(action: {
                 // TODO: - refresh
             }, title: "Refresh", systemImage: ImageManager.shared.refresh)
+            #endif
         }
     }
 }

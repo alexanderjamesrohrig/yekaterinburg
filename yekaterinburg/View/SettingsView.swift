@@ -8,11 +8,23 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @Binding var baseballTeam: Int
+    @Binding var collegeFootballTeam: Int
+    @Binding var hockeyTeam: Int
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        #if os(tvOS)
+        
+        #else
+        Stepper("⚾️ #\(baseballTeam)", value: $baseballTeam)
+        Stepper("🏈 #\(collegeFootballTeam)", value: $collegeFootballTeam)
+        Stepper("🏒 #\(hockeyTeam)", value: $hockeyTeam)
+        Link("Submit issue", destination: URL(string: "https://github.com/alexanderjamesrohrig/yekaterinburg/issues")!)
+        #endif
+        RohrigView()
     }
 }
 
 #Preview {
-    SettingsView()
+    SettingsView(baseballTeam: .constant(117), collegeFootballTeam: .constant(249), hockeyTeam: .constant(3))
 }
