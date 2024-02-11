@@ -27,8 +27,8 @@ struct InlineNextGameView: View {
     }
 }
 
-struct InlineNextGameView_Previews: PreviewProvider {
-    static var previews: some View {
-        InlineNextGameView(entry: sampleGameTimelineEntry)
-    }
-}
+//struct InlineNextGameView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        InlineNextGameView(entry: sampleGameTimelineEntry)
+//    }
+//}

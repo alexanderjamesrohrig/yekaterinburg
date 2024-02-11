@@ -6,22 +6,23 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct SmallNextGameView: View {
     
     @AppStorage("settingTeamID") private var favoriteTeamID = 117
-    
     var entry: GameEntry
     
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
                 HStack {
-                    if entry.date < Date() {
+                    if entry.date < Date.now {
                         Text(entry.game.status)
                     }
                     else {
                         Text("Next")
+                            .font(.caption)
                     }
                     Spacer()
                     if entry.game.awayTeam == favoriteTeamID {
@@ -37,26 +38,22 @@ struct SmallNextGameView: View {
                     }
                 }.font(.headline)
                 Spacer()
-                if entry.date < Date() {
-                    Text(entry.date, style: .time)
+                if entry.date < Date.now {
+                    Text(entry.date, style: .time).font(.caption)
                 }
                 else {
-                    Text(entry.date, style: .relative)
+                    Text(entry.date, style: .relative).font(.caption)
                 }
-            }.padding()
+            }
         }.containerBackground(for: .widget) {
-            if entry.game.homeTeam == favoriteTeamID {
-                Color.white
-            }
-            else {
-                Color.gray
-            }
+            Color(uiColor: UIColor.systemBackground)
         }
     }
 }
 
-struct SmallNextGameView_Previews: PreviewProvider {
-    static var previews: some View {
-        SmallNextGameView(entry: sampleGameTimelineEntry)
-    }
-}
+//struct SmallNextGameView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SmallNextGameView(entry: sampleGameTimelineEntry)
+//            .previewContext(WidgetPreviewContext(family: .systemSmall))
+//    }
+//}

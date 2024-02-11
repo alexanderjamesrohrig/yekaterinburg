@@ -8,13 +8,13 @@
 import Foundation
 import WidgetKit
 
-let sampleEntry: SimpleEntry = SimpleEntry(date: Date(),
+let sampleEntry: SimpleEntry = SimpleEntry(date: Date.now,
                                            teamID: 117,
                                            isHome: false,
                                            opponentName: "Kansas City",
                                            gameDateTime: Date(timeIntervalSince1970: 1694905800))
-let sampleGame = Game(gameID: 111111, homeTeam: 117, homeTeamName: "Houston", homeTeamCode: "HOU", awayTeam: 118, awayTeamName: "New York Yankees", awayTeamCode: "NYY", date: Date(timeIntervalSince1970: 1694905800), status: "Scheduled")
-let sampleGameTimelineEntry: GameEntry = GameEntry(game: sampleGame)
+//let sampleGame = Game(gameID: 111111, homeTeam: 117, homeTeamName: "Houston", homeTeamCode: "HOU", awayTeam: 118, awayTeamName: "New York Yankees", awayTeamCode: "NYY", date: Date(timeIntervalSince1970: 1694905800), status: "Scheduled", type: .game(.baseball))
+let sampleGameTimelineEntry: GameEntry = GameEntry(game: Game())
 
 
 
@@ -29,10 +29,12 @@ struct SimpleEntry: TimelineEntry {
 struct GameEntry: TimelineEntry {
     var date: Date
     let game: Game
+    var lastUpdate: Date
     
     init(game: Game) {
         self.game = game
         self.date = game.date
+        self.lastUpdate = Date.now
     }
 }
 
