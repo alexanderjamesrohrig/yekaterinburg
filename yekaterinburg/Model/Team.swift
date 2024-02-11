@@ -6,8 +6,7 @@
 //
 
 /*
- TODO
- Adapter class to translate QuickTypeTeam -> Team
+ TODO: Adapter class to translate QuickTypeTeam -> Team
  Return [Team]
  */
 

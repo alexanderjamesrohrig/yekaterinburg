@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RohrigView: View {
     var body: some View {
-        Link(Rohrig.COMPANY_NAME, destination: Rohrig.URL_HTTPS)
-        Text(Rohrig.COPYRIGHT)
+        Link(GeneralSecretary.shared.companyName, destination: Rohrig.URL_HTTPS)
+        Text(GeneralSecretary.shared.copyright)
     }
 }
