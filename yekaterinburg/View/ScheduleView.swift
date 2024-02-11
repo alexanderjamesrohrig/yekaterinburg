@@ -41,13 +41,13 @@ struct ScheduleView: View {
                 // TODO Team.all
                 do {
                     print("loading schedule...")
-                    try schedResponse = await model.getSeasonScheduleFor(season: "2023", team: teamID)
+                    try schedResponse = await model.getSeasonScheduleFor(season: "2024", team: teamID)
                 }
                 catch {
                     print("RESPONSE ERROR")
                 }
             }
-            Text("The One Hundred and Fifty Second Year of Professional Baseball.")
+            Text("Established in the year \(DateAdapter.yearInWordsFrom(year: 1869)).")
         }.padding()
     }
 }
