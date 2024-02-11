@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class WindowManager {
+    static let shared = WindowManager()
+    /// Schedule window
+    let schedule = "schedule"
+    /// Teams window
+    let teams = "teams"
+    private init() {}
+}
