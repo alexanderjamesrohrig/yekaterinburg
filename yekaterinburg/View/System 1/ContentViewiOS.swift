@@ -22,7 +22,7 @@ struct ContentViewiOS: View {
     
     var body: some View {
         List(gamesResponse, id: \.gameID) { game in
-            HockeyGameView(homeName: game.homeTeamName, awayName: game.awayTeamName, game: game)
+            InProgressGameView(homeName: game.homeTeamName, awayName: game.awayTeamName, game: game)
         }
         .toolbar {
             ToolbarButton(action: {
