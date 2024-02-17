@@ -6,98 +6,62 @@
 //
 
 import SwiftUI
+import OSLog
 
 struct ContentView: View {
     
-    @State private var response: Response?
-    @State private var hockeyRes: [HockeyResponse.NHLDate.NHLGame]?
-    @AppStorage("settingTeamID") private var teamID = 117
-    @AppStorage("settingTeamCollegeFootballID") private var collegeFootballTeamID = 249
-    @AppStorage("settingTeamHockeyID") private var hockeyTeamID = 3
-    @State private var season = 2023
-    @ObservedObject var model = ContentModel()
-//    @Environment(\.openWindow) private var openWindow
+    private let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "ContentView")
+    private let apiSources: Set<YeType> = [.game(.basketball),
+                                           .game(.calcio),
+                                           .game(.baseball)]
+    private let viewModel = System1ViewModel()
+    @State private var games: [Game] = []
+    @State private var useMockData: Bool = true
+    @State private var lastUpdate = Date.distantPast
+    @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.openWindow) private var openWindow
+    @Environment(\.openURL) private var openURL
     
     var body: some View {
-        Form {
-            Section("Today") {
-                Grid {
-                    /// Baseball
-                    if let r = response {
-                        ForEach(r.dates, id: \.self) { date in
-                            ForEach(date.games, id: \.self) { game in
-                                GridRow {
-                                    Text(model.getStringFrom(date: game.gameDate))
-                                    Text(game.teams.away.team.franchiseName)
-                                        .fontWeight(.bold)
-                                    Text("at")
-                                    Text(game.teams.home.team.franchiseName)
-                                        .fontWeight(.bold)
-                                    Text(game.status.detailedState)
-                                    Link("MLB.com", destination: URL(string: "https://www.mlb.com/gameday/\(game.gamePk)")!)
-                                    // Text("as of \(Date())") // TODO shorten to time only
-                                }
-                            }
-                        }
-                    } else {
-                        Label("No Response", systemImage: ImageManager.shared.baseball)
-                    }
-                    Divider()
-                    /// College Football
-                    Label("No Response", systemImage: ImageManager.shared.football)
-                    Divider()
-                    /// Hockey
-                    GridRow {
-//                        Text(DateAdapter.YeFormatString(from: Date.now))
-                        Text("\(Date.now.formatted(date: .omitted, time: .shortened))")
-                        Text("<A>")
-                            .monospaced()
-                            .fontWeight(.bold)
-                        Text("at")
-                        Text("<H>")
-                            .monospaced()
-                            .fontWeight(.bold)
-                        Text("<Status>")
-                        Text("<Radio/TV>")
-                    }
-                }
-            }
+        #if DEBUG
+        VStack {
+            Text("DEBUG_INFORMATION")
+            Toggle("USE_MOCK_DATA", isOn: $useMockData)
+            Text(GeneralSecretary.shared.appVersion)
         }
-        .padding()
-        .task {
-            do {
-                let todayDate = model.getTodayInAPIFormat()
-                try response = await model.getGamesFor(date: todayDate, team: teamID)
-                hockeyRes = Game.gamesToday(for: .game(.hockey), date: "2024-02-05", team: 3)
-            }
-            catch {
-                print("RESPONSE ERROR")
+        #endif
+        List(games) { game in
+            HStack {
+                Text("\(game.awayTeamName) at \(game.homeTeamName)")
+                Spacer()
+                Text(DateAdapter.yeFormatWithTime(from: game.date))
+                    .foregroundStyle(.gray)
             }
         }
         .toolbar {
-//            ToolbarItem(placement: .status) {
-//                Text("Updated \(Date.now.formatted(date: .abbreviated, time: .shortened))")
-//            }
-            ToolbarItem(placement: .automatic) {
-                Button {
-//                    openWindow(id: "teams")
-                } label: {
-                    Label("View Teams", systemImage: ImageManager.shared.teams)
+            ToolbarButton(action: {
+                Task {
+                    games = await viewModel.getGamesFrom(sources: apiSources, useMockData: useMockData)
+                    lastUpdate = Date.now
                 }
-            }
-            ToolbarItem(placement: .automatic) {
-                Button {
-//                    openWindow(id: "sched")
-                } label: {
-                    Label("View Schedule", systemImage: ImageManager.shared.schedule)
-                }
-            }
-            ToolbarItem(placement: .automatic) {
-                Button {
-                    print("Refresh")
-                } label: {
-                    Label("Refresh", systemImage: ImageManager.shared.refresh)
-                }
+            }, title: "Refresh", systemImage: ImageManager.shared.refresh)
+            ToolbarButton(action: {
+                let url = URL(string: "https://apple.news/myscores")!
+                openURL(url)
+            }, title: "Open Apple News", systemImage: ImageManager.shared.appleNews)
+            ToolbarStatus(text: "Updated \(lastUpdate.formatted(date: .omitted, time: .shortened))")
+        }
+        .task {
+            games = await viewModel.getGamesFrom(sources: apiSources, useMockData: useMockData)
+            lastUpdate = Date.now
+        }
+        .onChange(of: scenePhase) { _, phase in
+            switch scenePhase {
+            case .inactive:
+                logger.info("Switched to inactive scene state")
+                // TODO: save only created games
+            default:
+                logger.info("Switched to other scene state")
             }
         }
     }

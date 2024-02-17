@@ -19,7 +19,7 @@ struct CircularNextGameView: View {
             if entry.game.homeTeam == favoriteTeamID {
                 VStack {
                     Text(entry.game.date, style: .time)
-                    Text(entry.game.awayTeamCode ?? "")
+                    Text(entry.game.awayTeamCode)
                         .textCase(.uppercase)
                         .monospaced()
                 }
@@ -27,7 +27,7 @@ struct CircularNextGameView: View {
             else {
                 VStack {
                     Text(entry.game.date, style: .time)
-                    Text(entry.game.homeTeamCode ?? "")
+                    Text(entry.game.homeTeamCode)
                         .textCase(.uppercase)
                         .monospaced()
                 }
