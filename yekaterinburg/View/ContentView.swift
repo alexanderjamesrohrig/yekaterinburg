@@ -19,7 +19,6 @@ struct ContentView: View {
     @State private var useMockData: Bool = true
     @State private var lastUpdate = Date.distantPast
     @Environment(\.scenePhase) private var scenePhase
-    @Environment(\.openWindow) private var openWindow
     @Environment(\.openURL) private var openURL
     
     var body: some View {

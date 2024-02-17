@@ -29,7 +29,6 @@ struct AddScheduledGameView: View {
                     Text("Stand Alone Event").tag(YeType.event)
                 }
                 TextField("Status", text: $game.status)
-                DatePicker("Date & Time", selection: $game.date)
                 TextField("Venue", text: $game.venue)
                 TextField("Television", text: $game.televisionOptions)
                 TextField("Radio", text: $game.radioOptions)

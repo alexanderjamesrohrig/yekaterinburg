@@ -22,9 +22,10 @@ struct NBAAPI {
             return nil
         }
         let urlParameters = [
-            URLQueryItem(name: "seasons", value: "\(DateAdapter.yearFrom())"),
-            URLQueryItem(name: "team_ids", value: "20"),
-            URLQueryItem(name: "per_page", value: "1"),
+            URLQueryItem(name: "seasons[]", value: "2023"),
+            URLQueryItem(name: "team_ids[]", value: "20"),
+            URLQueryItem(name: "per_page", value: "7"),
+            URLQueryItem(name: "start_date", value: "\(DateAdapter.dateForAPI(date: Date.now))"),
         ]
         url = url.appending(queryItems: urlParameters)
         let mockURL = Bundle.main.url(forResource: "balldontlie", withExtension: "json")
@@ -34,7 +35,9 @@ struct NBAAPI {
             if useMockData {
                 data = try Data(contentsOf: mockURL!)
             } else {
-                let (nbaData, _) = try await URLSession.shared.data(from: url)
+                var request = URLRequest(url: url)
+                request.addValue(StateSecretManager.shared.ballDontLieToken, forHTTPHeaderField: "Authorization")
+                let (nbaData, _) = try await URLSession.shared.data(for: request)
                 data = nbaData
             }
             let decoded = try decoder.decode(BasketballResponse.self, from: data)
