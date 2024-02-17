@@ -11,11 +11,11 @@ import SwiftUI
 
 fileprivate let logger = Logger(subsystem: "com.alexanderrohrig.yekaterinburg", category: "Game")
 
-enum YeType {
+enum YeType: Hashable, Codable{
     case event
     case game(Game)
     
-    enum Game {
+    enum Game: Codable {
         case baseball
         case collegeFootball
         case hockey
@@ -25,8 +25,8 @@ enum YeType {
     }
 }
 
-struct Game {
-    var gameID: Int
+struct Game: Identifiable, Codable {
+    var id: Int
     var homeTeam: Int = 0
     var homeTeamName: String
     var homeTeamCode: String = ""
@@ -56,7 +56,7 @@ struct Game {
     static func gamesFor(team: Int, forDate date: Date) async throws -> [Game] {
         let date = DateAdapter.dateForAPI(date: Date.now)
         let gamesURL = "schedule?sportId=1&teamId=\(team)&date=\(date)&season=\(DateAdapter.yearFrom())&hydrate=team"
-        let url = URL(string: MLB.baseURL + gamesURL)
+        let url = URL(string: MLBAPI.baseURL + gamesURL)
         let (data, _) = try await URLSession.shared.data(from: url!)
         let decoded = try JSONDecoder().decode(Response.self, from: data)
         var games: [Game] = []
@@ -72,7 +72,7 @@ struct Game {
     
     static func allFor(team: Int) async throws -> [Game] {
         let gamesURL = "schedule?sportId=1&teamId=\(team)&season=\(DateAdapter.yearFrom())&hydrate=team"
-        let url = URL(string: MLB.baseURL + gamesURL)
+        let url = URL(string: MLBAPI.baseURL + gamesURL)
         let (data, _) = try await URLSession.shared.data(from: url!)
         let decoded = try JSONDecoder().decode(Response.self, from: data)
         var games: [Game] = []
@@ -92,7 +92,7 @@ struct Game {
         
         // Baseball
         do {
-            let baseballGames = try await MLB.schedule(teamID: 117, date: usableDay)
+            let baseballGames = try await MLBAPI.schedule(teamID: 117, date: usableDay)
             if let bGame = baseballGames.dates.first?.games.first {
                 gamesToReturn.append(Game(game: bGame))
                 // TODO: add double header compatibility
@@ -104,14 +104,6 @@ struct Game {
         // Hockey
         let hockeyGames = Game.gamesToday(for: .game(.hockey), date: usableDay, team: 3)
         for x in hockeyGames {
-            gamesToReturn.append(Game(game: x))
-        }
-        
-        // College Football
-        let collegeFootballGames = CFD.games(team: "North Texas")
-        
-        let basketballGames = NBAAPI.games()
-        for x in basketballGames {
             gamesToReturn.append(Game(game: x))
         }
         
@@ -141,7 +133,7 @@ struct Game {
     }
     
     static func gamesToday(for sport: YeType, date: String, team: Int) -> [HockeyResponse.NHLDate.NHLGame] {
-        var gamesTodayForTeam = gamesToday(for: sport, date: date)
+        let gamesTodayForTeam = gamesToday(for: sport, date: date)
         var returnArray: [HockeyResponse.NHLDate.NHLGame] = []
         for x in gamesTodayForTeam {
             if x.teams.away.team.id == team || x.teams.home.team.id == team {
@@ -183,7 +175,7 @@ struct Game {
     // MARK: - Initializers
     /// Initialize blank Game object
     init() {
-        self.gameID = UUID().hashValue
+        self.id = UUID().hashValue
         self.homeTeam = 586
         self.awayTeam = 2
         self.homePoints = 0
@@ -199,7 +191,7 @@ struct Game {
     
     /// Initialize Game object with team names only
     init(homeName: String, awayName: String) {
-        self.gameID = UUID().hashValue
+        self.id = UUID().hashValue
         self.homeTeam = 1
         self.awayTeam = 2
         self.homeTeamName = homeName
@@ -209,7 +201,7 @@ struct Game {
     
     /// Initialize Game object from ResponseDateGame ⚾️
     init(game: ResponseDateGame) {
-        self.gameID = game.gamePk
+        self.id = game.gamePk
         self.homeTeam = game.teams.home.team.id
         self.homeTeamName = game.teams.home.team.franchiseName
         self.homeTeamCode = game.teams.home.team.teamCode
@@ -226,7 +218,7 @@ struct Game {
     
     /// Initialize Game object from HockeyResponse.NHLDate.NHL.Game 🏒
     init(game: HockeyResponse.NHLDate.NHLGame) {
-        self.gameID = game.gamePk
+        self.id = game.gamePk
         self.homeTeam = game.teams.home.team.id
         self.homeTeamName = game.teams.home.team.name
         self.homeTeamCode = Game.name(game.teams.home.team.id)
@@ -243,7 +235,7 @@ struct Game {
     
     /// Initialize Game object from CollegeFootballGame 🏈
     init(game: CollegeFootballGame) {
-        self.gameID = game.id
+        self.id = game.id
         self.homeTeam = game.home_id
         self.homeTeamName = game.home_team
         self.homeTeamCode = ""
@@ -258,26 +250,8 @@ struct Game {
         self.televisionOptions = ""
     }
     
-    /// Initialize Game object from CollegeFootballGame 🏀
-    init(game: BasketballResponse.BBallGame) {
-        self.gameID = game.id
-        self.homeTeam = game.home_team.id
-        self.homeTeamCode = game.home_team.abbreviation
-        self.homeTeamName = game.home_team.city
-        self.homePoints = game.home_team_score
-        self.awayTeam = game.visitor_team.id
-        self.awayTeamCode = game.visitor_team.abbreviation
-        self.awayTeamName = game.visitor_team.city
-        self.awayPoints = game.visitor_team_score
-//        self.date = game.date
-        self.date = Date.now
-        self.status = "Scheduled"
-        self.televisionOptions = ""
-        self.type = .game(.basketball)
-    }
-    
     init(gameID: Int, homeTeam: Int = 0, homeTeamName: String, homeTeamCode: String = "", homePoints: Int = 0, awayTeam: Int = 0, awayTeamName: String, awayTeamCode: String = "", awayPoints: Int = 0, date: Date = Date.now, status: String = "", televisionOptions: String = "", radioOptions: String = "", venue: String = "", type: YeType) {
-        self.gameID = gameID
+        self.id = gameID
         self.homeTeam = homeTeam
         self.homeTeamName = homeTeamName
         self.homeTeamCode = homeTeamCode
