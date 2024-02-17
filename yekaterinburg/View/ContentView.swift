@@ -25,8 +25,8 @@ struct ContentView: View {
         #if DEBUG
         VStack {
             Text("DEBUG_INFORMATION")
-            Toggle("USE_MOCK_DATA", isOn: $useMockData)
             Text(GeneralSecretary.shared.appVersion)
+            Toggle("USE_MOCK_DATA", isOn: $useMockData)
         }
         #endif
         List(games) { game in
@@ -48,6 +48,12 @@ struct ContentView: View {
                 let url = URL(string: "https://apple.news/myscores")!
                 openURL(url)
             }, title: "Open Apple News", systemImage: ImageManager.shared.appleNews)
+            ToolbarButton(action: {
+                openURL(URL(string: "https://plaintextsports.com/nfl/2023/schedule")!)
+            }, title: "NFL", systemImage: ImageManager.shared.football)
+            ToolbarButton(action: {
+                openURL(URL(string: "https://plaintextsports.com/nhl/2023-2024/schedule")!)
+            }, title: "NHL", systemImage: ImageManager.shared.hockey)
             ToolbarStatus(text: "Updated \(lastUpdate.formatted(date: .omitted, time: .shortened))")
         }
         .task {
