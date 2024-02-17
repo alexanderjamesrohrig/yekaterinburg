@@ -24,5 +24,7 @@ class ImageManager {
     let appleNews = "sportscourt.fill"
     /// Used to signify manually adding a scheduled game
     let add = "plus"
+    /// Used to signify hockey
+    let hockey = "figure.hockey"
     private init() {}
 }
