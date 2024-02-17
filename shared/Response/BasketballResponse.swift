@@ -12,16 +12,18 @@ struct BasketballResponse: Codable {
     
     struct BBallGame: Codable, Identifiable {
         let id: Int
-        let date: Date
-        let home_team: BBTeam
-        let home_team_score: Int
-        let visitor_team: BBTeam
-        let visitor_team_score: Int
-        
+        let date: String?
+        let home_team: BBTeam?
+        let home_team_score: Int?
+        let visitor_team: BBTeam?
+        let visitor_team_score: Int?
+        let status: String?
+
         struct BBTeam: Codable, Identifiable {
-            let id: Int
-            let abbreviation: String
-            let city: String
+            let id: Int?
+            let abbreviation: String?
+            let city: String?
+            let full_name: String?
         }
     }
 }
