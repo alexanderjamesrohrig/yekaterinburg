@@ -22,5 +22,7 @@ class ImageManager {
     let refresh = "arrow.clockwise"
     /// Used to signify the Sports tab within Apple News
     let appleNews = "sportscourt.fill"
+    /// Used to signify manually adding a scheduled game
+    let add = "plus"
     private init() {}
 }

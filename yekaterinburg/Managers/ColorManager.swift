@@ -27,6 +27,6 @@ class ColorManager {
         }
     }
     private let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "ColorManager")
-    let lightestGray = "LightestGray"
+    private let lightestGray = "LightestGray"
     private init() {}
 }

@@ -51,7 +51,7 @@ class ContentModel: ObservableObject {
         return dateFormatterUser.string(from: toDate ?? Date.now)
     }
     
-    @available(*, deprecated, message: "Use Game.gamesFor()")
+    @available(*, deprecated, message: "Use specific API functions")
     func getGamesFor(date: String, team: Int) async throws -> Response {
         // 2023-06-29
         let url = URL(string: baseURL + "schedule?sportId=1&teamId=\(team)&date=\(date)&season=\(season)&hydrate=team,game(content(media(epg)))")!
@@ -64,7 +64,7 @@ class ContentModel: ObservableObject {
         return decoded
     }
     
-    @available(*, deprecated, message: "Use Game.allFor()")
+    @available(*, deprecated, message: "Use specific API functions")
     func getSeasonScheduleFor(season: String, team: Int) async throws -> Response {
 //        let url = URL(string: baseURL + "schedule?sportId=1&teamId=117&season=2023&hydrate=team,game(content(media(epg)))")!
         let url = Bundle.main.url(forResource: "SCHEDULE", withExtension: "json") // LOCAL SCHEDULE.json
@@ -75,7 +75,7 @@ class ContentModel: ObservableObject {
         return decoded
     }
     
-    @available(*, deprecated, message: "Use Team.all")
+    @available(*, deprecated, message: "Use specific API functions")
     func getIDForTeams() async throws -> TeamResponse {
         let url = URL(string: baseURL + "teams")!
         let (data, _) = try await URLSession.shared.data(from: url)
