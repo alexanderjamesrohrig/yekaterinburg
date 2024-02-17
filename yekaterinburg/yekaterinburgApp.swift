@@ -11,16 +11,8 @@ import SwiftUI
 struct yekaterinburgApp: App {
     var body: some Scene {
         WindowGroup {
-            #if os(macOS)
-            SportCollectionMac()
-                .frame(minWidth: 700, minHeight: 400)
-            #elseif os(iOS)
-            ContentViewiOS()
-            #elseif os(tvOS)
-            ContentViewForTV()
-            #else
+            // TODO: Implement View System 1
             ContentView()
-            #endif
         }
         #if os(macOS)
         Window("Schedule", id: WindowManager.shared.schedule) {
