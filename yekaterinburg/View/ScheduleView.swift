@@ -13,6 +13,7 @@ struct ScheduleView: View {
     @State private var schedResponse: Response?
     @State private var games: [ResponseDateGame] = []
     @AppStorage("settingTeamID") private var teamID = 117
+    @FocusState var isFocused
     
     var body: some View {
         VStack {
@@ -31,6 +32,7 @@ struct ScheduleView: View {
                                 }
                             }
                         }
+                        .focusable()
                     }
                     else {
                         Text("Double Header. Support coming soon.")

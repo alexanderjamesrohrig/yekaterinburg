@@ -35,12 +35,6 @@ struct AddScheduledGameView: View {
                 TextField("Radio", text: $game.radioOptions)
             }
         }
-        .padding()
-        Button("Manually Add Game") {
-            
-        }
-        .buttonStyle(.bordered)
-        .padding()
     }
 }
 

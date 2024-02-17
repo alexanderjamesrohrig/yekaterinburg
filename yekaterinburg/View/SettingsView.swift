@@ -14,7 +14,7 @@ struct SettingsView: View {
     
     var body: some View {
         #if os(tvOS)
-        
+        Text("Team selection coming soon...")
         #else
         Stepper("⚾️ #\(baseballTeam)", value: $baseballTeam)
         Stepper("🏈 #\(collegeFootballTeam)", value: $collegeFootballTeam)
