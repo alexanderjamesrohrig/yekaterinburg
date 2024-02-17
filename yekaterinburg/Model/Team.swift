@@ -12,11 +12,12 @@
 
 import Foundation
 
-struct Team {
+struct Team: Identifiable {
     
     let id: Int
     let name: String
     let parentOrgName: String
+    let sport: YeType
     
     static var all: [Team] { get async {
         var teams: [Team] = []
@@ -47,5 +48,6 @@ struct Team {
         self.id = quickType.id
         self.name = quickType.name
         self.parentOrgName = quickType.parentOrgName ?? ""
+        self.sport = .game(.baseball)
     }
 }
