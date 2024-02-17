@@ -81,5 +81,11 @@ struct DateAdapter {
         }
         return writtenYear
     }
+    /// Translates String (Ex. 2023-07-01) to Date
+    static func dateFromShortString(date: String) -> Date {
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let toDate = dateFormatter.date(from: date)
+        return toDate ?? Date.now
+    }
     private init() {}
 }
