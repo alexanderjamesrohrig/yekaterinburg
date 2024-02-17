@@ -11,11 +11,47 @@ struct ContentViewForTV: View {
     
     private let upcomingGamesRows = [GridItem(.fixed(100))]
     private let standingsRows = [GridItem(.fixed(100))]
+    private let apiSources: Set<YeType> = [.game(.basketball)]
     @State private var showScheduleSheet = false
     @State private var showSettingsSheet = false
+    @State var games: [Game] = []
+    private let viewModel = System1ViewModel()
     
     var body: some View {
-        VStack(alignment: .leading) {
+        Text(GeneralSecretary.shared.appName)
+            .font(.largeTitle)
+            .task {
+                games = await viewModel.getGamesFrom(sources: apiSources)
+            }
+        HStack {
+            VStack {
+                Text("Upcoming Games")
+                    .font(.headline)
+                List(games) { game in
+                    HStack {
+                        Text("\(game.awayTeamName) at \(game.homeTeamName)")
+                        Spacer()
+                        Text(DateAdapter.yeFormatString(from: game.date))
+                            .foregroundStyle(.gray)
+                    }
+                }
+            }
+            VStack {
+                Text("Standings")
+                    .font(.headline)
+                Spacer()
+                List(1..<4) { standing in
+                    HStack {
+                        Text("Team \(standing)")
+                        Spacer()
+                        Text("<>th in <>")
+                            .foregroundStyle(.gray)
+                    }
+                }
+                Spacer()
+            }
+        }
+        /*VStack(alignment: .leading) {
             Text("Yekaterinburg")
                 .font(.title)
                 .bold()
@@ -23,12 +59,15 @@ struct ContentViewForTV: View {
                 .font(.headline)
             ScrollView(.horizontal) {
                 LazyHGrid(rows: upcomingGamesRows, spacing: 50) {
-                    ForEach(1...7, id: \.self) { game in
+                    ForEach(games, id: \.gameID) { game in
                         // TODO: GameStatusView for games not yet started, today to +7 days
                         // TODO: InProgressGameView for games in progress, today
-                        GameStatusView(game: Game.blank)
+//                        GameStatusView(game: game)
                     }
                 }
+            }
+            .task {
+                games = viewModel.getGamesFrom(sources: apiSources)
             }
             Text("Standings")
                 .font(.headline)
@@ -55,9 +94,10 @@ struct ContentViewForTV: View {
                 }
             }
         }
+         */
     }
 }
 
 #Preview {
-    ContentViewForTV()
+    ContentViewForTV(games: [Game.blank])
 }

@@ -9,50 +9,52 @@ import SwiftUI
 
 struct SportCollectionMac: View {
     
-    #if os(tvOS)
-    #else
+    #if os(macOS)
     @Environment(\.openWindow) private var openWindow
     #endif
     @State private var baseballGames: [ResponseDateGame] = []
     @State private var hockeyGames: [HockeyResponse.NHLDate.NHLGame] = []
+    @State private var games: [Game] = []
+    @State private var showAddScheduledGameSheet = false
+    private let apiSources: Set<YeType> = [.game(.basketball)]
+    private let viewModel = System1ViewModel()
     
     var body: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 120), spacing: 20)], content: {
-            Text("Coming soon...")
-//            ForEach(Game.sample, id: \.gameID) { game in
-//                HockeyGameView(homeName: game.homeTeamName, awayName: game.awayTeamName, status: game.status, date: game.date, broadcast: "ESPN")
-//            }
-//            ForEach(baseballGames, id: \.gamePk) { game in
-//                HockeyGameView(homeName: game.teams.home.team.teamCode, awayName: game.teams.away.team.teamCode, status: game.status.detailedState, date: Date.now, broadcast: "")
-//            }
-//            ForEach(hockeyGames, id: \.gamePk) { game in
-//                HockeyGameView(homeName: Game.name(game.teams.home.team), awayName: Game.name(game.teams.away.team), status: game.status.detailedState, date: Date.now, broadcast: "")
-//            }
-        })
-        .padding()
-        .task {
-            do {
-//                baseballGames = Game.baseballGames(for: Date.now, team: 117)
-                hockeyGames = Game.gamesToday(for: .game(.hockey), date: "2023-10-12")
-            } catch {
-                print(error)
+        VStack {
+            HStack {
+                Button("Open Basketball Standings") {}
             }
+            List(games) { game in
+                HStack {
+                    Text("\(game.awayTeamName) at \(game.homeTeamName)")
+                    Spacer()
+                    Text(game.status)
+                }
+            }
+            .padding(.top)
+        }
+        .padding(.top)
+        .task {
+            games = await viewModel.getGamesFrom(sources: apiSources)
         }
         .toolbar {
-            #if os(tvOS)
             ToolbarStatus(text: "Updated \(Date.now.formatted(date: .abbreviated, time: .shortened))")
-            #else
             ToolbarButton(action: {
-                openWindow(id: WindowManager.shared.teams)
+//                openWindow(id: WindowManager.shared.teams)
             }, title: "View Teams", systemImage: ImageManager.shared.teams)
             ToolbarButton(action: {
-                openWindow(id: WindowManager.shared.schedule)
+//                openWindow(id: WindowManager.shared.schedule)
             }, title: "View Schedule", systemImage: ImageManager.shared.schedule)
             ToolbarButton(action: {
-                // TODO: - refresh
+//                games = await viewModel.getGamesFrom(sources: apiSources)
             }, title: "Refresh", systemImage: ImageManager.shared.refresh)
-            #endif
+            ToolbarButton(action: {
+                showAddScheduledGameSheet = true
+            }, title: "Add Scheduled Game", systemImage: ImageManager.shared.add)
         }
+        .sheet(isPresented: $showAddScheduledGameSheet, content: {
+            AddScheduledGameView()
+        })
     }
 }
 
