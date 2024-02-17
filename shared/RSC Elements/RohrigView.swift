@@ -13,7 +13,7 @@ struct RohrigView: View {
         Text(GeneralSecretary.shared.companyName)
         Text(GeneralSecretary.shared.companyLocation)
         #else
-        Link(GeneralSecretary.shared.companyName, destination: Rohrig.URL_HTTPS)
+        Link(GeneralSecretary.shared.companyName, destination: GeneralSecretary.shared.url)
         #endif
         Text(GeneralSecretary.shared.copyright)
     }

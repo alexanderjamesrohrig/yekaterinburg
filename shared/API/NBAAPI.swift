@@ -18,6 +18,7 @@ struct NBAAPI {
     /// - Returns: <#description#>
     static func games(useMockData: Bool = false) async -> BasketballResponse? {
         guard var url = URL(string: "https://www.balldontlie.io/api/v1/games") else {
+            logger.error("Unable to create URL")
             return nil
         }
         let urlParameters = [
@@ -33,8 +34,8 @@ struct NBAAPI {
             if useMockData {
                 data = try Data(contentsOf: mockURL!)
             } else {
-                let (data, _) = try await URLSession.shared.data(from: url)
-                print(String(data: data, encoding: .utf8))
+                let (nbaData, _) = try await URLSession.shared.data(from: url)
+                data = nbaData
             }
             let decoded = try decoder.decode(BasketballResponse.self, from: data)
             return decoded

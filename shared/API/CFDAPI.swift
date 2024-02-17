@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CFD {
+struct CFDAPI {
     static let baseURL = "https://api.collegefootballdata.com"
     static let headerAccept = "application/json"
     static let headerAuth = "Bearer ..."
