@@ -63,7 +63,7 @@ struct DateAdapter {
     /// - Returns: <#description#>
     static func yeFormatWithTime(from date: Date) -> String {
         let df = DateFormatter()
-        df.dateFormat = "MMM d HH:MM"
+        df.dateFormat = "MMM d, HH:MM"
         return df.string(from: date)
     }
     /// Returns Int year from given Date. Defaults to current year.

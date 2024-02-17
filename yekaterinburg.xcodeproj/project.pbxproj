@@ -62,6 +62,7 @@
 		08A587952AB6290300BA4BE9 /* MLBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A5878E2AB61F1800BA4BE9 /* MLBAPI.swift */; };
 		08A587962AB6291200BA4BE9 /* QuickTypeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0805D3E62A4F44E100261EFE /* QuickTypeResponse.swift */; };
 		08A587992AB6291500BA4BE9 /* QuickTypeTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D99CD22AB38064004C7D43 /* QuickTypeTeam.swift */; };
+		08AFEC252B813E330028A39A /* GameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AFEC242B813E330028A39A /* GameDetailView.swift */; };
 		08C5E8EE2AA7AEEF0000BD28 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C5E8ED2AA7AEEF0000BD28 /* Game.swift */; };
 		08CC4A892B7909CA008CAED1 /* DateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A587822AB5EAD600BA4BE9 /* DateAdapter.swift */; };
 		08CC4A8A2B7909CF008CAED1 /* GameAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A587802AB5E15A00BA4BE9 /* GameAdapter.swift */; };
@@ -85,7 +86,6 @@
 		08DFB4482AC0922100B95434 /* SmallGameInProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFB4472AC0922100B95434 /* SmallGameInProgressView.swift */; };
 		08E85C3F2ADDBA1400A065E9 /* MediumNextGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E85C3D2ADDB9AA00A065E9 /* MediumNextGameView.swift */; };
 		08ECA8F72A9250C7000570A8 /* SCHEDULE.json in Resources */ = {isa = PBXBuildFile; fileRef = 08ECA8F62A9250C7000570A8 /* SCHEDULE.json */; };
-		08EF177E2A8D5F5E00AC8C0B /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EF177D2A8D5F5E00AC8C0B /* ScheduleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +164,7 @@
 		08A587862AB5F5B400BA4BE9 /* RohrigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RohrigView.swift; sourceTree = "<group>"; };
 		08A5878E2AB61F1800BA4BE9 /* MLBAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLBAPI.swift; sourceTree = "<group>"; };
 		08A5879B2AB63C9000BA4BE9 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		08AFEC242B813E330028A39A /* GameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailView.swift; sourceTree = "<group>"; };
 		08C5E8ED2AA7AEEF0000BD28 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		08D25E8D2AE6EE15004EB8DB /* balldontlie.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = balldontlie.json; sourceTree = "<group>"; };
 		08D25E8F2AE6EE7F004EB8DB /* NBAAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAAPI.swift; sourceTree = "<group>"; };
@@ -180,7 +181,6 @@
 		08DFB4472AC0922100B95434 /* SmallGameInProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallGameInProgressView.swift; sourceTree = "<group>"; };
 		08E85C3D2ADDB9AA00A065E9 /* MediumNextGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumNextGameView.swift; sourceTree = "<group>"; };
 		08ECA8F62A9250C7000570A8 /* SCHEDULE.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SCHEDULE.json; sourceTree = "<group>"; };
-		08EF177D2A8D5F5E00AC8C0B /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +318,8 @@
 		0898EA8D2A61A32700BBB9B1 /* shared */ = {
 			isa = PBXGroup;
 			children = (
+				08AFEC232B813E130028A39A /* View Models */,
+				08AFEC222B813E0C0028A39A /* Views */,
 				08022E762B786614009F572E /* GeneralSecretary.swift */,
 				08DA48F92B7283510097F36C /* RSC Elements */,
 				08C5E8F22AA7B3800000BD28 /* JSON */,
@@ -344,6 +346,21 @@
 			path = QuickType;
 			sourceTree = "<group>";
 		};
+		08AFEC222B813E0C0028A39A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				08AFEC242B813E330028A39A /* GameDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		08AFEC232B813E130028A39A /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 		08C5E8EF2AA7B3430000BD28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,7 +376,6 @@
 				08022E732B785F50009F572E /* Games States */,
 				08022E702B78467F009F572E /* System 1 */,
 				0805D3D52A4F375100261EFE /* ContentView.swift */,
-				08EF177D2A8D5F5E00AC8C0B /* ScheduleView.swift */,
 				0805D3E82A4F51DA00261EFE /* TeamsView.swift */,
 				0805EA172AD1A91E00D17753 /* SettingsView.swift */,
 				087CBB482B806B0300DDAC9D /* AddScheduledGameView.swift */,
@@ -549,7 +565,6 @@
 				0805D3EB2A4F53D900261EFE /* ContentViewiOS.swift in Sources */,
 				08DA48F72B727E620097F36C /* ToolbarButton.swift in Sources */,
 				0805EA182AD1A91E00D17753 /* SettingsView.swift in Sources */,
-				08EF177E2A8D5F5E00AC8C0B /* ScheduleView.swift in Sources */,
 				0805D3D42A4F375100261EFE /* yekaterinburgApp.swift in Sources */,
 				087CBB4B2B80EBDD00DDAC9D /* StoreManager.swift in Sources */,
 				0850835E2B7ADE910023C4D3 /* System1ViewModel.swift in Sources */,
@@ -577,6 +592,7 @@
 				0882AF9C2AE2B14300EF4E0E /* CollegeFootballResponse.swift in Sources */,
 				08D99CCF2AB37AB3004C7D43 /* Team.swift in Sources */,
 				08D25E902AE6EE7F004EB8DB /* NBAAPI.swift in Sources */,
+				08AFEC252B813E330028A39A /* GameDetailView.swift in Sources */,
 				08A587832AB5EAD600BA4BE9 /* DateAdapter.swift in Sources */,
 				08DA48FD2B7288BC0097F36C /* WindowManager.swift in Sources */,
 			);

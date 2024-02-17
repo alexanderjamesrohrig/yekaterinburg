@@ -14,8 +14,12 @@ import OSLog
     /// Returns array of Game objects from API and local sources
     /// - Parameter sources: Set of YeType, used to decide which APIs to fetch from.
     /// - Returns: Array of Game objects
-    func getGamesFrom(sources: Set<YeType>, useMockData: Bool = false, includePastGames: Bool = false) async -> [Game] {
+    func getGamesFrom(sources: Set<YeType>,
+                      useMockData: Bool = false,
+                      includePastGames: Bool = false,
+                      loadLocalGames: Bool = false) async -> [Game] {
         var games: [Game] = []
+        /// Calcio
         if sources.contains(.game(.calcio)) {
             guard let gamesFromAPI = await WorldFootballAPI.games(teamID: 113, useMockData: useMockData)?.matches else {
                 logger.error("Unable to get soccer games")
@@ -28,6 +32,7 @@ import OSLog
                 }
             }
         }
+        /// Baseball
         if sources.contains(.game(.baseball)) {
             guard let datesAndGamesFromAPI = await MLBAPI.games(teamID: 117, useMockData: useMockData) else {
                 logger.error("Unable to get baseball games")
@@ -42,12 +47,19 @@ import OSLog
                 }
             }
         }
+        /// Professional Football
+        /// https://plaintextsports.com/nfl/2023/schedule
+        /// College Football
+        ///
         if sources.contains(.game(.collegeFootball)) {
             // TODO: NCAA
         }
+        /// Hockey
+        /// https://plaintextsports.com/nhl/2023-2024/schedule
         if sources.contains(.game(.hockey)) {
             // TODO: NHL
         }
+        /// Basketball
         if sources.contains(.game(.basketball)) {
             guard let gamesFromAPI = await NBAAPI.games(useMockData: useMockData)?.data else {
                 logger.error("Unable to get basketball games")
@@ -62,8 +74,10 @@ import OSLog
                 }
             }
         }
-        let gamesFromStore = await StoreManager.shared.loadGames()
-        games.append(contentsOf: gamesFromStore)
+        if loadLocalGames {
+            let gamesFromStore = await StoreManager.shared.loadGames()
+            games.append(contentsOf: gamesFromStore)
+        }
         games.sort { lhs, rhs in
             lhs.date < rhs.date
         }

@@ -15,9 +15,6 @@ struct yekaterinburgApp: App {
             ContentView()
         }
         #if os(macOS)
-        Window("Schedule", id: WindowManager.shared.schedule) {
-            ScheduleView()
-        }
         Window("Teams", id: WindowManager.shared.teams) {
             TeamsView()
         }
