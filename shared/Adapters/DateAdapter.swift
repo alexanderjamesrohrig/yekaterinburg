@@ -58,6 +58,14 @@ struct DateAdapter {
         df.dateFormat = "MMM d (EEE)"
         return df.string(from: date)
     }
+    /// <#Description#>
+    /// - Parameter date: <#date description#>
+    /// - Returns: <#description#>
+    static func yeFormatWithTime(from date: Date) -> String {
+        let df = DateFormatter()
+        df.dateFormat = "MMM d HH:MM"
+        return df.string(from: date)
+    }
     /// Returns Int year from given Date. Defaults to current year.
     static func yearFrom(date: Date = Date.now) -> Int {
         return Calendar.autoupdatingCurrent.component(.year, from: date)
