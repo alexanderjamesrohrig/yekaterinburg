@@ -32,7 +32,7 @@ struct Game: Identifiable, Codable {
     var homeTeamCode: String = ""
     var homePoints: Int = 0
     var awayTeam: Int = 0
-    var awayTeamName: String
+    var awayTeamName: String = ""
     var awayTeamCode: String = ""
     var awayPoints: Int = 0
     var date: Date = Date.now
@@ -53,63 +53,6 @@ struct Game: Identifiable, Codable {
     }
     
     // MARK: - Static functions
-    static func gamesFor(team: Int, forDate date: Date) async throws -> [Game] {
-        let date = DateAdapter.dateForAPI(date: Date.now)
-        let gamesURL = "schedule?sportId=1&teamId=\(team)&date=\(date)&season=\(DateAdapter.yearFrom())&hydrate=team"
-        let url = URL(string: MLBAPI.baseURL + gamesURL)
-        let (data, _) = try await URLSession.shared.data(from: url!)
-        let decoded = try JSONDecoder().decode(Response.self, from: data)
-        var games: [Game] = []
-        
-        if let x = decoded.dates.first {
-            for g in x.games {
-                games.append(Game(game: g))
-            }
-        }
-        
-        return games
-    }
-    
-    static func allFor(team: Int) async throws -> [Game] {
-        let gamesURL = "schedule?sportId=1&teamId=\(team)&season=\(DateAdapter.yearFrom())&hydrate=team"
-        let url = URL(string: MLBAPI.baseURL + gamesURL)
-        let (data, _) = try await URLSession.shared.data(from: url!)
-        let decoded = try JSONDecoder().decode(Response.self, from: data)
-        var games: [Game] = []
-        
-        for date in decoded.dates {
-            for game in date.games {
-                games.append(Game(game: game))
-            }
-        }
-        
-        return games
-    }
-    
-    static func all(date: Date = Date.now) async -> [Game] {
-        let usableDay = DateAdapter.dateForAPI(date: date)
-        var gamesToReturn: [Game] = []
-        
-        // Baseball
-        do {
-            let baseballGames = try await MLBAPI.schedule(teamID: 117, date: usableDay)
-            if let bGame = baseballGames.dates.first?.games.first {
-                gamesToReturn.append(Game(game: bGame))
-                // TODO: add double header compatibility
-            }
-        } catch {
-            logger.error("\(error.localizedDescription)")
-        }
-        
-        // Hockey
-        let hockeyGames = Game.gamesToday(for: .game(.hockey), date: usableDay, team: 3)
-        for x in hockeyGames {
-            gamesToReturn.append(Game(game: x))
-        }
-        
-        return gamesToReturn
-    }
-    
     static func games(for sport: YeType) -> [HockeyResponse.NHLDate] {
         let url = Bundle.main.url(forResource: "nhl-schedule", withExtension: "json")
         let decoder = JSONDecoder()
@@ -199,23 +142,6 @@ struct Game: Identifiable, Codable {
         self.type = .event
     }
     
-    /// Initialize Game object from ResponseDateGame ⚾️
-    init(game: ResponseDateGame) {
-        self.id = game.gamePk
-        self.homeTeam = game.teams.home.team.id
-        self.homeTeamName = game.teams.home.team.franchiseName
-        self.homeTeamCode = game.teams.home.team.teamCode
-        self.awayTeam = game.teams.away.team.id
-        self.awayTeamName = game.teams.away.team.franchiseName
-        self.awayTeamCode = game.teams.away.team.teamCode
-        self.date = DateAdapter.dateFromAPI(date: game.gameDate)
-        self.status = game.status.detailedState
-        self.homePoints = game.teams.home.score ?? 0
-        self.awayPoints = game.teams.away.score ?? 0
-        self.type = .game(.baseball)
-        self.televisionOptions = ""
-    }
-    
     /// Initialize Game object from HockeyResponse.NHLDate.NHL.Game 🏒
     init(game: HockeyResponse.NHLDate.NHLGame) {
         self.id = game.gamePk
@@ -250,7 +176,7 @@ struct Game: Identifiable, Codable {
         self.televisionOptions = ""
     }
     
-    init(gameID: Int, homeTeam: Int = 0, homeTeamName: String, homeTeamCode: String = "", homePoints: Int = 0, awayTeam: Int = 0, awayTeamName: String, awayTeamCode: String = "", awayPoints: Int = 0, date: Date = Date.now, status: String = "", televisionOptions: String = "", radioOptions: String = "", venue: String = "", type: YeType) {
+    init(gameID: Int, homeTeam: Int = 0, homeTeamName: String, homeTeamCode: String = "", homePoints: Int = 0, awayTeam: Int = 0, awayTeamName: String = "", awayTeamCode: String = "", awayPoints: Int = 0, date: Date = Date.now, status: String = "", televisionOptions: String = "", radioOptions: String = "", venue: String = "", type: YeType) {
         self.id = gameID
         self.homeTeam = homeTeam
         self.homeTeamName = homeTeamName

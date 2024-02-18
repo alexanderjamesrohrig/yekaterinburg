@@ -17,12 +17,12 @@ struct MediumNextGameView: View {
     var body: some View {
         HStack() {
             HStack {
-                Text(entry.game.awayTeamCode ?? "")
+                Text(entry.game.awayTeamCode)
                     .fontWeight(.bold)
                     .font(.title)
                     .textCase(.uppercase)
                 Divider()
-                Text(entry.game.homeTeamCode ?? "")
+                Text(entry.game.homeTeamCode)
                     .fontWeight(.bold)
                     .font(.title)
                     .textCase(.uppercase)

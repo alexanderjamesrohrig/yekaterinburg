@@ -8,23 +8,40 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @Binding var baseballTeam: Int
-    @Binding var collegeFootballTeam: Int
-    @Binding var hockeyTeam: Int
+    @State var baseballTeam: Int = 117
+    @State var collegeFootballTeam: Int = 249
+    @State var basketballTeam: Int = 20
+    @State var hockeyTeam: Int = 3
+    @State var calcioTeam: Int = 3
+    @State private var showCalcio: Bool = true
+    @State private var showBaseball: Bool = true
+    @State private var showBasketball: Bool = true
     
     var body: some View {
-        #if os(tvOS)
-        Text("Team selection coming soon...")
-        #else
-        Stepper("⚾️ #\(baseballTeam)", value: $baseballTeam)
-        Stepper("🏈 #\(collegeFootballTeam)", value: $collegeFootballTeam)
-        Stepper("🏒 #\(hockeyTeam)", value: $hockeyTeam)
-        Link("Submit issue", destination: URL(string: "https://github.com/alexanderjamesrohrig/yekaterinburg/issues")!)
-        #endif
-        RohrigView()
+        Form {
+            Section("Sports") {
+                Toggle("Show baseball", isOn: $showBaseball)
+                Toggle("Show basketball", isOn: $showBasketball)
+                Toggle("Show soccer", isOn: $showCalcio)
+            }
+            Section("Favorite Teams") {
+                if showBaseball {
+                    Stepper("Baseball team ID", value: $baseballTeam)
+                }
+                if showBasketball {
+                    Stepper("Basketball team ID", value: $basketballTeam)
+                }
+                if showCalcio {
+                    Stepper("Soccer team ID", value: $calcioTeam)
+                }
+            }
+            Section("App Information") {
+                RohrigView()
+            }
+        }
     }
 }
 
 #Preview {
-    SettingsView(baseballTeam: .constant(117), collegeFootballTeam: .constant(249), hockeyTeam: .constant(3))
+    SettingsView()
 }

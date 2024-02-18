@@ -26,5 +26,13 @@ class ImageManager {
     let add = "plus"
     /// Used to signify hockey
     let hockey = "figure.hockey"
+    /// Used to signify SettingsView
+    let settings = "gear"
+    /// Used to signify radio options
+    let radio = "radio"
+    /// Used to signify television options
+    let tv = "tv"
+    /// Used to signify no available television options
+    let noTV = "tv.slash"
     private init() {}
 }

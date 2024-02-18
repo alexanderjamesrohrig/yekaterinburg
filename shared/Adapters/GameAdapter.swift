@@ -11,24 +11,6 @@ import OSLog
 fileprivate let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "GameAdapter")
 
 struct GameAdapter {
-    /// Returns Game given game from MLB API
-    static func getGameFrom(_ game: ResponseDateGame) -> Game {
-        return Game(gameID: game.gamePk,
-                    homeTeam: game.teams.home.team.id,
-                    homeTeamName: game.teams.home.team.franchiseName,
-                    homeTeamCode: "",
-                    homePoints: 0,
-                    awayTeam: game.teams.away.team.id,
-                    awayTeamName: game.teams.away.team.franchiseName,
-                    awayTeamCode: "",
-                    awayPoints: 0,
-                    date: DateAdapter.dateFromAPI(date: game.gameDate),
-                    status: game.status.detailedState,
-                    televisionOptions: "",
-                    radioOptions: "",
-                    venue: "",
-                    type: .game(.baseball))
-    }
     /// Returns Game given game from NHL API
     static func getGameFrom(_ game: HockeyResponse.NHLDate.NHLGame) -> Game {
         return Game(gameID: game.gamePk,
@@ -66,7 +48,7 @@ struct GameAdapter {
                     awayPoints: game.visitor_team_score ?? 0,
                     date: date,
                     status: status,
-                    televisionOptions: "", // TODO: Television
+                    televisionOptions: "MSG+", // TODO: Television
                     radioOptions: "", // TODO: Radio
                     venue: "", // TODO: Venue
                     type: .game(.basketball))
@@ -89,6 +71,9 @@ struct GameAdapter {
                     venue: game.venue,
                     type: .game(.collegeFootball))
     }
+    /// <#Description#>
+    /// - Parameter game: <#game description#>
+    /// - Returns: <#description#>
     static func getGameFrom(footballGame game: WorldFootballResponse.Match) -> Game {
         // TODO: Fill remaining
         return Game(gameID: game.id,
@@ -102,11 +87,14 @@ struct GameAdapter {
                     awayPoints: 0,
                     date: DateAdapter.dateFromISO(date: game.utcDate),
                     status: game.status,
-                    televisionOptions: "",
+                    televisionOptions: "Paramount+",
                     radioOptions: "",
                     venue: "",
                     type: .game(.calcio))
     }
+    /// <#Description#>
+    /// - Parameter game: <#game description#>
+    /// - Returns: <#description#>
     static func getGameFrom(baseballGame game: BaseballResponse.MLBDate.MLBGame) -> Game {
         return Game(gameID: game.gamePk,
                     homeTeam: game.teams.home.team.id,
@@ -119,7 +107,7 @@ struct GameAdapter {
                     awayPoints: 0,
                     date: DateAdapter.dateFromISO(date: game.gameDate),
                     status: "",
-                    televisionOptions: "",
+                    televisionOptions: "MLB.tv",
                     radioOptions: "",
                     venue: "",
                     type: .game(.baseball))

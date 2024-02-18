@@ -1,10 +1,12 @@
 {
   "images" : [
     {
+      "filename" : "Yekaterinburg@1x.png",
       "idiom" : "tv",
       "scale" : "1x"
     },
     {
+      "filename" : "Yekaterinburg@2x.png",
       "idiom" : "tv",
       "scale" : "2x"
     }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BaseballBoxscoreView: View {
     
-    let game: ResponseDateGame
+    let game: Game
     
     var body: some View {
         Grid {
@@ -23,18 +23,21 @@ struct BaseballBoxscoreView: View {
                 Text("E")
             }
             GridRow {
-                Text(game.teams.away.team.teamCode)
+                Text(game.awayTeamCode)
                     .monospaced()
                     .textCase(.uppercase)
             }
             GridRow {
-                Text(game.teams.home.team.teamCode)
+                Text(game.homeTeamCode)
                     .monospaced()
                     .textCase(.uppercase)
             }
             GridRow {
-                Text("\(game.status.detailedState), \(DateAdapter.timeFrom(gameDate: game.gameDate, withDate: false))")
-                    .gridCellColumns(13)
+                HStack {
+                    Text("\(game.status), ")
+                    Text(game.date, style: .time)
+                }
+                .gridCellColumns(13)
             }
         }
     }

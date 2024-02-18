@@ -16,18 +16,19 @@ struct ContentView: View {
                                            .game(.baseball)]
     private let viewModel = System1ViewModel()
     @State private var games: [Game] = []
+    #if DEBUG
     @State private var useMockData: Bool = true
+    #else
+    @State private var useMockData: Bool = false
+    #endif
     @State private var lastUpdate = Date.distantPast
+    @State private var showSettingsSheet = false
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.openURL) private var openURL
     
     var body: some View {
         #if DEBUG
-        VStack {
-            Text("DEBUG_INFORMATION")
-            Text(GeneralSecretary.shared.appVersion)
-            Toggle("USE_MOCK_DATA", isOn: $useMockData)
-        }
+        DebugView(useMockData: $useMockData)
         #endif
         List(games) { game in
             HStack {
@@ -36,6 +37,10 @@ struct ContentView: View {
                 Text(DateAdapter.yeFormatWithTime(from: game.date))
                     .foregroundStyle(.gray)
             }
+        }
+        .sheet(isPresented: $showSettingsSheet) {
+            SettingsView()
+                .presentationDetents([.medium, .large])
         }
         .toolbar {
             ToolbarButton(action: {
@@ -49,11 +54,8 @@ struct ContentView: View {
                 openURL(url)
             }, title: "Open Apple News", systemImage: ImageManager.shared.appleNews)
             ToolbarButton(action: {
-                openURL(URL(string: "https://plaintextsports.com/nfl/2023/schedule")!)
-            }, title: "NFL", systemImage: ImageManager.shared.football)
-            ToolbarButton(action: {
-                openURL(URL(string: "https://plaintextsports.com/nhl/2023-2024/schedule")!)
-            }, title: "NHL", systemImage: ImageManager.shared.hockey)
+                showSettingsSheet = true
+            }, title: "Settings", systemImage: ImageManager.shared.settings)
             ToolbarStatus(text: "Updated \(lastUpdate.formatted(date: .omitted, time: .shortened))")
         }
         .task {

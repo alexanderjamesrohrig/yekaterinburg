@@ -12,7 +12,6 @@ struct SportCollectionMac: View {
     #if os(macOS)
     @Environment(\.openWindow) private var openWindow
     #endif
-    @State private var baseballGames: [ResponseDateGame] = []
     @State private var hockeyGames: [HockeyResponse.NHLDate.NHLGame] = []
     @State private var games: [Game] = []
     @State private var showAddScheduledGameSheet = false

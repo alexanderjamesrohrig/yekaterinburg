@@ -30,17 +30,6 @@ struct TeamsView: View {
         .task {
             teams = await Team.all
         }
-//        ScrollView {
-//            Grid(alignment: .leading) {
-//                ForEach(teams, id: \.id) { team in
-//                    GridRow {
-//                        Text(team.id, format: .number)
-//                            .monospaced()
-//                        Text(team.name)
-//                        Text(team.parentOrgName)
-//                    }
-//                }
-//            }
     }
 }
 

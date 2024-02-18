@@ -74,6 +74,12 @@ import OSLog
                 }
             }
         }
+        let inAppGames = SampleManager.shared.localEvents
+        for x in inAppGames {
+            if x.date > Date.now {
+                games.append(x)
+            }
+        }
         if loadLocalGames {
             let gamesFromStore = await StoreManager.shared.loadGames()
             games.append(contentsOf: gamesFromStore)

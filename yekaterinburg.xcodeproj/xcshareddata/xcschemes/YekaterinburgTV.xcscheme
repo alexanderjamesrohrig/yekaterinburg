@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0805D3CF2A4F375100261EFE"
-               BuildableName = "yekaterinburg.app"
-               BlueprintName = "yekaterinburg"
+               BlueprintIdentifier = "08AFEC292B8182460028A39A"
+               BuildableName = "YekaterinburgTV.app"
+               BlueprintName = "YekaterinburgTV"
                ReferencedContainer = "container:yekaterinburg.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,6 +28,30 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "08AFEC382B81824A0028A39A"
+               BuildableName = "YekaterinburgTVTests.xctest"
+               BlueprintName = "YekaterinburgTVTests"
+               ReferencedContainer = "container:yekaterinburg.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "08AFEC422B81824A0028A39A"
+               BuildableName = "YekaterinburgTVUITests.xctest"
+               BlueprintName = "YekaterinburgTVUITests"
+               ReferencedContainer = "container:yekaterinburg.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -43,9 +67,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0805D3CF2A4F375100261EFE"
-            BuildableName = "yekaterinburg.app"
-            BlueprintName = "yekaterinburg"
+            BlueprintIdentifier = "08AFEC292B8182460028A39A"
+            BuildableName = "YekaterinburgTV.app"
+            BlueprintName = "YekaterinburgTV"
             ReferencedContainer = "container:yekaterinburg.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -60,9 +84,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0805D3CF2A4F375100261EFE"
-            BuildableName = "yekaterinburg.app"
-            BlueprintName = "yekaterinburg"
+            BlueprintIdentifier = "08AFEC292B8182460028A39A"
+            BuildableName = "YekaterinburgTV.app"
+            BlueprintName = "YekaterinburgTV"
             ReferencedContainer = "container:yekaterinburg.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -82,9 +106,9 @@
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "0805D3CF2A4F375100261EFE"
-                     BuildableName = "yekaterinburg.app"
-                     BlueprintName = "yekaterinburg"
+                     BlueprintIdentifier = "08AFEC292B8182460028A39A"
+                     BuildableName = "YekaterinburgTV.app"
+                     BlueprintName = "YekaterinburgTV"
                      ReferencedContainer = "container:yekaterinburg.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
