@@ -51,6 +51,9 @@ struct Game: Identifiable, Codable {
     static var blank: Game {
         Game(homeName: "Home", awayName: "Away")
     }
+    static var blankEvent: Game {
+        Game(gameID: 0, homeTeamName: "Sample Event", status: "Scheduled", televisionOptions: "SAM", radioOptions: "SAMP", venue: "Sample Venue", type: .event)
+    }
     
     // MARK: - Static functions
     static func games(for sport: YeType) -> [HockeyResponse.NHLDate] {

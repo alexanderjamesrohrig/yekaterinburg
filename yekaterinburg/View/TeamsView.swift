@@ -13,7 +13,7 @@ struct TeamsView: View {
     @State private var sortOrder = [KeyPathComparator(\Team.id)]
     
     var body: some View {
-        Table(teams) {
+        Table(teams, sortOrder: $sortOrder) {
             TableColumn("id") { team in
                 Text(verbatim: "\(team.id)")
                     .monospaced()
@@ -21,7 +21,7 @@ struct TeamsView: View {
             TableColumn("name", value: \.name)
             TableColumn("parent organization", value: \.parentOrgName)
             TableColumn("sport") { team in
-                Text("baseball")
+                Text("Baseball")
             }
         }
         .onChange(of: sortOrder) { _, newSort in

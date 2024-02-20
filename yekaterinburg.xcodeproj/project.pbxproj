@@ -126,6 +126,9 @@
 		083CBD322B82587100D151F7 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083CBD2D2B82587000D151F7 /* DebugView.swift */; };
 		0850835E2B7ADE910023C4D3 /* System1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0850835D2B7ADE910023C4D3 /* System1ViewModel.swift */; };
 		086649EE2ADAF7E900A71C9F /* SportCollectionMac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086649ED2ADAF7E900A71C9F /* SportCollectionMac.swift */; };
+		0875168B2B83E96300018712 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0875168A2B83E96300018712 /* EventView.swift */; };
+		0875168C2B83E96300018712 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0875168A2B83E96300018712 /* EventView.swift */; };
+		0875168D2B83E96300018712 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0875168A2B83E96300018712 /* EventView.swift */; };
 		087CBB492B806B0300DDAC9D /* AddScheduledGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087CBB482B806B0300DDAC9D /* AddScheduledGameView.swift */; };
 		087CBB4B2B80EBDD00DDAC9D /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087CBB4A2B80EBDC00DDAC9D /* StoreManager.swift */; };
 		087F8B382AB76684009DFD07 /* SmallNextGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087F8B372AB76683009DFD07 /* SmallNextGameView.swift */; };
@@ -257,6 +260,7 @@
 		083CBD2D2B82587000D151F7 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		0850835D2B7ADE910023C4D3 /* System1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System1ViewModel.swift; sourceTree = "<group>"; };
 		086649ED2ADAF7E900A71C9F /* SportCollectionMac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportCollectionMac.swift; sourceTree = "<group>"; };
+		0875168A2B83E96300018712 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		087CBB482B806B0300DDAC9D /* AddScheduledGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduledGameView.swift; sourceTree = "<group>"; };
 		087CBB4A2B80EBDC00DDAC9D /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		087F8B372AB76683009DFD07 /* SmallNextGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallNextGameView.swift; sourceTree = "<group>"; };
@@ -532,6 +536,7 @@
 				0805D3D52A4F375100261EFE /* ContentView.swift */,
 				08AFEC242B813E330028A39A /* GameDetailView.swift */,
 				083CBD2D2B82587000D151F7 /* DebugView.swift */,
+				0875168A2B83E96300018712 /* EventView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -925,6 +930,7 @@
 				0805EA0E2AD1968F00D17753 /* SampleManager.swift in Sources */,
 				0805EA122AD198EA00D17753 /* FutureGameView.swift in Sources */,
 				0886D3A72B8108EC00F997B1 /* WorldFootballResponse.swift in Sources */,
+				0875168B2B83E96300018712 /* EventView.swift in Sources */,
 				08DB5A882AD97C00001D55B5 /* InProgressGameView.swift in Sources */,
 				08DA48FB2B7287140097F36C /* ToolbarStatus.swift in Sources */,
 				0805D3E32A4F3A9000261EFE /* ContentModel.swift in Sources */,
@@ -956,6 +962,7 @@
 				0886D3AF2B81179300F997B1 /* BaseballResponse.swift in Sources */,
 				0898EA8E2A61A33D00BBB9B1 /* WidgetModel.swift in Sources */,
 				0898EA812A61A31300BBB9B1 /* ios_widgetBundle.swift in Sources */,
+				0875168C2B83E96300018712 /* EventView.swift in Sources */,
 				08A587952AB6290300BA4BE9 /* MLBAPI.swift in Sources */,
 				08A587992AB6291500BA4BE9 /* QuickTypeTeam.swift in Sources */,
 				083CBCE42B824B3500D151F7 /* System1ViewModel.swift in Sources */,
@@ -992,6 +999,7 @@
 				083CBCC62B824A2400D151F7 /* Game.swift in Sources */,
 				083CBCEA2B824B6100D151F7 /* HockeyResponse.swift in Sources */,
 				083CBCC42B8249F800D151F7 /* ToolbarButton.swift in Sources */,
+				0875168D2B83E96300018712 /* EventView.swift in Sources */,
 				083CBCF32B824B6B00D151F7 /* BasketballResponse.swift in Sources */,
 				083CBCE32B824B3500D151F7 /* System1ViewModel.swift in Sources */,
 				083CBD1F2B824FD000D151F7 /* SampleManager.swift in Sources */,

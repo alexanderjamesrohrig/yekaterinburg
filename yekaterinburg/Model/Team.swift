@@ -44,6 +44,8 @@ struct Team: Identifiable {
         }
     } }
     
+    /// Initialize Team object with response from MLB API
+    /// - Parameter quickType: Object representing team from MLB API
     init(quickType: TeamElement) {
         self.id = quickType.id
         self.name = quickType.name
