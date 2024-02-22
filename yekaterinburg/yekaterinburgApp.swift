@@ -18,6 +18,9 @@ struct yekaterinburgApp: App {
         Window("Teams", id: WindowManager.shared.teams) {
             TeamsView()
         }
+        Settings {
+            SettingsView()
+        }
         #endif
     }
 }
