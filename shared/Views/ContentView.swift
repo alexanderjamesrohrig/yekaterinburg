@@ -32,7 +32,13 @@ struct ContentView: View {
         #endif
         List(games) { game in
             HStack {
-                Text("\(game.awayTeamName) at \(game.homeTeamName)")
+                HStack {
+                    if game.type != .event {
+                        Text(game.awayTeamName)
+                        Text("at")
+                    }
+                    Text(game.homeTeamName)
+                }
                 Spacer()
                 Text(DateAdapter.yeFormatWithTime(from: game.date))
                     .foregroundStyle(.gray)
@@ -55,7 +61,7 @@ struct ContentView: View {
             }, title: "Open Apple News", systemImage: ImageManager.shared.appleNews)
             ToolbarButton(action: {
                 showSettingsSheet = true
-            }, title: "Settings", systemImage: ImageManager.shared.settings)
+            }, title: "Settings", systemImage: ImageManager.shared.settings, isSettings: true)
             ToolbarStatus(text: "Updated \(lastUpdate.formatted(date: .omitted, time: .shortened))")
         }
         .task {

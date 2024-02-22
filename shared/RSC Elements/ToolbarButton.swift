@@ -18,14 +18,21 @@ struct ToolbarButton: ToolbarContent {
     var title: String
     var systemImage: String
     var placement: ToolbarItemPlacement = .automatic
+    var isSettings: Bool = false
     
     @ViewBuilder var body: some ToolbarContent {
         #if os(macOS)
-        ToolbarItem(placement: placement) {
-            Button {
-                self.action()
-            } label: {
-                Label(title, systemImage: systemImage)
+        if isSettings {
+            ToolbarItem {
+                EmptyView()
+            }
+        } else {
+            ToolbarItem(placement: placement) {
+                Button {
+                    self.action()
+                } label: {
+                    Label(title, systemImage: systemImage)
+                }
             }
         }
         #elseif os(iOS)

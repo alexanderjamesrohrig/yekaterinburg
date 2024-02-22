@@ -6,39 +6,40 @@
 //
 
 import SwiftUI
+import OSLog
 
 struct SettingsView: View {
-    @State var baseballTeam: Int = 117
-    @State var collegeFootballTeam: Int = 249
-    @State var basketballTeam: Int = 20
-    @State var hockeyTeam: Int = 3
-    @State var calcioTeam: Int = 3
+    @AppStorage(StoreManager.shared.appStorageBaseball) var baseballTeam: Int = 117
+    @AppStorage(StoreManager.shared.appStorageCF) var collegeFootballTeam: Int = 249
+    @AppStorage(StoreManager.shared.appStorageBasketball) var basketballTeam: Int = 20
+    @AppStorage(StoreManager.shared.appStorageHockey) var hockeyTeam: Int = 3
+    @AppStorage(StoreManager.shared.appStorageCalcio) var calcioTeam: Int = 113
     @State private var showCalcio: Bool = true
     @State private var showBaseball: Bool = true
     @State private var showBasketball: Bool = true
+    private let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "SettingsView")
     
     var body: some View {
         Form {
-            Section("Sports") {
-                Toggle("Show baseball", isOn: $showBaseball)
-                Toggle("Show basketball", isOn: $showBasketball)
-                Toggle("Show soccer", isOn: $showCalcio)
+            Stepper("Baseball team #\(baseballTeam)", value: $baseballTeam)
+                .monospacedDigit()
+            Stepper("Basketball team #\(basketballTeam)", value: $basketballTeam)
+                .monospacedDigit()
+            Stepper("Soccer team #\(calcioTeam)", value: $calcioTeam)
+                .monospacedDigit()
+            Text("Hockey coming soon...")
+            Text("Football coming soon...")
+            Button("View Notices") {
+            // TODO: Show API copyright notices
             }
-            Section("Favorite Teams") {
-                if showBaseball {
-                    Stepper("Baseball team ID", value: $baseballTeam)
-                }
-                if showBasketball {
-                    Stepper("Basketball team ID", value: $basketballTeam)
-                }
-                if showCalcio {
-                    Stepper("Soccer team ID", value: $calcioTeam)
-                }
+            #if DEBUG
+            Button("PRINT_FAVORITE_VALUES") {
+                logger.info("Favorites: \(baseballTeam) \(basketballTeam) \(calcioTeam)")
             }
-            Section("App Information") {
-                RohrigView()
-            }
+            #endif
+            RohrigView()
         }
+        .padding()
     }
 }
 

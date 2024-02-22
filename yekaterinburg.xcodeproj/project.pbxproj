@@ -129,6 +129,17 @@
 		0875168B2B83E96300018712 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0875168A2B83E96300018712 /* EventView.swift */; };
 		0875168C2B83E96300018712 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0875168A2B83E96300018712 /* EventView.swift */; };
 		0875168D2B83E96300018712 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0875168A2B83E96300018712 /* EventView.swift */; };
+		087C2E0E2B856FEB00AFAB34 /* teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 087C2E0D2B856FEB00AFAB34 /* teams.json */; };
+		087C2E0F2B856FEB00AFAB34 /* teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 087C2E0D2B856FEB00AFAB34 /* teams.json */; };
+		087C2E102B856FEB00AFAB34 /* teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 087C2E0D2B856FEB00AFAB34 /* teams.json */; };
+		087C2E122B85703200AFAB34 /* BasketballTeamsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087C2E112B85703200AFAB34 /* BasketballTeamsResponse.swift */; };
+		087C2E132B85703200AFAB34 /* BasketballTeamsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087C2E112B85703200AFAB34 /* BasketballTeamsResponse.swift */; };
+		087C2E142B85703200AFAB34 /* BasketballTeamsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087C2E112B85703200AFAB34 /* BasketballTeamsResponse.swift */; };
+		087C2E162B85704B00AFAB34 /* BasketballTeamsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087C2E112B85703200AFAB34 /* BasketballTeamsResponse.swift */; };
+		087C2E172B85704B00AFAB34 /* BasketballTeamsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087C2E112B85703200AFAB34 /* BasketballTeamsResponse.swift */; };
+		087C2E192B85731700AFAB34 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087C2E182B85731700AFAB34 /* ErrorManager.swift */; };
+		087C2E1A2B85731700AFAB34 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087C2E182B85731700AFAB34 /* ErrorManager.swift */; };
+		087C2E1B2B85731700AFAB34 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087C2E182B85731700AFAB34 /* ErrorManager.swift */; };
 		087CBB492B806B0300DDAC9D /* AddScheduledGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087CBB482B806B0300DDAC9D /* AddScheduledGameView.swift */; };
 		087CBB4B2B80EBDD00DDAC9D /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087CBB4A2B80EBDC00DDAC9D /* StoreManager.swift */; };
 		087F8B382AB76684009DFD07 /* SmallNextGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087F8B372AB76683009DFD07 /* SmallNextGameView.swift */; };
@@ -154,6 +165,11 @@
 		0898EA852A61A31500BBB9B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0898EA842A61A31500BBB9B1 /* Assets.xcassets */; };
 		0898EA892A61A31500BBB9B1 /* ios-widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0898EA7C2A61A31200BBB9B1 /* ios-widgetExtension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0898EA8E2A61A33D00BBB9B1 /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898EA762A619F3700BBB9B1 /* WidgetModel.swift */; };
+		08A2B1882B86B7ED000B770F /* TeamAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A2B1872B86B7ED000B770F /* TeamAdapter.swift */; };
+		08A2B1892B86B7ED000B770F /* TeamAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A2B1872B86B7ED000B770F /* TeamAdapter.swift */; };
+		08A2B18A2B86B7ED000B770F /* TeamAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A2B1872B86B7ED000B770F /* TeamAdapter.swift */; };
+		08A2B18B2B86B7ED000B770F /* TeamAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A2B1872B86B7ED000B770F /* TeamAdapter.swift */; };
+		08A2B18C2B86B7ED000B770F /* TeamAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A2B1872B86B7ED000B770F /* TeamAdapter.swift */; };
 		08A587812AB5E15A00BA4BE9 /* GameAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A587802AB5E15A00BA4BE9 /* GameAdapter.swift */; };
 		08A587832AB5EAD600BA4BE9 /* DateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A587822AB5EAD600BA4BE9 /* DateAdapter.swift */; };
 		08A587872AB5F5B400BA4BE9 /* RohrigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A587862AB5F5B400BA4BE9 /* RohrigView.swift */; };
@@ -161,6 +177,7 @@
 		08A587902AB6248B00BA4BE9 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C5E8ED2AA7AEEF0000BD28 /* Game.swift */; };
 		08A587952AB6290300BA4BE9 /* MLBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A5878E2AB61F1800BA4BE9 /* MLBAPI.swift */; };
 		08A587992AB6291500BA4BE9 /* QuickTypeTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D99CD22AB38064004C7D43 /* QuickTypeTeam.swift */; };
+		08A9D4CF2B86B20400014BEA /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A9D4CE2B86B20400014BEA /* NavigationView.swift */; };
 		08AFEC252B813E330028A39A /* GameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AFEC242B813E330028A39A /* GameDetailView.swift */; };
 		08AFEC2D2B8182470028A39A /* YekaterinburgTVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AFEC2C2B8182470028A39A /* YekaterinburgTVApp.swift */; };
 		08AFEC312B8182490028A39A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08AFEC302B8182490028A39A /* Assets.xcassets */; };
@@ -261,6 +278,9 @@
 		0850835D2B7ADE910023C4D3 /* System1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System1ViewModel.swift; sourceTree = "<group>"; };
 		086649ED2ADAF7E900A71C9F /* SportCollectionMac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportCollectionMac.swift; sourceTree = "<group>"; };
 		0875168A2B83E96300018712 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		087C2E0D2B856FEB00AFAB34 /* teams.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = teams.json; sourceTree = "<group>"; };
+		087C2E112B85703200AFAB34 /* BasketballTeamsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketballTeamsResponse.swift; sourceTree = "<group>"; };
+		087C2E182B85731700AFAB34 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
 		087CBB482B806B0300DDAC9D /* AddScheduledGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduledGameView.swift; sourceTree = "<group>"; };
 		087CBB4A2B80EBDC00DDAC9D /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		087F8B372AB76683009DFD07 /* SmallNextGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallNextGameView.swift; sourceTree = "<group>"; };
@@ -281,11 +301,13 @@
 		0898EA822A61A31300BBB9B1 /* ios_widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_widget.swift; sourceTree = "<group>"; };
 		0898EA842A61A31500BBB9B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0898EA862A61A31500BBB9B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08A2B1872B86B7ED000B770F /* TeamAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAdapter.swift; sourceTree = "<group>"; };
 		08A587802AB5E15A00BA4BE9 /* GameAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAdapter.swift; sourceTree = "<group>"; };
 		08A587822AB5EAD600BA4BE9 /* DateAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAdapter.swift; sourceTree = "<group>"; };
 		08A587862AB5F5B400BA4BE9 /* RohrigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RohrigView.swift; sourceTree = "<group>"; };
 		08A5878E2AB61F1800BA4BE9 /* MLBAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLBAPI.swift; sourceTree = "<group>"; };
 		08A5879B2AB63C9000BA4BE9 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		08A9D4CE2B86B20400014BEA /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		08AFEC242B813E330028A39A /* GameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailView.swift; sourceTree = "<group>"; };
 		08AFEC2A2B8182460028A39A /* YekaterinburgTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YekaterinburgTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AFEC2C2B8182470028A39A /* YekaterinburgTVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YekaterinburgTVApp.swift; sourceTree = "<group>"; };
@@ -381,6 +403,7 @@
 			children = (
 				08A587802AB5E15A00BA4BE9 /* GameAdapter.swift */,
 				08A587822AB5EAD600BA4BE9 /* DateAdapter.swift */,
+				08A2B1872B86B7ED000B770F /* TeamAdapter.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -468,6 +491,7 @@
 				08DA48FF2B728A520097F36C /* ImageManager.swift */,
 				087CBB4A2B80EBDC00DDAC9D /* StoreManager.swift */,
 				0805EA0D2AD1968F00D17753 /* SampleManager.swift */,
+				087C2E182B85731700AFAB34 /* ErrorManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -485,6 +509,23 @@
 			children = (
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		087C2E0B2B856FAB00AFAB34 /* api.balldontlie.io */ = {
+			isa = PBXGroup;
+			children = (
+				087C2E0D2B856FEB00AFAB34 /* teams.json */,
+			);
+			path = api.balldontlie.io;
+			sourceTree = "<group>";
+		};
+		087C2E152B85704300AFAB34 /* Basketball */ = {
+			isa = PBXGroup;
+			children = (
+				08D25E912AE6EF16004EB8DB /* BasketballResponse.swift */,
+				087C2E112B85703200AFAB34 /* BasketballTeamsResponse.swift */,
+			);
+			path = Basketball;
 			sourceTree = "<group>";
 		};
 		0898EA7F2A61A31300BBB9B1 /* ios-widget */ = {
@@ -553,6 +594,7 @@
 			isa = PBXGroup;
 			children = (
 				08AFEC2C2B8182470028A39A /* YekaterinburgTVApp.swift */,
+				08A9D4CE2B86B20400014BEA /* NavigationView.swift */,
 				083CBD292B82578D00D151F7 /* GameListView.swift */,
 				08AFEC302B8182490028A39A /* Assets.xcassets */,
 				08AFEC322B8182490028A39A /* Preview Content */,
@@ -618,6 +660,7 @@
 		08C5E8F22AA7B3800000BD28 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				087C2E0B2B856FAB00AFAB34 /* api.balldontlie.io */,
 				08ECA8F62A9250C7000570A8 /* SCHEDULE.json */,
 				0805D3E42A4F439500261EFE /* TEST.json */,
 				08D99CD02AB37FC1004C7D43 /* Team.json */,
@@ -644,8 +687,8 @@
 		08DA48F82B7282DA0097F36C /* Responses */ = {
 			isa = PBXGroup;
 			children = (
+				087C2E152B85704300AFAB34 /* Basketball */,
 				08A5877F2AB5D72900BA4BE9 /* QuickType */,
-				08D25E912AE6EF16004EB8DB /* BasketballResponse.swift */,
 				0886D3AD2B81178F00F997B1 /* BaseballResponse.swift */,
 				0882AF9B2AE2B14300EF4E0E /* CollegeFootballResponse.swift */,
 				082964882AD87AE9000B1D7B /* HockeyResponse.swift */,
@@ -821,6 +864,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				087C2E0E2B856FEB00AFAB34 /* teams.json in Resources */,
 				0805D3DC2A4F375300261EFE /* Preview Assets.xcassets in Resources */,
 				0805D3E52A4F439500261EFE /* TEST.json in Resources */,
 				08D25E8E2AE6EE15004EB8DB /* balldontlie.json in Resources */,
@@ -843,6 +887,7 @@
 				083CBD162B824DCD00D151F7 /* TEST.json in Resources */,
 				083CBD092B824DBC00D151F7 /* football-data.json in Resources */,
 				083CBD1A2B824DD400D151F7 /* SCHEDULE.json in Resources */,
+				087C2E0F2B856FEB00AFAB34 /* teams.json in Resources */,
 				083CBD122B824DC900D151F7 /* Team.json in Resources */,
 				083CBD022B824DB400D151F7 /* nhl-schedule.json in Resources */,
 				083CBD012B824DB100D151F7 /* collegefootballdata-games.json in Resources */,
@@ -859,6 +904,7 @@
 				083CBD0A2B824DBC00D151F7 /* football-data.json in Resources */,
 				083CBD1B2B824DD500D151F7 /* SCHEDULE.json in Resources */,
 				08AFEC342B8182490028A39A /* Preview Assets.xcassets in Resources */,
+				087C2E102B856FEB00AFAB34 /* teams.json in Resources */,
 				083CBD032B824DB500D151F7 /* nhl-schedule.json in Resources */,
 				083CBD172B824DCE00D151F7 /* TEST.json in Resources */,
 				083CBD002B824DB000D151F7 /* collegefootballdata-games.json in Resources */,
@@ -912,6 +958,7 @@
 				0805EA112AD198EA00D17753 /* GameStatusView.swift in Sources */,
 				0886D3AE2B81178F00F997B1 /* BaseballResponse.swift in Sources */,
 				0805D3EB2A4F53D900261EFE /* ContentViewiOS.swift in Sources */,
+				087C2E192B85731700AFAB34 /* ErrorManager.swift in Sources */,
 				08DA48F72B727E620097F36C /* ToolbarButton.swift in Sources */,
 				0805EA182AD1A91E00D17753 /* SettingsView.swift in Sources */,
 				0805D3D42A4F375100261EFE /* yekaterinburgApp.swift in Sources */,
@@ -937,12 +984,14 @@
 				08C5E8EE2AA7AEEF0000BD28 /* Game.swift in Sources */,
 				08A587872AB5F5B400BA4BE9 /* RohrigView.swift in Sources */,
 				08022E722B7846B8009F572E /* ContentViewForTV.swift in Sources */,
+				087C2E122B85703200AFAB34 /* BasketballTeamsResponse.swift in Sources */,
 				086649EE2ADAF7E900A71C9F /* SportCollectionMac.swift in Sources */,
 				0805EA0C2AD1964C00D17753 /* BaseballBoxscoreView.swift in Sources */,
 				0882AF9C2AE2B14300EF4E0E /* CollegeFootballResponse.swift in Sources */,
 				08D99CCF2AB37AB3004C7D43 /* Team.swift in Sources */,
 				08D25E902AE6EE7F004EB8DB /* NBAAPI.swift in Sources */,
 				083CBD2E2B82587100D151F7 /* DebugView.swift in Sources */,
+				08A2B1882B86B7ED000B770F /* TeamAdapter.swift in Sources */,
 				08AFEC252B813E330028A39A /* GameDetailView.swift in Sources */,
 				08A587832AB5EAD600BA4BE9 /* DateAdapter.swift in Sources */,
 				08DA48FD2B7288BC0097F36C /* WindowManager.swift in Sources */,
@@ -968,8 +1017,11 @@
 				083CBCE42B824B3500D151F7 /* System1ViewModel.swift in Sources */,
 				0898EA832A61A31300BBB9B1 /* ios_widget.swift in Sources */,
 				08D25E932AE6F5D0004EB8DB /* BasketballResponse.swift in Sources */,
+				087C2E132B85703200AFAB34 /* BasketballTeamsResponse.swift in Sources */,
 				087F8B3A2AB76889009DFD07 /* InlineNextGameView.swift in Sources */,
 				083CBD1E2B824FD000D151F7 /* SampleManager.swift in Sources */,
+				08A2B1892B86B7ED000B770F /* TeamAdapter.swift in Sources */,
+				087C2E1A2B85731700AFAB34 /* ErrorManager.swift in Sources */,
 				0829648A2AD87DAD000B1D7B /* HockeyResponse.swift in Sources */,
 				087F8B382AB76684009DFD07 /* SmallNextGameView.swift in Sources */,
 				08E85C3F2ADDBA1400A065E9 /* MediumNextGameView.swift in Sources */,
@@ -992,7 +1044,9 @@
 			files = (
 				083CBCE72B824B5400D151F7 /* WorldFootballResponse.swift in Sources */,
 				083CBD302B82587100D151F7 /* DebugView.swift in Sources */,
+				087C2E142B85703200AFAB34 /* BasketballTeamsResponse.swift in Sources */,
 				08AFEC2D2B8182470028A39A /* YekaterinburgTVApp.swift in Sources */,
+				08A2B18A2B86B7ED000B770F /* TeamAdapter.swift in Sources */,
 				083CBCDE2B824AF000D151F7 /* StateSecretManager.swift in Sources */,
 				083CBCFC2B824D6D00D151F7 /* StoreManager.swift in Sources */,
 				083CBCC52B8249F800D151F7 /* ToolbarStatus.swift in Sources */,
@@ -1003,10 +1057,12 @@
 				083CBCF32B824B6B00D151F7 /* BasketballResponse.swift in Sources */,
 				083CBCE32B824B3500D151F7 /* System1ViewModel.swift in Sources */,
 				083CBD1F2B824FD000D151F7 /* SampleManager.swift in Sources */,
+				08A9D4CF2B86B20400014BEA /* NavigationView.swift in Sources */,
 				083CBCF92B824C5900D151F7 /* ImageManager.swift in Sources */,
 				083CBCC32B8249F800D151F7 /* RohrigView.swift in Sources */,
 				083CBCC22B8249F300D151F7 /* GeneralSecretary.swift in Sources */,
 				083CBD2A2B82578D00D151F7 /* GameListView.swift in Sources */,
+				087C2E1B2B85731700AFAB34 /* ErrorManager.swift in Sources */,
 				083CBCDA2B824A9100D151F7 /* WorldFootballAPI.swift in Sources */,
 				083CBCCB2B824A4E00D151F7 /* GameAdapter.swift in Sources */,
 				083CBCD62B824A8E00D151F7 /* MLBAPI.swift in Sources */,
@@ -1022,12 +1078,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08A2B18B2B86B7ED000B770F /* TeamAdapter.swift in Sources */,
 				083CBCEF2B824B6800D151F7 /* BaseballResponse.swift in Sources */,
 				083CBCF82B824C5900D151F7 /* ImageManager.swift in Sources */,
 				083CBCD42B824A8B00D151F7 /* CFDAPI.swift in Sources */,
 				08AFEC3E2B81824A0028A39A /* YekaterinburgTVTests.swift in Sources */,
 				083CBD202B824FD100D151F7 /* SampleManager.swift in Sources */,
 				083CBCC72B824A2A00D151F7 /* Game.swift in Sources */,
+				087C2E162B85704B00AFAB34 /* BasketballTeamsResponse.swift in Sources */,
 				083CBCCA2B824A4D00D151F7 /* GameAdapter.swift in Sources */,
 				083CBCD12B824A8600D151F7 /* NBAAPI.swift in Sources */,
 				083CBCE92B824B6100D151F7 /* HockeyResponse.swift in Sources */,
@@ -1059,12 +1117,14 @@
 				083CBCD82B824A8F00D151F7 /* MLBAPI.swift in Sources */,
 				083CBCEE2B824B6800D151F7 /* BaseballResponse.swift in Sources */,
 				083CBCF12B824B6B00D151F7 /* BasketballResponse.swift in Sources */,
+				087C2E172B85704B00AFAB34 /* BasketballTeamsResponse.swift in Sources */,
 				083CBCFA2B824D6C00D151F7 /* StoreManager.swift in Sources */,
 				08AFEC4A2B81824A0028A39A /* YekaterinburgTVUITestsLaunchTests.swift in Sources */,
 				083CBCE82B824B6100D151F7 /* HockeyResponse.swift in Sources */,
 				083CBCE12B824B3400D151F7 /* System1ViewModel.swift in Sources */,
 				083CBCE52B824B5300D151F7 /* WorldFootballResponse.swift in Sources */,
 				083CBCC92B824A4C00D151F7 /* GameAdapter.swift in Sources */,
+				08A2B18C2B86B7ED000B770F /* TeamAdapter.swift in Sources */,
 				083CBCD32B824A8A00D151F7 /* CFDAPI.swift in Sources */,
 				083CBCE02B824AF100D151F7 /* StateSecretManager.swift in Sources */,
 				083CBCEB2B824B6400D151F7 /* CollegeFootballResponse.swift in Sources */,
@@ -1221,7 +1281,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = yekaterinburg/yekaterinburg.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "$(BUILD)";
+				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"yekaterinburg/Preview Content\"";
 				DEVELOPMENT_TEAM = 3865YC2YEY;
@@ -1245,7 +1305,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = "$(VERSION)";
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderrohrig.yekaterinburg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -1267,7 +1327,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = yekaterinburg/yekaterinburg.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "$(BUILD)";
+				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"yekaterinburg/Preview Content\"";
 				DEVELOPMENT_TEAM = 3865YC2YEY;
@@ -1291,7 +1351,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = "$(VERSION)";
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderrohrig.yekaterinburg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -1311,7 +1371,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "${BUILD}";
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3865YC2YEY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ios-widget/Info.plist";
@@ -1342,7 +1402,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "${BUILD}";
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3865YC2YEY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ios-widget/Info.plist";
@@ -1389,7 +1449,7 @@
 					"@executable_path/Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderrohrig.YekaterinburgTV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1423,7 +1483,7 @@
 					"@executable_path/Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderrohrig.YekaterinburgTV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;

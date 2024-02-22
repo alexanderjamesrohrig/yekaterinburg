@@ -12,8 +12,14 @@ import OSLog
 private let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "WorldFootballAPI")
 
 struct WorldFootballAPI {
-    static func games(teamID: Int = 113, useMockData: Bool = false) async -> WorldFootballResponse? {
-        guard let url = URL(string: "http://api.football-data.org/v4/teams/\(teamID)/matches") else {
+    /// Gets all matches for specific team
+    /// - Parameters:
+    ///   - teamID: Team id on football-data.org
+    ///   - useMockData: If local JSON file should be used instead of making network call, defaults to false
+    /// - Returns: WorldFootballResponse object
+    static func games(useMockData: Bool = false) async -> WorldFootballResponse? {
+        let userTeam = UserDefaults.standard.integer(forKey: StoreManager.shared.appStorageCalcio)
+        guard let url = URL(string: "http://api.football-data.org/v4/teams/\(userTeam)/matches") else {
             logger.error("Unable to create URL")
             return nil
         }

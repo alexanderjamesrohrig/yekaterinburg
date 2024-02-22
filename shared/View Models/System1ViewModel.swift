@@ -21,7 +21,7 @@ import OSLog
         var games: [Game] = []
         /// Calcio
         if sources.contains(.game(.calcio)) {
-            guard let gamesFromAPI = await WorldFootballAPI.games(teamID: 113, useMockData: useMockData)?.matches else {
+            guard let gamesFromAPI = await WorldFootballAPI.games(useMockData: useMockData)?.matches else {
                 logger.error("Unable to get soccer games")
                 return []
             }
@@ -34,7 +34,7 @@ import OSLog
         }
         /// Baseball
         if sources.contains(.game(.baseball)) {
-            guard let datesAndGamesFromAPI = await MLBAPI.games(teamID: 117, useMockData: useMockData) else {
+            guard let datesAndGamesFromAPI = await MLBAPI.games(useMockData: useMockData) else {
                 logger.error("Unable to get baseball games")
                 return []
             }

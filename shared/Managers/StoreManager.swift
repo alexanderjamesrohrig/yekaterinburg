@@ -51,5 +51,10 @@ class StoreManager {
             logger.error("Unable to write file")
         }
     }
+    let appStorageBaseball = "app_storage_baseball_team"
+    let appStorageBasketball = "app_storage_basketball_team"
+    let appStorageHockey = "app_storage_hockey_team"
+    let appStorageCalcio = "app_storage_calcio_team"
+    let appStorageCF = "app_storage_college_football_team"
     private init() {}
 }
