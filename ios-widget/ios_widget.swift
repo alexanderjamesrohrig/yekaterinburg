@@ -5,6 +5,8 @@
 //  Created by Alexander Rohrig on 7/14/23.
 //
 
+/// Deprecated Feb 21 2024
+
 import WidgetKit
 import SwiftUI
 
@@ -19,29 +21,14 @@ struct Provider: TimelineProvider {
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<GameEntry>) -> ()) {
-        // TODO way for user to change team, chosen method is user default suite
-        Task {
-            var entries: [GameEntry] = []
-            let currentDate = Date.now
-            guard let games = try? await Game.gamesFor(team: 117, forDate: currentDate) else {
-                return
-            }
-            for x in games {
-                print(x)
-                entries.append(GameEntry(game: x))
-            }
-            let nextUpdate = Calendar.autoupdatingCurrent.date(byAdding: DateComponents(hour: 1), to: currentDate)!
-            let timeline = Timeline(entries: entries, policy: .after(nextUpdate))
-            completion(timeline)
-        }
+        let entries: [GameEntry] = []
+        let timeline = Timeline(entries: entries, policy: .never)
     }
 }
 
 struct ios_widgetEntryView : View {
     
     @Environment(\.widgetFamily) private var widgetFamily
-//    @Environment(\.widgetRenderingMode) private var widgetRenderingMode // Vibrant on Lockscreen
-//    @Environment(\.showsWidgetContainerBackground) var showsWidgetContainerBackground // False if in Standy Mode
     
     var entry: Provider.Entry
 
