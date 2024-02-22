@@ -13,7 +13,6 @@ let sampleEntry: SimpleEntry = SimpleEntry(date: Date.now,
                                            isHome: false,
                                            opponentName: "Kansas City",
                                            gameDateTime: Date(timeIntervalSince1970: 1694905800))
-//let sampleGame = Game(gameID: 111111, homeTeam: 117, homeTeamName: "Houston", homeTeamCode: "HOU", awayTeam: 118, awayTeamName: "New York Yankees", awayTeamCode: "NYY", date: Date(timeIntervalSince1970: 1694905800), status: "Scheduled", type: .game(.baseball))
 let sampleGameTimelineEntry: GameEntry = GameEntry(game: Game())
 
 
@@ -39,6 +38,5 @@ struct GameEntry: TimelineEntry {
 }
 
 // for logos
-
 // https://www.mlbstatic.com/team-logos/team-cap-on-dark/117.svg
 // https://www.mlbstatic.com/team-logos/team-cap-on-light/117.svg

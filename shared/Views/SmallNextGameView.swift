@@ -50,10 +50,3 @@ struct SmallNextGameView: View {
         }
     }
 }
-
-//struct SmallNextGameView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SmallNextGameView(entry: sampleGameTimelineEntry)
-//            .previewContext(WidgetPreviewContext(family: .systemSmall))
-//    }
-//}

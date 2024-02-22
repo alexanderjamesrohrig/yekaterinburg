@@ -1,5 +1,5 @@
 //
-//  SmallNextGameViewTwo.swift
+//  SmallNextGameTwoView.swift
 //  ios-widgetExtension
 //
 //  Created by Alexander Rohrig on 9/24/23.
@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 import WidgetKit
 
-struct SmallNextGameViewTwo: View {
+struct SmallNextGameTwoView: View {
     
     @AppStorage("settingTeamID") private var favoriteTeamID = 117
     var entry: GameEntry
@@ -19,13 +19,13 @@ struct SmallNextGameViewTwo: View {
             Text("\(entry.game.status)")
             HStack {
                 Spacer()
-                Text("\(entry.game.awayTeamCode ?? "")")
+                Text("\(entry.game.awayTeamCode)")
                     .font(.title)
                     .fontWeight(.heavy)
                     .fontWidth(.compressed)
                     .textCase(.uppercase)
                 Divider()
-                Text("\(entry.game.homeTeamCode ?? "")")
+                Text("\(entry.game.homeTeamCode)")
                     .font(.title)
                     .fontWeight(.heavy)
                     .fontWidth(.compressed)
