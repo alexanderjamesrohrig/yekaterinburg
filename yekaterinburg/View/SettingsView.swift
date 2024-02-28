@@ -14,9 +14,9 @@ struct SettingsView: View {
     @AppStorage(StoreManager.shared.appStorageBasketball) var basketballTeam: Int = 20
     @AppStorage(StoreManager.shared.appStorageHockey) var hockeyTeam: Int = 3
     @AppStorage(StoreManager.shared.appStorageCalcio) var calcioTeam: Int = 113
-    @State private var showCalcio: Bool = true
-    @State private var showBaseball: Bool = true
-    @State private var showBasketball: Bool = true
+    @State private var showCalcio = true
+    @State private var showBaseball = true
+    @State private var showBasketball = true
     private let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "SettingsView")
     
     var body: some View {
@@ -29,9 +29,6 @@ struct SettingsView: View {
                 .monospacedDigit()
             Text("Hockey coming soon...")
             Text("Football coming soon...")
-            Button("View Notices") {
-            // TODO: Show API copyright notices
-            }
             #if DEBUG
             Button("PRINT_FAVORITE_VALUES") {
                 logger.info("Favorites: \(baseballTeam) \(basketballTeam) \(calcioTeam)")
