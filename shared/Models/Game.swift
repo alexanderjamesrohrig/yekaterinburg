@@ -43,16 +43,24 @@ struct Game: Identifiable, Codable {
     var type: YeType
     
     // MARK: - Static constants
-    static let supportedLeagues = ["Baseball",
-                                   "Hockey",
-                                   "College Football",]
+    static let supportedLeagues = [
+        "Baseball",
+        "Hockey",
+        "College Football",
+    ]
     
     // MARK: - Static variables
     static var blank: Game {
         Game(homeName: "Home", awayName: "Away")
     }
     static var blankEvent: Game {
-        Game(gameID: 0, homeTeamName: "Sample Event", status: "Scheduled", televisionOptions: "SAM", radioOptions: "SAMP", venue: "Sample Venue", type: .event)
+        Game(gameID: 0,
+             homeTeamName: "Sample Event",
+             status: "Scheduled",
+             televisionOptions: "SAM",
+             radioOptions: "SAMP",
+             venue: "Sample Venue",
+             type: .event)
     }
     
     // MARK: - Static functions
@@ -179,7 +187,21 @@ struct Game: Identifiable, Codable {
         self.televisionOptions = ""
     }
     
-    init(gameID: Int, homeTeam: Int = 0, homeTeamName: String, homeTeamCode: String = "", homePoints: Int = 0, awayTeam: Int = 0, awayTeamName: String = "", awayTeamCode: String = "", awayPoints: Int = 0, date: Date = Date.now, status: String = "", televisionOptions: String = "", radioOptions: String = "", venue: String = "", type: YeType) {
+    init(gameID: Int,
+         homeTeam: Int = 0,
+         homeTeamName: String,
+         homeTeamCode: String = "",
+         homePoints: Int = 0,
+         awayTeam: Int = 0,
+         awayTeamName: String = "",
+         awayTeamCode: String = "",
+         awayPoints: Int = 0,
+         date: Date = Date.now,
+         status: String = "",
+         televisionOptions: String = "",
+         radioOptions: String = "",
+         venue: String = "",
+         type: YeType) {
         self.id = gameID
         self.homeTeam = homeTeam
         self.homeTeamName = homeTeamName

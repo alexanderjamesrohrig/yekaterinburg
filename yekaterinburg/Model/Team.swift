@@ -20,11 +20,12 @@ struct Team: Identifiable {
         get async {
             var teams: [Team] = []
             if FeatureFlagManager.shared.teamsFromAllAPISources {
+                logger.info("Teams from all sources")
                 guard let mlbTeams = await MLBAPI.teams(useMockData: true) else {
                     logger.error("Unable to get MLB teams")
                     return []
                 }
-                logger.info("\(mlbTeams.teams) MLB teams")
+                logger.info("\(mlbTeams.teams.count) MLB teams")
                 teams.append(contentsOf: TeamAdapter.getTeamsFromMLB(mlbTeams))
                 guard let nbaTeams = await NBAAPI.teams(useMockData: true) else {
                     logger.error("Unable to get NBA teams")
@@ -38,7 +39,12 @@ struct Team: Identifiable {
                 do {
                     let data = try Data(contentsOf: url!) // LOCAL JSON FILE
                     let decoded = try? JSONDecoder().decode(QuickTypeTeams.self, from: data)
-                    print(decoded ?? "")
+                    if FeatureFlagManager.shared.printFullResponses {
+                        logger.info("Printing full responses")
+                        print(decoded ?? "")
+                    } else {
+                        logger.info("Teams :- \(decoded?.teams.count ?? 0)")
+                    }
                     if let d = decoded {
                         for x in d.teams {
                             teams.append(Team(quickType: x))
@@ -65,7 +71,7 @@ struct Team: Identifiable {
         self.parentOrgName = quickType.parentOrgName ?? ""
         self.sport = .game(.baseball)
     }
-    init(id: Int, name: String, parentOrgName: String, sport: YeType) {
+    init(id: Int, name: String, parentOrgName: String = "", sport: YeType) {
         self.id = id
         self.name = name
         self.parentOrgName = parentOrgName

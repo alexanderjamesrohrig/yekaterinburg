@@ -21,6 +21,7 @@ struct NBAAPI {
             logger.error("Unable to create URL")
             return nil
         }
+        logger.info("\(url)")
         let mockURL = Bundle.main.url(forResource: "teams", withExtension: "json")
         let decoder = JSONDecoder()
         do {
@@ -30,10 +31,18 @@ struct NBAAPI {
             } else {
                 var request = URLRequest(url: url)
                 request.addValue(StateSecretManager.shared.ballDontLieToken, forHTTPHeaderField: "Authorization")
-                let (nbaData, _) = try await URLSession.shared.data(for: request)
+                let (nbaData, response) = try await URLSession.shared.data(for: request)
+                if let response = response as? HTTPURLResponse {
+                    logger.info("\(response.statusCode) - \(url)")
+                }
                 data = nbaData
             }
             let decoded = try decoder.decode(BasketballTeamsResponse.self, from: data)
+            if FeatureFlagManager.shared.printFullResponses {
+                print(decoded)
+            } else {
+                logger.info("Teams :- \(decoded.data.count)")
+            }
             return decoded
         } catch {
             logger.error("Unable to decode API data")

@@ -24,28 +24,38 @@ struct GameListView: View {
 #endif
     
     var body: some View {
+        ZStack {
+            BackgroundView()
+            VStack(spacing: 0) {
 #if DEBUG
-        DebugView(useMockData: $useMockData)
+//                DebugView(useMockData: $useMockData)
 #endif
-        List(games) { game in
-            HStack {
-                HStack {
-                    Text("\(game.awayTeamName) at \(game.homeTeamName)")
-                }
-                Spacer()
-                HStack {
-                    if game.televisionOptions.isEmpty {
-                        Label("No TV options", systemImage: ImageManager.shared.noTV)
-                            .labelStyle(.iconOnly)
-                    } else {
-                        Label(game.televisionOptions, systemImage: ImageManager.shared.tv)
+                List(games) { game in
+                    HStack {
+                        HStack {
+                            Text("\(game.awayTeamName) at \(game.homeTeamName)")
+                        }
+                        Spacer()
+                        HStack {
+                            if game.televisionOptions.isEmpty {
+                                Label("No TV options", systemImage: ImageManager.shared.noTV)
+                                    .labelStyle(.iconOnly)
+                                    .foregroundStyle(.thickMaterial)
+                            } else {
+                                Label(game.televisionOptions, systemImage: ImageManager.shared.tv)
+                                    .foregroundStyle(.thickMaterial)
+                            }
+                            if !game.radioOptions.isEmpty {
+                                Label(game.radioOptions, systemImage: ImageManager.shared.radio)
+                                    .foregroundStyle(.thickMaterial)
+                            }
+                            Text(DateAdapter.yeFormatWithTime(from: game.date))
+                                .foregroundStyle(.ultraThickMaterial)
+                                .monospacedDigit()
+                        }
                     }
-                    if !game.radioOptions.isEmpty {
-                        Label(game.radioOptions, systemImage: ImageManager.shared.radio)
-                    }
-                    Text(game.date, style: .relative)
-                        .foregroundStyle(.gray)
                 }
+                .background(.ultraThinMaterial)
             }
         }
         .task {

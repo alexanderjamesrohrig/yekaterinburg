@@ -20,8 +20,8 @@ struct TeamsView: View {
             }
             TableColumn("name", value: \.name)
             TableColumn("parent organization", value: \.parentOrgName)
-            TableColumn("sport") { team in
-                Text("Baseball")
+            TableColumn("sport") { teamRow in
+                displayName(for: teamRow.sport)
             }
         }
         .onChange(of: sortOrder) { _, newSort in
@@ -29,6 +29,23 @@ struct TeamsView: View {
         }
         .task {
             teams = await Team.all
+        }
+    }
+    
+    private func displayName(for sport: YeType) -> some View {
+        switch sport {
+        case .event:
+            Text("Event")
+        case .game(.baseball):
+            Text("Baseball")
+        case .game(.basketball):
+            Text("Basketball")
+        case .game(.calcio):
+            Text("Soccer")
+        case .game(.hockey):
+            Text("Hockey")
+        default:
+            Text("Unknown sport")
         }
     }
 }

@@ -27,27 +27,37 @@ struct ContentView: View {
     @Environment(\.openURL) private var openURL
     
     var body: some View {
-        #if DEBUG
-        DebugView(useMockData: $useMockData)
-        #endif
-        List(games) { game in
-            HStack {
-                HStack {
-                    if game.type != .event {
-                        Text(game.awayTeamName)
-                        Text("at")
+        ZStack {
+            BackgroundView()
+            VStack(spacing: 0) {
+#if DEBUG
+                DebugView(useMockData: $useMockData)
+                    .background(.regularMaterial)
+#endif
+                List(games) { game in
+                    HStack {
+                        HStack {
+                            if game.type != .event {
+                                Text("\(game.awayTeamName) at \(game.homeTeamName)")
+                            } else {
+                                Text(game.homeTeamName)
+                            }
+                        }
+                        Spacer()
+                        Text(DateAdapter.yeFormatWithTime(from: game.date))
+                            .foregroundStyle(.ultraThickMaterial)
+                            .monospacedDigit()
                     }
-                    Text(game.homeTeamName)
                 }
-                Spacer()
-                Text(DateAdapter.yeFormatWithTime(from: game.date))
-                    .foregroundStyle(.gray)
+                .background(.ultraThinMaterial)
+                .scrollContentBackground(.hidden)
             }
         }
         .sheet(isPresented: $showSettingsSheet) {
             SettingsView()
                 .presentationDetents([.medium, .large])
         }
+        .toolbarBackground(.regularMaterial)
         .toolbar {
             ToolbarButton(action: {
                 Task {
