@@ -34,5 +34,9 @@ class ImageManager {
     let tv = "tv"
     /// Used to signify no available television options
     let noTV = "tv.slash"
+    /// NHL URL Ex :- https://assets.nhle.com/logos/nhl/svg/NYI_light.svg
+    /// MLS URL Ex :- https://images.mlssoccer.com/image/upload/assets/logos/TOR.svg
+    /// NBA URL Ex :- https://cdn.nba.com/logos/nba/1610612745/primary/L/logo.svg
+    /// MLB URL Ex :- https://www.mlbstatic.com/team-logos/team-cap-on-light/147.svg
     private init() {}
 }

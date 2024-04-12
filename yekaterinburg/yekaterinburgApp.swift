@@ -11,8 +11,8 @@ import SwiftUI
 struct yekaterinburgApp: App {
     var body: some Scene {
         WindowGroup {
-            // TODO: Implement View System 1
-            ContentView()
+            macView()
+                .frame(minWidth: 500, minHeight: 200)
         }
         #if os(macOS)
         Window("Teams", id: WindowManager.shared.teams) {

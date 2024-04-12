@@ -15,7 +15,7 @@ struct YekaterinburgTVApp: App {
     
     var body: some Scene {
         WindowGroup {
-            GameListView()
+            tvView()
         }
     }
 }

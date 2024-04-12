@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  macView.swift
 //  yekaterinburg
 //
 //  Created by Alexander Rohrig on 6/30/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import OSLog
 
-struct ContentView: View {
+struct macView: View {
     
     private let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "ContentView")
     private let apiSources: Set<YeType> = [.game(.basketball),
@@ -31,8 +31,7 @@ struct ContentView: View {
             BackgroundView()
             VStack(spacing: 0) {
 #if DEBUG
-                DebugView(useMockData: $useMockData)
-                    .background(.regularMaterial)
+//                DebugView(useMockData: $useMockData)
 #endif
                 List(games) { game in
                     HStack {
@@ -48,6 +47,7 @@ struct ContentView: View {
                             .foregroundStyle(.ultraThickMaterial)
                             .monospacedDigit()
                     }
+                    .listRowSeparator(.hidden)
                 }
                 .background(.ultraThinMaterial)
                 .scrollContentBackground(.hidden)
@@ -92,6 +92,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        macView()
     }
 }

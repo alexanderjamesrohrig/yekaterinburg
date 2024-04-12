@@ -150,6 +150,7 @@ struct Game: Identifiable, Codable {
         self.awayTeam = 2
         self.homeTeamName = homeName
         self.awayTeamName = awayName
+        self.status = "Status"
         self.type = .event
     }
     

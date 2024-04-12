@@ -8,7 +8,7 @@
 import SwiftUI
 import OSLog
 
-struct GameListView: View {
+struct tvView: View {
     
     private let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "GameListView")
     private let apiSources: Set<YeType> = [.game(.basketball),
@@ -66,5 +66,5 @@ struct GameListView: View {
 }
 
 #Preview {
-    GameListView()
+    tvView()
 }
