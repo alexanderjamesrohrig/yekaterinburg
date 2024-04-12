@@ -23,6 +23,8 @@
 		0805EA122AD198EA00D17753 /* FutureGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0805EA102AD198EA00D17753 /* FutureGameView.swift */; };
 		0805EA162AD1A06800D17753 /* collegefootballdata-games.json in Resources */ = {isa = PBXBuildFile; fileRef = 0805EA152AD1A06700D17753 /* collegefootballdata-games.json */; };
 		0805EA182AD1A91E00D17753 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0805EA172AD1A91E00D17753 /* SettingsView.swift */; };
+		0821B7B52BC97ED3004CCCB9 /* StringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0821B7B42BC97ED3004CCCB9 /* StringManager.swift */; };
+		0821B7B62BC97ED3004CCCB9 /* StringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0821B7B42BC97ED3004CCCB9 /* StringManager.swift */; };
 		082964872AD8797E000B1D7B /* nhl-schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = 082964862AD8797E000B1D7B /* nhl-schedule.json */; };
 		082964892AD87AE9000B1D7B /* HockeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082964882AD87AE9000B1D7B /* HockeyResponse.swift */; };
 		083CBCC22B8249F300D151F7 /* GeneralSecretary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08022E762B786614009F572E /* GeneralSecretary.swift */; };
@@ -167,6 +169,7 @@
 		0805EA102AD198EA00D17753 /* FutureGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutureGameView.swift; sourceTree = "<group>"; };
 		0805EA152AD1A06700D17753 /* collegefootballdata-games.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "collegefootballdata-games.json"; sourceTree = "<group>"; };
 		0805EA172AD1A91E00D17753 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0821B7B42BC97ED3004CCCB9 /* StringManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringManager.swift; sourceTree = "<group>"; };
 		082964862AD8797E000B1D7B /* nhl-schedule.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "nhl-schedule.json"; sourceTree = "<group>"; };
 		082964882AD87AE9000B1D7B /* HockeyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HockeyResponse.swift; sourceTree = "<group>"; };
 		0837AF8E2A589EF600D8E989 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -372,6 +375,7 @@
 				0805EA0D2AD1968F00D17753 /* SampleManager.swift */,
 				087C2E182B85731700AFAB34 /* ErrorManager.swift */,
 				08A2B1912B86DC1F000B770F /* FeatureFlagManager.swift */,
+				0821B7B42BC97ED3004CCCB9 /* StringManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -789,6 +793,7 @@
 				08D25E902AE6EE7F004EB8DB /* NBAAPI.swift in Sources */,
 				083CBD2E2B82587100D151F7 /* DebugView.swift in Sources */,
 				08A2B1882B86B7ED000B770F /* TeamAdapter.swift in Sources */,
+				0821B7B52BC97ED3004CCCB9 /* StringManager.swift in Sources */,
 				08A2B1922B86DC1F000B770F /* FeatureFlagManager.swift in Sources */,
 				08AFEC252B813E330028A39A /* GameDetailView.swift in Sources */,
 				08A587832AB5EAD600BA4BE9 /* DateAdapter.swift in Sources */,
@@ -816,6 +821,7 @@
 				0875168D2B83E96300018712 /* EventView.swift in Sources */,
 				083CBCF32B824B6B00D151F7 /* BasketballResponse.swift in Sources */,
 				083CBCE32B824B3500D151F7 /* System1ViewModel.swift in Sources */,
+				0821B7B62BC97ED3004CCCB9 /* StringManager.swift in Sources */,
 				083CBD1F2B824FD000D151F7 /* SampleManager.swift in Sources */,
 				083CBCF92B824C5900D151F7 /* ImageManager.swift in Sources */,
 				083CBCC32B8249F800D151F7 /* RohrigView.swift in Sources */,

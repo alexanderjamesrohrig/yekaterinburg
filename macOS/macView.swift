@@ -16,13 +16,10 @@ struct macView: View {
                                            .game(.baseball)]
     private let viewModel = System1ViewModel()
     @State private var games: [Game] = []
-    #if DEBUG
-    @State private var useMockData: Bool = true
-    #else
-    @State private var useMockData: Bool = false
-    #endif
+    @AppStorage(StringManager.shared.storageFFMockData) private var useMockData: Bool = true
     @State private var lastUpdate = Date.distantPast
     @State private var showSettingsSheet = false
+    @State private var showDebugSheet = false
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.openURL) private var openURL
     
@@ -30,28 +27,34 @@ struct macView: View {
         ZStack {
             BackgroundView()
             VStack(spacing: 0) {
-#if DEBUG
-//                DebugView(useMockData: $useMockData)
-#endif
                 List(games) { game in
                     HStack {
                         HStack {
                             if game.type != .event {
                                 Text("\(game.awayTeamName) at \(game.homeTeamName)")
+                                    .fontDesign(.rounded)
+                                    .font(.headline)
                             } else {
                                 Text(game.homeTeamName)
+                                    .fontDesign(.rounded)
+                                    .font(.headline)
                             }
                         }
                         Spacer()
+                        Text(game.televisionOptions)
+                            .foregroundStyle(.regularMaterial)
+                            .fontDesign(.rounded)
                         Text(DateAdapter.yeFormatWithTime(from: game.date))
-                            .foregroundStyle(.ultraThickMaterial)
                             .monospacedDigit()
+                            .fontDesign(.rounded)
                     }
                     .listRowSeparator(.hidden)
                 }
-                .background(.ultraThinMaterial)
                 .scrollContentBackground(.hidden)
             }
+        }
+        .sheet(isPresented: $showDebugSheet) {
+            DebugView(useMockData: $useMockData)
         }
         .sheet(isPresented: $showSettingsSheet) {
             SettingsView()
@@ -59,6 +62,11 @@ struct macView: View {
         }
         .toolbarBackground(.regularMaterial)
         .toolbar {
+            #if DEBUG
+            ToolbarButton(action: {
+                showDebugSheet = true
+            }, title: "DEBUG", systemImage: ImageManager.shared.ff)
+            #endif
             ToolbarButton(action: {
                 Task {
                     games = await viewModel.getGamesFrom(sources: apiSources, useMockData: useMockData)

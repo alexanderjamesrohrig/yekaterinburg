@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
 
 /// System images used within the app
 class ImageManager {
     static let shared = ImageManager()
+    let ff = "flag.fill"
     /// Used to signify multiple teams
     let teams = "person.2.crop.square.stack"
     /// Used to signify baseball
@@ -38,5 +40,26 @@ class ImageManager {
     /// MLS URL Ex :- https://images.mlssoccer.com/image/upload/assets/logos/TOR.svg
     /// NBA URL Ex :- https://cdn.nba.com/logos/nba/1610612745/primary/L/logo.svg
     /// MLB URL Ex :- https://www.mlbstatic.com/team-logos/team-cap-on-light/147.svg
+    public func teamLogo(for sport: YeType, id: Int) -> Image? {
+        switch sport {
+        case .event:
+            return nil
+        case .game(let game):
+            switch game {
+            case .baseball:
+                return Image("\(StringManager.shared.baseballPrefix)\(id)")
+            case .basketball:
+                return Image("\(StringManager.shared.basketballPrefix)\(id)")
+            case .hockey:
+                return Image("\(StringManager.shared.hockeyPrefix)\(id)")
+            case .calcio:
+                return Image("\(StringManager.shared.soccerPrefix)\(id)")
+            case .collegeFootball:
+                return nil // TODO:
+            case .football:
+                return nil // TODO:
+            }
+        }
+    }
     private init() {}
 }
