@@ -13,5 +13,6 @@ class WindowManager {
     let schedule = "schedule"
     /// Teams window
     let teams = "teams"
+    let competitions = "competitions"
     private init() {}
 }

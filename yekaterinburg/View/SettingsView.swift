@@ -21,14 +21,35 @@ struct SettingsView: View {
     
     var body: some View {
         Form {
-            Stepper("Baseball team #\(baseballTeam)", value: $baseballTeam)
-                .monospacedDigit()
-            Stepper("Basketball team #\(basketballTeam)", value: $basketballTeam)
-                .monospacedDigit()
-            Stepper("Soccer team #\(calcioTeam)", value: $calcioTeam)
-                .monospacedDigit()
-            Text("Hockey coming soon...")
-            Text("Football coming soon...")
+            HStack {
+                Stepper("Baseball", value: $baseballTeam)
+                Image("mlb\(baseballTeam)")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+                Text("#\(baseballTeam)")
+                    .monospaced()
+            }
+            HStack {
+                Stepper("Basketball", value: $basketballTeam)
+                Image("nba\(basketballTeam)")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+                Text("#\(basketballTeam)")
+                    .monospaced()
+            }
+            HStack {
+                Stepper("Soccer", value: $calcioTeam)
+                Image("fd\(calcioTeam)")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+                Text("#\(calcioTeam)")
+                    .monospaced()
+            }
+            LabeledContent("Hockey", value: "Coming soon")
+            LabeledContent("Football", value: "Coming soon")
             #if DEBUG
             Button("PRINT_FAVORITE_VALUES") {
                 logger.info("Favorites: \(baseballTeam) \(basketballTeam) \(calcioTeam)")

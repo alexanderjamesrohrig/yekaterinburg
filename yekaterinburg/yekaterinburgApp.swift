@@ -18,8 +18,12 @@ struct yekaterinburgApp: App {
         Window("Teams", id: WindowManager.shared.teams) {
             TeamsView()
         }
+        Window("Competitions", id: WindowManager.shared.competitions) {
+            CompetitionsView()
+        }
         Settings {
             SettingsView()
+                .frame(width: 500, height: 500)
         }
         #endif
     }
