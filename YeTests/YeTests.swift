@@ -11,15 +11,7 @@ import OSLog
 final class WorldFootballAPITests: XCTestCase {
     
     private typealias API = WorldFootballAPI
-    private let logger = Logger(subsystem: "com.alexanderrohrig.YeTests", category: "YeTests")
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    private let logger = Logger(subsystem: "com.alexanderrohrig.YeTests", category: "WorldFootballAPITests")
 
     func testCompetitions() async throws {
         let competitions = await API.competitions(useMockData: true)
@@ -48,5 +40,58 @@ final class WorldFootballAPITests: XCTestCase {
         }
         XCTAssert(first.id == 1)
         XCTAssert(first.name == "1. FC Köln")
+    }
+    
+    func testStandings() async throws {
+        let league = "BL1"
+        let standings = await API.standings(for: league, useMockData: true)
+        guard let standings else {
+            XCTFail()
+            return
+        }
+        if let id = standings.competition?.id {
+            XCTAssert(standings.competition?.id == 2002)
+        } else {
+            XCTFail()
+        }
+        if let matchday = standings.season?.currentMatchday {
+            XCTAssert(matchday == 31)
+        } else {
+            XCTFail()
+        }
+        if let stage = standings.standings?.first?.stage {
+            XCTAssert(stage == "REGULAR_SEASON")
+        } else {
+            XCTFail()
+        }
+        if let count = standings.standings?.first?.table?.count {
+            XCTAssert(count == 18)
+        } else {
+            XCTFail()
+        }
+        if let first = standings.standings?.first?.table?.first?.position {
+            XCTAssert(first == 1)
+        } else {
+            XCTFail()
+        }
+    }
+}
+
+final class BasketballAPITests: XCTestCase {
+    
+    private let logger = Logger(subsystem: "com.alexanderrohrig.YeTests", category: "BasketballAPITests")
+    
+    func testTeams() async throws {
+        let teams = await NBAAPI.teams(useMockData: true)
+        guard let firstID = teams?.data.first?.id else {
+            XCTFail()
+            return
+        }
+        XCTAssert(firstID == 1)
+        guard let firstCity = teams?.data.first?.city else {
+            XCTFail()
+            return
+        }
+        XCTAssert(firstCity == "Atlanta")
     }
 }

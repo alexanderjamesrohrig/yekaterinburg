@@ -21,6 +21,9 @@ struct yekaterinburgApp: App {
         Window("Competitions", id: WindowManager.shared.competitions) {
             CompetitionsView()
         }
+        Window(SM.shared.standingsTitle, id: WindowManager.shared.standings) {
+            
+        }
         Settings {
             SettingsView()
                 .frame(width: 500, height: 500)

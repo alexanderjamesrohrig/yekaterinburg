@@ -13,6 +13,9 @@ class WindowManager {
     let schedule = "schedule"
     /// Teams window
     let teams = "teams"
+    /// Soccer competitions window
     let competitions = "competitions"
+    /// Standings window
+    let standings = "standings"
     private init() {}
 }

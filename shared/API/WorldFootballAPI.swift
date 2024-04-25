@@ -95,5 +95,33 @@ struct WorldFootballAPI {
         }
     }
     
+    static func standings(for league: String,
+                          useMockData: Bool = false) async -> WorldFootballStandingsResponse? {
+        // api.football-data.org/v4/competitions/BL1/standings
+        guard let url = URL(string: "http://api.football-data.org/v4/competitions/\(league)/standings") else {
+            logger.error("Unable to create URL")
+            return nil
+        }
+        let mockURL = Bundle.main.url(forResource: "football-data_standings", withExtension: "json")
+        let decoder = JSONDecoder()
+        do {
+            var data = Data()
+            if useMockData {
+                data = try Data(contentsOf: mockURL!)
+            } else {
+                var request = URLRequest(url: url)
+                request.addValue(StateSecretManager.shared.footballDataToken, forHTTPHeaderField: "X-Auth-Token")
+                print(request)
+                let (soccerData, _) = try await URLSession.shared.data(for: request)
+                data = soccerData
+            }
+            let decoded = try decoder.decode(WorldFootballStandingsResponse.self, from: data)
+            return decoded
+        } catch {
+            logger.error("Unable to decode API data")
+            return nil
+        }
+    }
+    
     private init() {}
 }

@@ -13,8 +13,8 @@ struct BasketballTeamsResponse: Codable {
     struct Team: Codable {
         let id: Int
         let city: String?
-        let name: String
-        let full_name: String
-        let abbreviation: String
+        let name: String?
+        let full_name: String?
+        let abbreviation: String?
     }
 }

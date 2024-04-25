@@ -27,7 +27,7 @@ struct Team: Identifiable {
                 }
                 logger.info("\(mlbTeams.teams.count) MLB teams")
                 teams.append(contentsOf: TeamAdapter.getTeamsFromMLB(mlbTeams))
-                guard let nbaTeams = await NBAAPI.teams(useMockData: true) else {
+                guard let nbaTeams = await NBAAPI.teams() else {
                     logger.error("Unable to get NBA teams")
                     return []
                 }

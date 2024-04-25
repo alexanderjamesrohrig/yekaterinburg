@@ -96,6 +96,26 @@ struct macView: View {
             }
         }
     }
+    
+    @ViewBuilder private func segmentedView() -> some View {
+        HStack {
+            List {
+                Section("Yesterday") {
+                    
+                }
+            }
+            List {
+                Section("Today") {
+                    
+                }
+            }
+            List {
+                Section("Upcoming") {
+                    
+                }
+            }
+        }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

@@ -7,7 +7,8 @@
 
 import Foundation
 
-class StringManager {
+public typealias SM = StringManager
+public class StringManager {
     static let shared = StringManager()
     let baseballPrefix = "mlb"
     let basketballPrefix = "nba"
@@ -15,5 +16,6 @@ class StringManager {
     let soccerPrefix = "MLS"
     let storageFFMockData = "storage.ff.mockData"
     let debugViewTitle = "DEBUG"
+    let standingsTitle = "Standings"
     private init() {}
 }

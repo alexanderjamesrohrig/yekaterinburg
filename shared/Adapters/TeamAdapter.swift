@@ -29,7 +29,7 @@ struct TeamAdapter {
         var list = [Team]()
         for x in teams.data {
             let teamToAdd = Team(id: x.id,
-                                 name: x.name,
+                                 name: x.name ?? "",
                                  parentOrgName: "",
                                  sport: .game(.basketball))
             list.append(teamToAdd)
