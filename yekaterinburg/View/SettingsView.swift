@@ -48,6 +48,7 @@ struct SettingsView: View {
                 Text("#\(calcioTeam)")
                     .monospaced()
             }
+            // TODO: Select favorite hockey team
             LabeledContent("Hockey", value: "Coming soon")
             LabeledContent("Football", value: "Coming soon")
             #if DEBUG

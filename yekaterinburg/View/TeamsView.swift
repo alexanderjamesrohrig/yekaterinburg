@@ -14,7 +14,7 @@ struct TeamsView: View {
     
     var body: some View {
         Table(teams, sortOrder: $sortOrder) {
-            TableColumn("Id") { team in
+            TableColumn("Id", value: \.id) { team in
                 Text(verbatim: "\(team.id)")
                     .monospaced()
             }

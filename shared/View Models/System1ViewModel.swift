@@ -10,7 +10,11 @@ import OSLog
 
 @Observable class System1ViewModel {
     private let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "System1ViewModel")
+    var twoDaysAgo: Date {
+        Calendar.autoupdatingCurrent.date(byAdding: .day, value: -2, to: Date.now) ?? Date.now
+    }
     var games = [Game]()
+    
     /// Returns array of Game objects from API and local sources
     /// - Parameter sources: Set of YeType, used to decide which APIs to fetch from.
     /// - Returns: Array of Game objects
@@ -21,28 +25,26 @@ import OSLog
         var games: [Game] = []
         /// Calcio
         if sources.contains(.game(.calcio)) {
-            guard let gamesFromAPI = await WorldFootballAPI.games(useMockData: useMockData)?.matches else {
-                logger.error("Unable to get soccer games")
-                return []
-            }
-            for g in gamesFromAPI {
-                let adaptedGame = GameAdapter.getGameFrom(footballGame: g)
-                if adaptedGame.date > Date.now {
-                    games.append(adaptedGame)
+            let gamesFromAPI = await WorldFootballAPI.games(useMockData: useMockData)?.matches
+            if let gamesFromAPI {
+                for g in gamesFromAPI {
+                    let adaptedGame = GameAdapter.getGameFrom(footballGame: g)
+                    if adaptedGame.date > twoDaysAgo {
+                        games.append(adaptedGame)
+                    }
                 }
             }
         }
         /// Baseball
         if sources.contains(.game(.baseball)) {
-            guard let datesAndGamesFromAPI = await MLBAPI.games(useMockData: useMockData) else {
-                logger.error("Unable to get baseball games")
-                return []
-            }
-            for d in datesAndGamesFromAPI.dates {
-                for g in d.games {
-                    let adaptedGame = GameAdapter.getGameFrom(baseballGame: g)
-                    if adaptedGame.date > Date.now {
-                        games.append(adaptedGame)
+            let datesAndGamesFromAPI = await MLBAPI.games(useMockData: useMockData)
+            if let dates = datesAndGamesFromAPI?.dates {
+                for d in dates {
+                    for g in d.games {
+                        let adaptedGame = GameAdapter.getGameFrom(baseballGame: g)
+                        if adaptedGame.date > twoDaysAgo {
+                            games.append(adaptedGame)
+                        }
                     }
                 }
             }
@@ -51,23 +53,46 @@ import OSLog
         /// https://plaintextsports.com/nfl/2023/schedule
         /// College Football
         ///
-        if sources.contains(.game(.collegeFootball)) {
-            // TODO: NCAA
-        }
+//        if sources.contains(.game(.collegeFootball)) {
+//            // TODO: NCAA
+//        }
         /// Hockey
         if sources.contains(.game(.hockey)) {
-            // TODO: NHL
+            // TODO: User selected team
+            // TODO: Current season
+            let gamesFromAPI = await NHLAPI.schedule(useMockData: useMockData,
+                                                     club: "NYR",
+                                                     season: "20232024")?.games
+            if let gamesFromAPI {
+                for gameFromAPI in gamesFromAPI {
+                    let adaptedGame = Game(gameID: gameFromAPI.id,
+                                           homeTeam: gameFromAPI.homeTeam?.id ?? 0,
+                                           homeTeamName: gameFromAPI.homeTeam?.abbrev ?? "",
+                                           homeTeamCode: gameFromAPI.homeTeam?.abbrev ?? "",
+                                           homePoints: gameFromAPI.homeTeam?.score ?? 0,
+                                           awayTeam: gameFromAPI.awayTeam?.id ?? 0,
+                                           awayTeamName: gameFromAPI.awayTeam?.abbrev ?? "",
+                                           awayTeamCode: gameFromAPI.awayTeam?.abbrev ?? "",
+                                           awayPoints: gameFromAPI.awayTeam?.score ?? 0,
+                                           date: DateAdapter.dateFromAPI(date: gameFromAPI.startTimeUTC ?? ""),
+                                           status: gameFromAPI.gameState ?? "",
+                                           televisionOptions: gameFromAPI.tvBroadcasts?.first?.network ?? "",
+                                           radioOptions: "",
+                                           venue: "",
+                                           type: .game(.hockey))
+                    if adaptedGame.date > twoDaysAgo {
+                        games.append(adaptedGame)
+                    }
+                }
+            }
         }
         /// Basketball
         if sources.contains(.game(.basketball)) {
-            guard let gamesFromAPI = await NBAAPI.games(useMockData: useMockData)?.data else {
-                logger.error("Unable to get basketball games")
-                return []
-            }
-            for g in gamesFromAPI {
-                if g.status != "Final" {
+            let gamesFromAPI = await NBAAPI.games(useMockData: useMockData)?.data
+            if let gamesFromAPI {
+                for g in gamesFromAPI {
                     let adaptedGame = GameAdapter.getGameFrom(g)
-                    if adaptedGame.date > Date.now {
+                    if adaptedGame.date > twoDaysAgo {
                         games.append(adaptedGame)
                     }
                 }
@@ -86,9 +111,10 @@ import OSLog
         games.sort { lhs, rhs in
             lhs.date < rhs.date
         }
-        logger.info("\(#function) -> \(games.count)")
+        logger.info("Games from user teams :- \(games.count)")
         return games
     }
+    
     func save(_ games: [Game]) {
         let _ = Task {
             await StoreManager.shared.save(games: games)
