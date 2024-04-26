@@ -114,4 +114,30 @@ final class HockeyAPITests: XCTestCase {
         }
         XCTAssert(count == 39)
     }
+    
+    func testSchedule() async throws {
+        let team = "NYR"
+        let season = "20232024"
+        let schedule = await API.schedule(useMockData: true, club: team, season: season)
+        if let games = schedule?.games {
+            XCTAssert(games.count == 95)
+            if let first = games.first {
+                XCTAssert(first.id == 2023010009)
+                if let awayTeamName = first.awayTeam?.abbrev {
+                    XCTAssert(awayTeamName == "NYR")
+                } else {
+                    XCTFail()
+                }
+                if let network = first.tvBroadcasts?.first?.network {
+                    XCTAssert(network == "NHLN")
+                } else {
+                    XCTFail()
+                }
+            } else {
+                XCTFail()
+            }
+        } else {
+            XCTFail()
+        }
+    }
 }

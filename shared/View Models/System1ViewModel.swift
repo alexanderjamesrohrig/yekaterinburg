@@ -55,7 +55,6 @@ import OSLog
             // TODO: NCAA
         }
         /// Hockey
-        /// https://plaintextsports.com/nhl/2023-2024/schedule
         if sources.contains(.game(.hockey)) {
             // TODO: NHL
         }

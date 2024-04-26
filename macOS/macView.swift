@@ -13,7 +13,8 @@ struct macView: View {
     private let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "ContentView")
     private let apiSources: Set<YeType> = [.game(.basketball),
                                            .game(.calcio),
-                                           .game(.baseball)]
+                                           .game(.baseball),
+                                           .game(.hockey)]
     private let viewModel = System1ViewModel()
     @State private var games: [Game] = []
     @AppStorage(StringManager.shared.storageFFMockData) private var useMockData: Bool = true
