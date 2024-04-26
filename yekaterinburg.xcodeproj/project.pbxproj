@@ -141,6 +141,15 @@
 		08DA48FD2B7288BC0097F36C /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DA48FC2B7288BC0097F36C /* WindowManager.swift */; };
 		08DA49002B728A520097F36C /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DA48FF2B728A520097F36C /* ImageManager.swift */; };
 		08DB5A882AD97C00001D55B5 /* InProgressGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB5A872AD97C00001D55B5 /* InProgressGameView.swift */; };
+		08E0247E2BDBF6AD00C5AB65 /* nhle-franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E0247D2BDBF6AD00C5AB65 /* nhle-franchise.swift */; };
+		08E0247F2BDBF6AD00C5AB65 /* nhle-franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E0247D2BDBF6AD00C5AB65 /* nhle-franchise.swift */; };
+		08E024802BDBF6AD00C5AB65 /* nhle-franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E0247D2BDBF6AD00C5AB65 /* nhle-franchise.swift */; };
+		08E024822BDBF7D100C5AB65 /* NHLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E024812BDBF7D100C5AB65 /* NHLAPI.swift */; };
+		08E024832BDBF7D100C5AB65 /* NHLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E024812BDBF7D100C5AB65 /* NHLAPI.swift */; };
+		08E024842BDBF7D100C5AB65 /* NHLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E024812BDBF7D100C5AB65 /* NHLAPI.swift */; };
+		08E0248A2BDBFB1500C5AB65 /* nhle-franchise.json in Resources */ = {isa = PBXBuildFile; fileRef = 08E024892BDBFB1500C5AB65 /* nhle-franchise.json */; };
+		08E0248B2BDBFB1500C5AB65 /* nhle-franchise.json in Resources */ = {isa = PBXBuildFile; fileRef = 08E024892BDBFB1500C5AB65 /* nhle-franchise.json */; };
+		08E0248C2BDBFB1500C5AB65 /* nhle-franchise.json in Resources */ = {isa = PBXBuildFile; fileRef = 08E024892BDBFB1500C5AB65 /* nhle-franchise.json */; };
 		08E325392BA4E30A00104E85 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E325382BA4E30A00104E85 /* BackgroundView.swift */; };
 		08E3253A2BA4ECBB00104E85 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E325382BA4E30A00104E85 /* BackgroundView.swift */; };
 		08E3253B2BA4ED6B00104E85 /* QuickTypeTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D99CD22AB38064004C7D43 /* QuickTypeTeam.swift */; };
@@ -256,6 +265,9 @@
 		08DB5A872AD97C00001D55B5 /* InProgressGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InProgressGameView.swift; sourceTree = "<group>"; };
 		08DFB4452AC08B7200B95434 /* SmallNextGameTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallNextGameTwoView.swift; sourceTree = "<group>"; };
 		08DFB4472AC0922100B95434 /* SmallGameInProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallGameInProgressView.swift; sourceTree = "<group>"; };
+		08E0247D2BDBF6AD00C5AB65 /* nhle-franchise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "nhle-franchise.swift"; sourceTree = "<group>"; };
+		08E024812BDBF7D100C5AB65 /* NHLAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NHLAPI.swift; sourceTree = "<group>"; };
+		08E024892BDBFB1500C5AB65 /* nhle-franchise.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "nhle-franchise.json"; sourceTree = "<group>"; };
 		08E325372BA4CD5C00104E85 /* YeEvents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = YeEvents.json; sourceTree = "<group>"; };
 		08E325382BA4E30A00104E85 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		08E85C3D2ADDB9AA00A065E9 /* MediumNextGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumNextGameView.swift; sourceTree = "<group>"; };
@@ -552,6 +564,7 @@
 				08D25E8D2AE6EE15004EB8DB /* balldontlie.json */,
 				0886D3A42B81079200F997B1 /* football-data.json */,
 				0886D3B02B811B9B00F997B1 /* statsapi.json */,
+				08E024892BDBFB1500C5AB65 /* nhle-franchise.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -563,6 +576,7 @@
 				0882AF9D2AE302D800EF4E0E /* CFDAPI.swift */,
 				08A5878E2AB61F1800BA4BE9 /* MLBAPI.swift */,
 				0886D3A22B8106DD00F997B1 /* WorldFootballAPI.swift */,
+				08E024812BDBF7D100C5AB65 /* NHLAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -599,6 +613,7 @@
 		08DA48F82B7282DA0097F36C /* Responses */ = {
 			isa = PBXGroup;
 			children = (
+				08E0247C2BDBF69300C5AB65 /* NHLE */,
 				08D499F12BDABEE00091597F /* football-data */,
 				087C2E152B85704300AFAB34 /* Basketball */,
 				08A5877F2AB5D72900BA4BE9 /* QuickType */,
@@ -626,6 +641,14 @@
 				08022E742B7863E7009F572E /* ColorManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		08E0247C2BDBF69300C5AB65 /* NHLE */ = {
+			isa = PBXGroup;
+			children = (
+				08E0247D2BDBF6AD00C5AB65 /* nhle-franchise.swift */,
+			);
+			name = NHLE;
 			sourceTree = "<group>";
 		};
 		08E325362BA4CD3600104E85 /* alexanderrohrig.com */ = {
@@ -751,6 +774,7 @@
 			files = (
 				08D499EE2BDABE2E0091597F /* football-data_standings.json in Resources */,
 				08D499E82BD865F10091597F /* football-data_teams.json in Resources */,
+				08E0248A2BDBFB1500C5AB65 /* nhle-franchise.json in Resources */,
 				087C2E0E2B856FEB00AFAB34 /* teams.json in Resources */,
 				0805D3DC2A4F375300261EFE /* Preview Assets.xcassets in Resources */,
 				0805D3E52A4F439500261EFE /* TEST.json in Resources */,
@@ -781,6 +805,7 @@
 				083CBD172B824DCE00D151F7 /* TEST.json in Resources */,
 				083CBD002B824DB000D151F7 /* collegefootballdata-games.json in Resources */,
 				083CBD062B824DB900D151F7 /* balldontlie.json in Resources */,
+				08E0248B2BDBFB1500C5AB65 /* nhle-franchise.json in Resources */,
 				083CBD0F2B824DC300D151F7 /* statsapi.json in Resources */,
 				08AFEC312B8182490028A39A /* Assets.xcassets in Resources */,
 			);
@@ -792,6 +817,7 @@
 			files = (
 				08D499F02BDABE2E0091597F /* football-data_standings.json in Resources */,
 				08D499E92BD865F10091597F /* football-data_teams.json in Resources */,
+				08E0248C2BDBFB1500C5AB65 /* nhle-franchise.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -829,6 +855,7 @@
 				0805EA122AD198EA00D17753 /* FutureGameView.swift in Sources */,
 				0886D3A72B8108EC00F997B1 /* WorldFootballResponse.swift in Sources */,
 				08D499B52BD84E380091597F /* WorldFootballCompetitionsResponse.swift in Sources */,
+				08E024822BDBF7D100C5AB65 /* NHLAPI.swift in Sources */,
 				0875168B2B83E96300018712 /* EventView.swift in Sources */,
 				08DB5A882AD97C00001D55B5 /* InProgressGameView.swift in Sources */,
 				08DA48FB2B7287140097F36C /* ToolbarStatus.swift in Sources */,
@@ -845,6 +872,7 @@
 				0805EA0C2AD1964C00D17753 /* BaseballBoxscoreView.swift in Sources */,
 				0882AF9C2AE2B14300EF4E0E /* CollegeFootballResponse.swift in Sources */,
 				08D99CCF2AB37AB3004C7D43 /* Team.swift in Sources */,
+				08E0247E2BDBF6AD00C5AB65 /* nhle-franchise.swift in Sources */,
 				08D25E902AE6EE7F004EB8DB /* NBAAPI.swift in Sources */,
 				083CBD2E2B82587100D151F7 /* DebugView.swift in Sources */,
 				08A2B1882B86B7ED000B770F /* TeamAdapter.swift in Sources */,
@@ -884,9 +912,11 @@
 				083CBCC22B8249F300D151F7 /* GeneralSecretary.swift in Sources */,
 				08E3253B2BA4ED6B00104E85 /* QuickTypeTeam.swift in Sources */,
 				083CBD2A2B82578D00D151F7 /* tvView.swift in Sources */,
+				08E0247F2BDBF6AD00C5AB65 /* nhle-franchise.swift in Sources */,
 				087C2E1B2B85731700AFAB34 /* ErrorManager.swift in Sources */,
 				08A2B1932B86DC25000B770F /* FeatureFlagManager.swift in Sources */,
 				083CBCDA2B824A9100D151F7 /* WorldFootballAPI.swift in Sources */,
+				08E024832BDBF7D100C5AB65 /* NHLAPI.swift in Sources */,
 				083CBCCB2B824A4E00D151F7 /* GameAdapter.swift in Sources */,
 				083CBCD62B824A8E00D151F7 /* MLBAPI.swift in Sources */,
 				083CBCD52B824A8C00D151F7 /* CFDAPI.swift in Sources */,
@@ -902,6 +932,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08E024842BDBF7D100C5AB65 /* NHLAPI.swift in Sources */,
 				08D499D62BD854D70091597F /* StringManager.swift in Sources */,
 				08D499D32BD854D00091597F /* SampleManager.swift in Sources */,
 				08D499C82BD853040091597F /* WorldFootballCompetitionsResponse.swift in Sources */,
@@ -920,6 +951,7 @@
 				08D499E62BD865220091597F /* WorldFootballTeamsResponse.swift in Sources */,
 				08D499C22BD852570091597F /* YeTests.swift in Sources */,
 				08D499CA2BD853090091597F /* WorldFootballAPI.swift in Sources */,
+				08E024802BDBF6AD00C5AB65 /* nhle-franchise.swift in Sources */,
 				08D499DB2BD8550D0091597F /* Game.swift in Sources */,
 				08D499D72BD854DA0091597F /* MLBAPI.swift in Sources */,
 				08D499DD2BD855360091597F /* CollegeFootballResponse.swift in Sources */,

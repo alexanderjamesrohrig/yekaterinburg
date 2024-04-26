@@ -14,9 +14,18 @@ struct StandingsView: View {
     var body: some View {
         Grid {
             if let table = standings?.standings?.first?.table {
-                ForEach(table, id: \.self) { row in
-                    
+                GridRow {
+                    Text("Club")
+                    Text("Pts")
                 }
+                ForEach(0..<18, id: \.self) { row in
+                    GridRow {
+                        Text("Name")
+                        Text("##")
+                    }
+                }
+            } else {
+                
             }
         }
         .task {

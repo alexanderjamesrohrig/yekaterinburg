@@ -14,13 +14,13 @@ struct TeamsView: View {
     
     var body: some View {
         Table(teams, sortOrder: $sortOrder) {
-            TableColumn("id") { team in
+            TableColumn("Id") { team in
                 Text(verbatim: "\(team.id)")
                     .monospaced()
             }
-            TableColumn("name", value: \.name)
-            TableColumn("parent organization", value: \.parentOrgName)
-            TableColumn("sport") { teamRow in
+            TableColumn("Name", value: \.name)
+            TableColumn("Parent organization", value: \.parentOrgName)
+            TableColumn("Sport") { teamRow in
                 displayName(for: teamRow.sport)
             }
         }

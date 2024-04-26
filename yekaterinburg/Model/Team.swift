@@ -21,18 +21,19 @@ struct Team: Identifiable {
             var teams: [Team] = []
             if FeatureFlagManager.shared.teamsFromAllAPISources {
                 logger.info("Teams from all sources")
-                guard let mlbTeams = await MLBAPI.teams(useMockData: true) else {
-                    logger.error("Unable to get MLB teams")
-                    return []
+                if let mlbTeams = await MLBAPI.teams(useMockData: true) {
+                    logger.info("\(mlbTeams.teams.count) MLB teams")
+                    teams.append(contentsOf: TeamAdapter.getTeamsFromMLB(mlbTeams))
                 }
-                logger.info("\(mlbTeams.teams.count) MLB teams")
-                teams.append(contentsOf: TeamAdapter.getTeamsFromMLB(mlbTeams))
-                guard let nbaTeams = await NBAAPI.teams() else {
-                    logger.error("Unable to get NBA teams")
-                    return []
+                if let nbaTeams = await NBAAPI.teams() {
+                    logger.info("\(nbaTeams.data.count) NBA teams")
+                    teams.append(contentsOf: TeamAdapter.getTeamsFromNBA(nbaTeams))
                 }
-                logger.info("\(nbaTeams.data.count) NBA teams")
-                teams.append(contentsOf: TeamAdapter.getTeamsFromNBA(nbaTeams))
+                if let nhlTeams = await NHLAPI.teams() {
+                    let teamsAdapted = TeamAdapter.getTeamsFromNHL(nhlTeams)
+                    logger.info("\(teamsAdapted.count) NHL teams")
+                    teams.append(contentsOf: teamsAdapted)
+                }
                 return teams
             } else {
                 let url = Bundle.main.url(forResource: "Team", withExtension: "json")

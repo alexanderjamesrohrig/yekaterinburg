@@ -9,10 +9,8 @@ import XCTest
 import OSLog
 
 final class WorldFootballAPITests: XCTestCase {
-    
     private typealias API = WorldFootballAPI
-    private let logger = Logger(subsystem: "com.alexanderrohrig.YeTests", category: "WorldFootballAPITests")
-
+    
     func testCompetitions() async throws {
         let competitions = await API.competitions(useMockData: true)
         guard let competitions else {
@@ -78,11 +76,10 @@ final class WorldFootballAPITests: XCTestCase {
 }
 
 final class BasketballAPITests: XCTestCase {
-    
-    private let logger = Logger(subsystem: "com.alexanderrohrig.YeTests", category: "BasketballAPITests")
+    private typealias API = NBAAPI
     
     func testTeams() async throws {
-        let teams = await NBAAPI.teams(useMockData: true)
+        let teams = await API.teams(useMockData: true)
         guard let firstID = teams?.data.first?.id else {
             XCTFail()
             return
@@ -93,5 +90,28 @@ final class BasketballAPITests: XCTestCase {
             return
         }
         XCTAssert(firstCity == "Atlanta")
+    }
+}
+
+final class HockeyAPITests: XCTestCase {
+    private typealias API = NHLAPI
+    
+    func testTeams() async throws {
+        let teams = await API.teams(useMockData: true)
+        guard let first = teams?.data?.first?.id else {
+            XCTFail()
+            return
+        }
+        XCTAssert(first == 1)
+        guard let name = teams?.data?.first?.teamCommonName else {
+            XCTFail()
+            return
+        }
+        XCTAssert(name == "Canadiens")
+        guard let count = teams?.data?.count else {
+            XCTFail()
+            return
+        }
+        XCTAssert(count == 39)
     }
 }
