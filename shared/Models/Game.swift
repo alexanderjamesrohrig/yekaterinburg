@@ -11,6 +11,7 @@ import SwiftUI
 
 fileprivate let logger = Logger(subsystem: "com.alexanderrohrig.yekaterinburg", category: "Game")
 
+/// Sport type of Game, event, baseball, college football, hockey, basketball, soccer, football
 enum YeType: Hashable, Codable{
     case event
     case game(Game)

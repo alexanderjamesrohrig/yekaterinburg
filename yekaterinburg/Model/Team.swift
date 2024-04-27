@@ -25,11 +25,11 @@ struct Team: Identifiable {
                     logger.info("\(mlbTeams.teams.count) MLB teams")
                     teams.append(contentsOf: TeamAdapter.getTeamsFromMLB(mlbTeams))
                 }
-                if let nbaTeams = await NBAAPI.teams() {
+                if FFM.shared.ff5.enabled, let nbaTeams = await NBAAPI.teams() {
                     logger.info("\(nbaTeams.data.count) NBA teams")
                     teams.append(contentsOf: TeamAdapter.getTeamsFromNBA(nbaTeams))
                 }
-                if let nhlTeams = await NHLAPI.teams() {
+                if FFM.shared.ff4.enabled, let nhlTeams = await NHLAPI.teams() {
                     let teamsAdapted = TeamAdapter.getTeamsFromNHL(nhlTeams)
                     logger.info("\(teamsAdapted.count) NHL teams")
                     teams.append(contentsOf: teamsAdapted)

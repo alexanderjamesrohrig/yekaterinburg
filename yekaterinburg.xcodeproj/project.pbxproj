@@ -61,6 +61,9 @@
 		083CBD302B82587100D151F7 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083CBD2D2B82587000D151F7 /* DebugView.swift */; };
 		0850835E2B7ADE910023C4D3 /* System1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0850835D2B7ADE910023C4D3 /* System1ViewModel.swift */; };
 		086649EE2ADAF7E900A71C9F /* SportCollectionMac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086649ED2ADAF7E900A71C9F /* SportCollectionMac.swift */; };
+		0866CD9C2BDC33400016A039 /* WorldFootballCompetitionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D499B42BD84E380091597F /* WorldFootballCompetitionsResponse.swift */; };
+		0866CD9D2BDC33420016A039 /* WorldFootballTeamsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D499E42BD865210091597F /* WorldFootballTeamsResponse.swift */; };
+		0866CD9E2BDC33440016A039 /* WorldFootballResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0886D3A62B8108EC00F997B1 /* WorldFootballResponse.swift */; };
 		0875168B2B83E96300018712 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0875168A2B83E96300018712 /* EventView.swift */; };
 		0875168D2B83E96300018712 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0875168A2B83E96300018712 /* EventView.swift */; };
 		087C2E0E2B856FEB00AFAB34 /* teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 087C2E0D2B856FEB00AFAB34 /* teams.json */; };
@@ -916,6 +919,7 @@
 				08AFEC2D2B8182470028A39A /* YekaterinburgTVApp.swift in Sources */,
 				08A2B18A2B86B7ED000B770F /* TeamAdapter.swift in Sources */,
 				08F0B9592BB3785A0066102B /* MarchUpcomingGameView.swift in Sources */,
+				0866CD9D2BDC33420016A039 /* WorldFootballTeamsResponse.swift in Sources */,
 				083CBCDE2B824AF000D151F7 /* StateSecretManager.swift in Sources */,
 				08D499F42BDABF050091597F /* WorldFootballStandingsResponse.swift in Sources */,
 				083CBCFC2B824D6D00D151F7 /* StoreManager.swift in Sources */,
@@ -934,6 +938,7 @@
 				083CBCC22B8249F300D151F7 /* GeneralSecretary.swift in Sources */,
 				08E3253B2BA4ED6B00104E85 /* QuickTypeTeam.swift in Sources */,
 				083CBD2A2B82578D00D151F7 /* tvView.swift in Sources */,
+				0866CD9E2BDC33440016A039 /* WorldFootballResponse.swift in Sources */,
 				08E0247F2BDBF6AD00C5AB65 /* nhle-franchise.swift in Sources */,
 				087C2E1B2B85731700AFAB34 /* ErrorManager.swift in Sources */,
 				08A2B1932B86DC25000B770F /* FeatureFlagManager.swift in Sources */,
@@ -941,6 +946,7 @@
 				083CBCDA2B824A9100D151F7 /* WorldFootballAPI.swift in Sources */,
 				08E024832BDBF7D100C5AB65 /* NHLAPI.swift in Sources */,
 				083CBCCB2B824A4E00D151F7 /* GameAdapter.swift in Sources */,
+				0866CD9C2BDC33400016A039 /* WorldFootballCompetitionsResponse.swift in Sources */,
 				083CBCD62B824A8E00D151F7 /* MLBAPI.swift in Sources */,
 				083CBCD52B824A8C00D151F7 /* CFDAPI.swift in Sources */,
 				083CBCED2B824B6500D151F7 /* CollegeFootballResponse.swift in Sources */,
@@ -1125,7 +1131,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = yekaterinburg/yekaterinburg.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"yekaterinburg/Preview Content\"";
 				DEVELOPMENT_TEAM = 3865YC2YEY;
@@ -1149,7 +1155,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderrohrig.yekaterinburg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -1171,7 +1177,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = yekaterinburg/yekaterinburg.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"yekaterinburg/Preview Content\"";
 				DEVELOPMENT_TEAM = 3865YC2YEY;
@@ -1195,7 +1201,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderrohrig.yekaterinburg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -1215,7 +1221,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"tvOS/YekaterinburgTV/Preview Content\"";
 				DEVELOPMENT_TEAM = 3865YC2YEY;
 				ENABLE_PREVIEWS = YES;
@@ -1230,7 +1236,7 @@
 					"@executable_path/Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderrohrig.YekaterinburgTV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1249,7 +1255,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"tvOS/YekaterinburgTV/Preview Content\"";
 				DEVELOPMENT_TEAM = 3865YC2YEY;
 				ENABLE_PREVIEWS = YES;
@@ -1264,7 +1270,7 @@
 					"@executable_path/Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderrohrig.YekaterinburgTV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;

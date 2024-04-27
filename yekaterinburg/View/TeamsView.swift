@@ -13,14 +13,15 @@ struct TeamsView: View {
     @State private var sortOrder = [KeyPathComparator(\Team.id)]
     
     var body: some View {
+        // TODO: Right click to set as favorite
         Table(teams, sortOrder: $sortOrder) {
-            TableColumn("Id", value: \.id) { team in
+            TableColumn(SM.shared.idColumnName, value: \.id) { team in
                 Text(verbatim: "\(team.id)")
                     .monospaced()
             }
-            TableColumn("Name", value: \.name)
-            TableColumn("Parent organization", value: \.parentOrgName)
-            TableColumn("Sport") { teamRow in
+            TableColumn(SM.shared.nameColumnName, value: \.name)
+            TableColumn(SM.shared.parentOrgColumnName, value: \.parentOrgName)
+            TableColumn(SM.shared.sportColumnName) { teamRow in
                 displayName(for: teamRow.sport)
             }
         }
@@ -35,17 +36,17 @@ struct TeamsView: View {
     private func displayName(for sport: YeType) -> some View {
         switch sport {
         case .event:
-            Text("Event")
+            Text(SM.shared.eventLabel)
         case .game(.baseball):
-            Text("Baseball")
+            Text(SM.shared.baseballLabel)
         case .game(.basketball):
-            Text("Basketball")
+            Text(SM.shared.basketballLabel)
         case .game(.calcio):
-            Text("Soccer")
+            Text(SM.shared.soccerLabel)
         case .game(.hockey):
-            Text("Hockey")
+            Text(SM.shared.hockeyLabel)
         default:
-            Text("Unknown sport")
+            Text(SM.shared.unknownLabel)
         }
     }
 }

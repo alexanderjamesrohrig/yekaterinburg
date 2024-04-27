@@ -21,36 +21,45 @@ struct SettingsView: View {
     
     var body: some View {
         Form {
-            HStack {
-                Stepper("Baseball", value: $baseballTeam)
-                Image("mlb\(baseballTeam)")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
-                Text("#\(baseballTeam)")
-                    .monospaced()
+            Section(SM.shared.favoriteTeamsSectionTitle) {
+                // TODO: Add all MLB team crests
+                HStack {
+                    Stepper(SM.shared.baseballLabel, value: $baseballTeam)
+                    Image("\(SM.shared.baseballPrefix)\(baseballTeam)")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
+                    Text("#\(baseballTeam)")
+                        .monospaced()
+                }
+                LabeledContent(SM.shared.basketballLabel, value: SM.shared.comingSoon)
+                if FFM.shared.ff5.enabled {
+                    HStack {
+                        Stepper(SM.shared.basketballLabel, value: $basketballTeam)
+                        Image("\(SM.shared.basketballPrefix)\(basketballTeam)")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 50, height: 50)
+                        Text("#\(basketballTeam)")
+                            .monospaced()
+                    }
+                }
+                LabeledContent(SM.shared.soccerLabel, value: SM.shared.comingSoon)
+                if FFM.shared.ff3.enabled {
+                    HStack {
+                        Stepper(SM.shared.soccerLabel, value: $calcioTeam)
+                        Image("\(SM.shared.worldFootballPrefix)\(calcioTeam)")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 50, height: 50)
+                        Text("#\(calcioTeam)")
+                            .monospaced()
+                    }
+                }
+                // TODO: Select favorite hockey team
+                LabeledContent(SM.shared.hockeyLabel, value: SM.shared.comingSoon)
+                LabeledContent(SM.shared.footballLabel, value: SM.shared.comingSoon)
             }
-            HStack {
-                Stepper("Basketball", value: $basketballTeam)
-                Image("nba\(basketballTeam)")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
-                Text("#\(basketballTeam)")
-                    .monospaced()
-            }
-            HStack {
-                Stepper("Soccer", value: $calcioTeam)
-                Image("fd\(calcioTeam)")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
-                Text("#\(calcioTeam)")
-                    .monospaced()
-            }
-            // TODO: Select favorite hockey team
-            LabeledContent("Hockey", value: "Coming soon")
-            LabeledContent("Football", value: "Coming soon")
             #if DEBUG
             Button("PRINT_FAVORITE_VALUES") {
                 logger.info("Favorites: \(baseballTeam) \(basketballTeam) \(calcioTeam)")

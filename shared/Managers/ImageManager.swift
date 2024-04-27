@@ -11,7 +11,7 @@ import SwiftUI
 /// System images used within the app
 class ImageManager {
     static let shared = ImageManager()
-    let ff = "flag.fill"
+    let ff = "flag.2.crossed.fill"
     /// Used to signify multiple teams
     let teams = "person.2.crop.square.stack"
     /// Used to signify baseball

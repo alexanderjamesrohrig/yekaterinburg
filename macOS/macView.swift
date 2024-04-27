@@ -15,43 +15,22 @@ struct macView: View {
                                            .game(.calcio),
                                            .game(.baseball),
                                            .game(.hockey)]
-    private let viewModel = System1ViewModel()
-    @State private var games: [Game] = []
     @AppStorage(StringManager.shared.storageFFMockData) private var useMockData: Bool = true
+    @State private var games: [Game] = []
     @State private var lastUpdate = Date.distantPast
     @State private var showSettingsSheet = false
     @State private var showDebugSheet = false
+    @StateObject private var viewModel = System1ViewModel()
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.openURL) private var openURL
     
     var body: some View {
         ZStack {
             BackgroundView()
-            VStack(spacing: 0) {
-                List(games) { game in
-                    HStack {
-                        HStack {
-                            if game.type != .event {
-                                Text("\(game.awayTeamName) at \(game.homeTeamName)")
-                                    .fontDesign(.rounded)
-                                    .font(.headline)
-                            } else {
-                                Text(game.homeTeamName)
-                                    .fontDesign(.rounded)
-                                    .font(.headline)
-                            }
-                        }
-                        Spacer()
-                        Text(game.televisionOptions)
-                            .foregroundStyle(.regularMaterial)
-                            .fontDesign(.rounded)
-                        Text(DateAdapter.yeFormatWithTime(from: game.date))
-                            .monospacedDigit()
-                            .fontDesign(.rounded)
-                    }
-                    .listRowSeparator(.hidden)
-                }
-                .scrollContentBackground(.hidden)
+            if viewModel.state == .success {
+                gamesListView()
+            } else if viewModel.state == .loading {
+                ProgressView()
             }
         }
         .sheet(isPresented: $showDebugSheet) {
@@ -73,17 +52,20 @@ struct macView: View {
                     games = await viewModel.getGamesFrom(sources: apiSources, useMockData: useMockData)
                     lastUpdate = Date.now
                 }
-            }, title: "Refresh", systemImage: ImageManager.shared.refresh)
+            }, title: SM.shared.refreshButtonTitle, systemImage: ImageManager.shared.refresh)
             ToolbarButton(action: {
                 let url = URL(string: "https://apple.news/myscores")!
                 openURL(url)
-            }, title: "Open Apple News", systemImage: ImageManager.shared.appleNews)
+            },
+                          title: SM.shared.openAppleNewsButtonTitle,
+                          systemImage: ImageManager.shared.appleNews)
             ToolbarButton(action: {
                 showSettingsSheet = true
-            }, title: "Settings", systemImage: ImageManager.shared.settings, isSettings: true)
-            ToolbarStatus(text: "Updated \(lastUpdate.formatted(date: .omitted, time: .shortened))")
+            }, title: SM.shared.settingsButtonTitle, systemImage: ImageManager.shared.settings, isSettings: true)
+            ToolbarStatus(text: "\(SM.shared.updated) \(lastUpdate.formatted(date: .omitted, time: .shortened))")
         }
         .task {
+            viewModel.state = .loading
             games = await viewModel.getGamesFrom(sources: apiSources, useMockData: useMockData)
             lastUpdate = Date.now
         }
@@ -98,23 +80,32 @@ struct macView: View {
         }
     }
     
-    @ViewBuilder private func segmentedView() -> some View {
-        HStack {
-            List {
-                Section("Yesterday") {
-                    
+    @ViewBuilder private func gamesListView() -> some View {
+        VStack(spacing: 0) {
+            List(games) { game in
+                HStack {
+                    HStack {
+                        if game.type != .event {
+                            Text("\(game.awayTeamName)\(SM.shared.at)\(game.homeTeamName)")
+                                .fontDesign(.rounded)
+                                .font(.headline)
+                        } else {
+                            Text(game.homeTeamName)
+                                .fontDesign(.rounded)
+                                .font(.headline)
+                        }
+                    }
+                    Spacer()
+                    Text(game.televisionOptions)
+                        .foregroundStyle(.regularMaterial)
+                        .fontDesign(.rounded)
+                    Text(DateAdapter.yeFormatWithTime(from: game.date))
+                        .monospacedDigit()
+                        .fontDesign(.rounded)
                 }
+                .listRowSeparator(.hidden)
             }
-            List {
-                Section("Today") {
-                    
-                }
-            }
-            List {
-                Section("Upcoming") {
-                    
-                }
-            }
+            .scrollContentBackground(.hidden)
         }
     }
 }

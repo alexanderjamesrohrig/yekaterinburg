@@ -27,6 +27,7 @@ struct MLBAPI {
             URLQueryItem(name: "sportId", value: "1"),
             URLQueryItem(name: "teamId", value: "\(userTeam)"),
             URLQueryItem(name: "season", value: "2024"),
+            URLQueryItem(name: "hydrate", value: "game(content(media(epg)))")
         ]
         url = url.appending(queryItems: urlParameters)
         let mockURL = Bundle.main.url(forResource: "statsapi", withExtension: "json")

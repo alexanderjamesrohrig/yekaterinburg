@@ -7,7 +7,17 @@
 
 import Foundation
 
-class FeatureFlagManager {
+struct FeatureFlag {
+    let title: String
+    let enabled: Bool
+    let id: Int
+    var appStorageKey: String {
+        "FF\(id)"
+    }
+}
+
+public typealias FFM = FeatureFlagManager
+public class FeatureFlagManager {
     static let shared = FeatureFlagManager()
     private init() {}
     // MARK: FF1
@@ -26,4 +36,10 @@ class FeatureFlagManager {
     var printFullResponses: Bool {
         UserDefaults.standard.bool(forKey: "FF2")
     }
+    /// Calcio features flag
+    let ff3 = FeatureFlag(title: "WORLD_FOOTBALL", enabled: false, id: 3)
+    /// Hockey features flag
+    let ff4 = FeatureFlag(title: "HOCKEY", enabled: false, id: 4)
+    /// Basketball features flag
+    let ff5 = FeatureFlag(title: "BASKETBALL", enabled: false, id: 5)
 }

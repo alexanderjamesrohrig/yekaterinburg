@@ -11,6 +11,24 @@ struct BaseballResponse: Codable {
     let copyright: String
     let dates: [MLBDate]
     
+    struct GameContent: Codable {
+        let media: GameMedia?
+    }
+    
+    struct GameMedia: Codable {
+        let epg: [GameEPG]?
+        let freeGame: Bool?
+    }
+    
+    struct GameEPG: Codable {
+        let title: String?
+        let items: [GameEPGItem]?
+    }
+    
+    struct GameEPGItem: Codable {
+        let callLetters: String?
+    }
+    
     struct MLBDate: Codable {
         let date: String
         let games: [MLBGame]
@@ -20,6 +38,7 @@ struct BaseballResponse: Codable {
             let gameDate: String
             let status: MLBStatus
             let teams: Teams
+            let content: GameContent?
             
             struct MLBStatus: Codable {
                 let detailedState: String

@@ -8,12 +8,16 @@
 import Foundation
 import OSLog
 
-@Observable class System1ViewModel {
+class System1ViewModel: ObservableObject {
+    enum State {
+        case loading, error, noGames, success, unknown
+    }
     private let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "System1ViewModel")
     var twoDaysAgo: Date {
         Calendar.autoupdatingCurrent.date(byAdding: .day, value: -2, to: Date.now) ?? Date.now
     }
-    var games = [Game]()
+    var games: [Game] = []
+    @Published var state: State = .unknown
     
     /// Returns array of Game objects from API and local sources
     /// - Parameter sources: Set of YeType, used to decide which APIs to fetch from.
@@ -24,7 +28,7 @@ import OSLog
                       loadLocalGames: Bool = false) async -> [Game] {
         var games: [Game] = []
         /// Calcio
-        if sources.contains(.game(.calcio)) {
+        if sources.contains(.game(.calcio)) && FFM.shared.ff3.enabled {
             let gamesFromAPI = await WorldFootballAPI.games(useMockData: useMockData)?.matches
             if let gamesFromAPI {
                 for g in gamesFromAPI {
@@ -57,7 +61,7 @@ import OSLog
 //            // TODO: NCAA
 //        }
         /// Hockey
-        if sources.contains(.game(.hockey)) {
+        if sources.contains(.game(.hockey)) && FFM.shared.ff4.enabled {
             // TODO: User selected team
             // TODO: Current season
             let gamesFromAPI = await NHLAPI.schedule(useMockData: useMockData,
@@ -87,7 +91,7 @@ import OSLog
             }
         }
         /// Basketball
-        if sources.contains(.game(.basketball)) {
+        if sources.contains(.game(.basketball)) && FFM.shared.ff5.enabled {
             let gamesFromAPI = await NBAAPI.games(useMockData: useMockData)?.data
             if let gamesFromAPI {
                 for g in gamesFromAPI {
@@ -112,6 +116,11 @@ import OSLog
             lhs.date < rhs.date
         }
         logger.info("Games from user teams :- \(games.count)")
+        if games.isEmpty {
+            state = .noGames
+        } else {
+            state = .success
+        }
         return games
     }
     

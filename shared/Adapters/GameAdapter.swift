@@ -107,10 +107,35 @@ struct GameAdapter {
                     awayPoints: 0,
                     date: DateAdapter.dateFromISO(date: game.gameDate),
                     status: "",
-                    televisionOptions: "MLB.tv",
+                    televisionOptions: Self.getCallLetters(from: game.content),
                     radioOptions: "",
                     venue: "",
                     type: .game(.baseball))
     }
+    
+    static func getCallLetters(from content: BaseballResponse.GameContent?) -> String {
+        guard let media = content?.media?.epg else {
+            logger.error("EPG is empty")
+            return ""
+        }
+        var returnString = ""
+        for m in media {
+            if m.title == "MLBTV" {
+                guard let items = m.items else {
+                    logger.error("No MLBTV stations")
+                    return ""
+                }
+                let lastIndex = items.count - 1
+                for i in 0 ..< items.count {
+                    returnString.append(items[i].callLetters ?? "")
+                    if i != lastIndex {
+                        returnString.append(SM.shared.or)
+                    }
+                }
+            }
+        }
+        return returnString
+    }
+    
     private init() {}
 }
