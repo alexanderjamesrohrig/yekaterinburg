@@ -15,9 +15,15 @@ struct yekaterinburgApp: App {
                 .frame(minWidth: 500, minHeight: 200)
         }
         #if os(macOS)
-        Window("Teams", id: WindowManager.shared.teams) {
+        Window(SM.shared.teamsWindowTitle, id: WindowManager.shared.teams) {
             TeamsView()
         }
+        Window(SM.shared.whatsNewWindowTitle, id: WindowManager.shared.whatsNew) {
+            WhatsNewView()
+                .frame(width: 300, height: 500)
+        }
+        .windowResizability(.contentSize)
+        .windowStyle(.hiddenTitleBar)
         // TODO: FF protect
 //        Window("Competitions", id: WindowManager.shared.competitions) {
 //            CompetitionsView()

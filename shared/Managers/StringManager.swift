@@ -39,5 +39,7 @@ public class StringManager {
     let parentOrgColumnName = "Parent organization"
     let sportColumnName = "Sport"
     let or = " or "
+    let teamsWindowTitle = "Teams"
+    let whatsNewWindowTitle = "What's new"
     private init() {}
 }

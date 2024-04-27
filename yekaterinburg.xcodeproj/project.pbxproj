@@ -25,6 +25,7 @@
 		0805EA182AD1A91E00D17753 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0805EA172AD1A91E00D17753 /* SettingsView.swift */; };
 		0821B7B52BC97ED3004CCCB9 /* StringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0821B7B42BC97ED3004CCCB9 /* StringManager.swift */; };
 		0821B7B62BC97ED3004CCCB9 /* StringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0821B7B42BC97ED3004CCCB9 /* StringManager.swift */; };
+		0824166E2BDC7A2900C8E274 /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0824166D2BDC7A2900C8E274 /* WhatsNewView.swift */; };
 		082964872AD8797E000B1D7B /* nhl-schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = 082964862AD8797E000B1D7B /* nhl-schedule.json */; };
 		082964892AD87AE9000B1D7B /* HockeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082964882AD87AE9000B1D7B /* HockeyResponse.swift */; };
 		083CBCC22B8249F300D151F7 /* GeneralSecretary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08022E762B786614009F572E /* GeneralSecretary.swift */; };
@@ -211,6 +212,7 @@
 		0805EA152AD1A06700D17753 /* collegefootballdata-games.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "collegefootballdata-games.json"; sourceTree = "<group>"; };
 		0805EA172AD1A91E00D17753 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0821B7B42BC97ED3004CCCB9 /* StringManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringManager.swift; sourceTree = "<group>"; };
+		0824166D2BDC7A2900C8E274 /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
 		082964862AD8797E000B1D7B /* nhl-schedule.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "nhl-schedule.json"; sourceTree = "<group>"; };
 		082964882AD87AE9000B1D7B /* HockeyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HockeyResponse.swift; sourceTree = "<group>"; };
 		0837AF8E2A589EF600D8E989 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -686,6 +688,7 @@
 				0805D3D52A4F375100261EFE /* macView.swift */,
 				08D499E22BD856F80091597F /* CompetitionsView.swift */,
 				08D499EA2BDABD930091597F /* StandingsView.swift */,
+				0824166D2BDC7A2900C8E274 /* WhatsNewView.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -869,6 +872,7 @@
 				08CC4A8D2B790A03008CAED1 /* GeneralSecretary.swift in Sources */,
 				08D25E922AE6EF16004EB8DB /* BasketballResponse.swift in Sources */,
 				0886D3A92B810AB300F997B1 /* StateSecretManager.swift in Sources */,
+				0824166E2BDC7A2900C8E274 /* WhatsNewView.swift in Sources */,
 				08D99CD32AB38064004C7D43 /* QuickTypeTeam.swift in Sources */,
 				082964892AD87AE9000B1D7B /* HockeyResponse.swift in Sources */,
 				0805D3E92A4F51DA00261EFE /* TeamsView.swift in Sources */,

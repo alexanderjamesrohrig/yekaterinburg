@@ -22,7 +22,6 @@ struct SettingsView: View {
     var body: some View {
         Form {
             Section(SM.shared.favoriteTeamsSectionTitle) {
-                // TODO: Add all MLB team crests
                 HStack {
                     Stepper(SM.shared.baseballLabel, value: $baseballTeam)
                     Image("\(SM.shared.baseballPrefix)\(baseballTeam)")
@@ -60,11 +59,6 @@ struct SettingsView: View {
                 LabeledContent(SM.shared.hockeyLabel, value: SM.shared.comingSoon)
                 LabeledContent(SM.shared.footballLabel, value: SM.shared.comingSoon)
             }
-            #if DEBUG
-            Button("PRINT_FAVORITE_VALUES") {
-                logger.info("Favorites: \(baseballTeam) \(basketballTeam) \(calcioTeam)")
-            }
-            #endif
             RohrigView()
         }
         .padding()

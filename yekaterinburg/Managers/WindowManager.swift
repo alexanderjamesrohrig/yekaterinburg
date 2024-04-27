@@ -17,5 +17,7 @@ class WindowManager {
     let competitions = "competitions"
     /// Standings window
     let standings = "standings"
+    /// What's New window
+    let whatsNew = "whatsnew"
     private init() {}
 }
