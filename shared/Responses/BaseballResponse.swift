@@ -8,7 +8,8 @@
 import Foundation
 
 struct BaseballResponse: Codable {
-    let copyright: String
+    let copyright: String?
+    let totalGames: Int?
     let dates: [MLBDate]
     
     struct GameContent: Codable {
@@ -35,7 +36,7 @@ struct BaseballResponse: Codable {
         
         struct MLBGame: Codable {
             let gamePk: Int
-            let gameDate: String
+            let gameDate: Date
             let status: MLBStatus
             let teams: Teams
             let content: GameContent?

@@ -141,3 +141,33 @@ final class HockeyAPITests: XCTestCase {
         }
     }
 }
+
+final class BaseballAPITests: XCTestCase {
+    private typealias API = MLBAPI
+    
+    func testTeams() async throws {
+        let teams = await API.teams(useMockData: true)
+        if let team = teams?.teams.first {
+            XCTAssert(team.id == 4124)
+            XCTAssert(team.abbreviation == "PNS")
+            XCTAssert(team.franchiseName == "Pensacola")
+        }
+    }
+    
+    func testSchedule() async throws {
+        let schedule = await API.games(useMockData: true)
+        if let games = schedule?.totalGames {
+            XCTAssert(games == 194)
+        } else {
+            XCTFail()
+        }
+        if let first = schedule?.dates.first {
+            XCTAssert(first.date == "2024-02-24")
+            if let pk = first.games.first {
+                XCTAssert(pk.gamePk == 748261)
+            }
+        } else {
+            XCTFail()
+        }
+    }
+}

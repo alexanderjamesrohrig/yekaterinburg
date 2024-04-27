@@ -10,7 +10,7 @@ import SwiftUI
 struct WhatsNewView: View {
     var body: some View {
         VStack(alignment: .center) {
-            Text("What's new")
+            Text(SM.shared.whatsNewWindowTitle)
                 .font(.largeTitle)
                 .fontDesign(.rounded)
                 .fontWeight(.bold)
@@ -18,11 +18,11 @@ struct WhatsNewView: View {
             Text(GeneralSecretary.shared.appName)
             ScrollView {
                 HStack(alignment: .firstTextBaseline) {
-                    Image(systemName: "figure.baseball")
+                    Image(systemName: ImageManager.shared.baseball)
                     VStack(alignment: .leading) {
-                        Text("Baseball schedule and channel listing")
+                        Text(SM.shared.whatsNew1_1_0Title)
                             .font(.headline)
-                        Text("Choose a favorite team in Settings to see their schedule and channel listing.")
+                        Text(SM.shared.whatsNew1_1_0Body)
                     }
                 }
             }

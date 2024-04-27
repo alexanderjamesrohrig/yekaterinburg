@@ -32,6 +32,7 @@ struct MLBAPI {
         url = url.appending(queryItems: urlParameters)
         let mockURL = Bundle.main.url(forResource: "statsapi", withExtension: "json")
         let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
         do {
             var data = Data()
             if useMockData {

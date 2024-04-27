@@ -42,5 +42,7 @@ public class StringManager {
     let teamsWindowTitle = "Teams"
     let whatsNewWindowTitle = "What's new"
     let noGamesText = "No games to show, check back later."
+    let whatsNew1_1_0Title = "Baseball schedule and channel listing"
+    let whatsNew1_1_0Body = "Choose a favorite team in Settings to see their schedule and where to watch the games."
     private init() {}
 }

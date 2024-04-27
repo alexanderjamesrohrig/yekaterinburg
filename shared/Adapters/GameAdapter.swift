@@ -105,7 +105,7 @@ struct GameAdapter {
                     awayTeamName: game.teams.away.team.name,
                     awayTeamCode: "",
                     awayPoints: 0,
-                    date: DateAdapter.dateFromISO(date: game.gameDate),
+                    date: game.gameDate,
                     status: "",
                     televisionOptions: Self.getCallLetters(from: game.content),
                     radioOptions: "",
