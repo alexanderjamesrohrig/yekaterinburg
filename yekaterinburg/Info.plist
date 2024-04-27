@@ -10,10 +10,10 @@
 	<key>SMPrivilegedExecutables</key>
 	<dict/>
 	<key>TOKEN_BDL</key>
-	<string>$(TOKEN_BDL)</string>
+	<string>TOKEN_BDL</string>
 	<key>TOKEN_CFD</key>
-	<string>$(TOKEN_CFD)</string>
+	<string>TOKEN_CFD</string>
 	<key>TOKEN_FOOTBALL</key>
-	<string>$(TOKEN_FOOTBALL)</string>
+	<string>TOKEN_FD</string>
 </dict>
 </plist>

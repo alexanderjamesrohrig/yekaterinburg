@@ -83,6 +83,11 @@
 		0886D3A92B810AB300F997B1 /* StateSecretManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0886D3A82B810AB300F997B1 /* StateSecretManager.swift */; };
 		0886D3AE2B81178F00F997B1 /* BaseballResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0886D3AD2B81178F00F997B1 /* BaseballResponse.swift */; };
 		0886D3B12B811B9B00F997B1 /* statsapi.json in Resources */ = {isa = PBXBuildFile; fileRef = 0886D3B02B811B9B00F997B1 /* statsapi.json */; };
+		089334FB2BDD4E7E00F4F972 /* ci_pre_xcodebuild.sh in Resources */ = {isa = PBXBuildFile; fileRef = 089334FA2BDD4E7E00F4F972 /* ci_pre_xcodebuild.sh */; };
+		089334FC2BDD4E7E00F4F972 /* ci_pre_xcodebuild.sh in Resources */ = {isa = PBXBuildFile; fileRef = 089334FA2BDD4E7E00F4F972 /* ci_pre_xcodebuild.sh */; };
+		089334FE2BDD564600F4F972 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 089334FD2BDD564600F4F972 /* Config.xcconfig */; };
+		089334FF2BDD564600F4F972 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 089334FD2BDD564600F4F972 /* Config.xcconfig */; };
+		089335002BDD564600F4F972 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 089334FD2BDD564600F4F972 /* Config.xcconfig */; };
 		08A2B1882B86B7ED000B770F /* TeamAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A2B1872B86B7ED000B770F /* TeamAdapter.swift */; };
 		08A2B18A2B86B7ED000B770F /* TeamAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A2B1872B86B7ED000B770F /* TeamAdapter.swift */; };
 		08A2B1922B86DC1F000B770F /* FeatureFlagManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A2B1912B86DC1F000B770F /* FeatureFlagManager.swift */; };
@@ -240,13 +245,14 @@
 		0886D3AB2B810EF000F997B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0886D3AD2B81178F00F997B1 /* BaseballResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseballResponse.swift; sourceTree = "<group>"; };
 		0886D3B02B811B9B00F997B1 /* statsapi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = statsapi.json; sourceTree = "<group>"; };
+		089334FA2BDD4E7E00F4F972 /* ci_pre_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_pre_xcodebuild.sh; sourceTree = "<group>"; };
+		089334FD2BDD564600F4F972 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		08A2B1872B86B7ED000B770F /* TeamAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAdapter.swift; sourceTree = "<group>"; };
 		08A2B1912B86DC1F000B770F /* FeatureFlagManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlagManager.swift; sourceTree = "<group>"; };
 		08A587802AB5E15A00BA4BE9 /* GameAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAdapter.swift; sourceTree = "<group>"; };
 		08A587822AB5EAD600BA4BE9 /* DateAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAdapter.swift; sourceTree = "<group>"; };
 		08A587862AB5F5B400BA4BE9 /* RohrigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RohrigView.swift; sourceTree = "<group>"; };
 		08A5878E2AB61F1800BA4BE9 /* MLBAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLBAPI.swift; sourceTree = "<group>"; };
-		08A5879B2AB63C9000BA4BE9 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		08AFEC242B813E330028A39A /* GameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailView.swift; sourceTree = "<group>"; };
 		08AFEC2A2B8182460028A39A /* YekaterinburgTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YekaterinburgTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AFEC2C2B8182470028A39A /* YekaterinburgTVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YekaterinburgTVApp.swift; sourceTree = "<group>"; };
@@ -355,7 +361,8 @@
 		0805D3C72A4F375100261EFE = {
 			isa = PBXGroup;
 			children = (
-				08A5879B2AB63C9000BA4BE9 /* Config.xcconfig */,
+				089334FD2BDD564600F4F972 /* Config.xcconfig */,
+				089334F92BDD4E5900F4F972 /* ci_scripts */,
 				08AFEC542B81828A0028A39A /* tvOS */,
 				08F0B9572BB36EDE0066102B /* macOS */,
 				0898EA8D2A61A32700BBB9B1 /* shared */,
@@ -463,6 +470,14 @@
 				087C2E112B85703200AFAB34 /* BasketballTeamsResponse.swift */,
 			);
 			path = Basketball;
+			sourceTree = "<group>";
+		};
+		089334F92BDD4E5900F4F972 /* ci_scripts */ = {
+			isa = PBXGroup;
+			children = (
+				089334FA2BDD4E7E00F4F972 /* ci_pre_xcodebuild.sh */,
+			);
+			path = ci_scripts;
 			sourceTree = "<group>";
 		};
 		0898EA8D2A61A32700BBB9B1 /* shared */ = {
@@ -797,6 +812,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08D499EE2BDABE2E0091597F /* football-data_standings.json in Resources */,
+				089334FB2BDD4E7E00F4F972 /* ci_pre_xcodebuild.sh in Resources */,
 				08D499E82BD865F10091597F /* football-data_teams.json in Resources */,
 				08E0248F2BDC01B200C5AB65 /* nhle-schedule.json in Resources */,
 				08E0248A2BDBFB1500C5AB65 /* nhle-franchise.json in Resources */,
@@ -809,6 +825,7 @@
 				082964872AD8797E000B1D7B /* nhl-schedule.json in Resources */,
 				0805D3D82A4F375300261EFE /* Assets.xcassets in Resources */,
 				0886D3A52B81079200F997B1 /* football-data.json in Resources */,
+				089334FE2BDD564600F4F972 /* Config.xcconfig in Resources */,
 				0805EA162AD1A06800D17753 /* collegefootballdata-games.json in Resources */,
 				083CBD282B8252A700D151F7 /* Settings.bundle in Resources */,
 				08D99CD12AB37FC1004C7D43 /* Team.json in Resources */,
@@ -824,6 +841,8 @@
 				083CBD132B824DCA00D151F7 /* Team.json in Resources */,
 				08E024902BDC01B200C5AB65 /* nhle-schedule.json in Resources */,
 				083CBD0A2B824DBC00D151F7 /* football-data.json in Resources */,
+				089334FF2BDD564600F4F972 /* Config.xcconfig in Resources */,
+				089334FC2BDD4E7E00F4F972 /* ci_pre_xcodebuild.sh in Resources */,
 				083CBD1B2B824DD500D151F7 /* SCHEDULE.json in Resources */,
 				08AFEC342B8182490028A39A /* Preview Assets.xcassets in Resources */,
 				087C2E102B856FEB00AFAB34 /* teams.json in Resources */,
@@ -842,6 +861,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08D499F02BDABE2E0091597F /* football-data_standings.json in Resources */,
+				089335002BDD564600F4F972 /* Config.xcconfig in Resources */,
 				08D499E92BD865F10091597F /* football-data_teams.json in Resources */,
 				08E024912BDC01B200C5AB65 /* nhle-schedule.json in Resources */,
 				08E0248C2BDBFB1500C5AB65 /* nhle-franchise.json in Resources */,
@@ -1009,7 +1029,6 @@
 /* Begin XCBuildConfiguration section */
 		0805D3DD2A4F375300261EFE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08A5879B2AB63C9000BA4BE9 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1072,7 +1091,6 @@
 		};
 		0805D3DE2A4F375300261EFE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08A5879B2AB63C9000BA4BE9 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1128,7 +1146,6 @@
 		};
 		0805D3E02A4F375300261EFE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08A5879B2AB63C9000BA4BE9 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1174,7 +1191,6 @@
 		};
 		0805D3E12A4F375300261EFE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08A5879B2AB63C9000BA4BE9 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1220,7 +1236,6 @@
 		};
 		08AFEC4C2B81824A0028A39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08A5879B2AB63C9000BA4BE9 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1254,7 +1269,6 @@
 		};
 		08AFEC4D2B81824A0028A39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08A5879B2AB63C9000BA4BE9 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
