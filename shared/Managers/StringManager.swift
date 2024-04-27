@@ -41,5 +41,6 @@ public class StringManager {
     let or = " or "
     let teamsWindowTitle = "Teams"
     let whatsNewWindowTitle = "What's new"
+    let noGamesText = "No games to show, check back later."
     private init() {}
 }

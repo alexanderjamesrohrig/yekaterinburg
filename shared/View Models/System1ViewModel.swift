@@ -13,9 +13,6 @@ class System1ViewModel: ObservableObject {
         case loading, error, noGames, success, unknown
     }
     private let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "System1ViewModel")
-    var twoDaysAgo: Date {
-        Calendar.autoupdatingCurrent.date(byAdding: .day, value: -2, to: Date.now) ?? Date.now
-    }
     var games: [Game] = []
     @Published var state: State = .unknown
     
@@ -33,7 +30,7 @@ class System1ViewModel: ObservableObject {
             if let gamesFromAPI {
                 for g in gamesFromAPI {
                     let adaptedGame = GameAdapter.getGameFrom(footballGame: g)
-                    if adaptedGame.date > twoDaysAgo {
+                    if adaptedGame.date > Calendar.autoupdatingCurrent.date(byAdding: .day, value: -2, to: Date.now) ?? Date.now {
                         games.append(adaptedGame)
                     }
                 }
@@ -46,7 +43,7 @@ class System1ViewModel: ObservableObject {
                 for d in dates {
                     for g in d.games {
                         let adaptedGame = GameAdapter.getGameFrom(baseballGame: g)
-                        if adaptedGame.date > twoDaysAgo {
+                        if adaptedGame.date > Calendar.autoupdatingCurrent.date(byAdding: .day, value: -2, to: Date.now) ?? Date.now {
                             games.append(adaptedGame)
                         }
                     }
@@ -84,7 +81,7 @@ class System1ViewModel: ObservableObject {
                                            radioOptions: "",
                                            venue: "",
                                            type: .game(.hockey))
-                    if adaptedGame.date > twoDaysAgo {
+                    if adaptedGame.date > Calendar.autoupdatingCurrent.date(byAdding: .day, value: -2, to: Date.now) ?? Date.now {
                         games.append(adaptedGame)
                     }
                 }
@@ -96,7 +93,7 @@ class System1ViewModel: ObservableObject {
             if let gamesFromAPI {
                 for g in gamesFromAPI {
                     let adaptedGame = GameAdapter.getGameFrom(g)
-                    if adaptedGame.date > twoDaysAgo {
+                    if adaptedGame.date > Calendar.autoupdatingCurrent.date(byAdding: .day, value: -2, to: Date.now) ?? Date.now {
                         games.append(adaptedGame)
                     }
                 }

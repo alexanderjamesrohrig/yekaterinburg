@@ -31,6 +31,9 @@ struct macView: View {
                 gamesListView()
             } else if viewModel.state == .loading {
                 ProgressView()
+            } else if viewModel.state == .noGames {
+                Text(SM.shared.noGamesText)
+                    .foregroundStyle(.regularMaterial)
             }
         }
         .sheet(isPresented: $showDebugSheet) {
