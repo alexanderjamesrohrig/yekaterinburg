@@ -8,14 +8,14 @@
 import SwiftUI
 import OSLog
 
-struct macView: View {
+@MainActor struct macView: View {
     
     private let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "ContentView")
     private let apiSources: Set<YeType> = [.game(.basketball),
                                            .game(.calcio),
                                            .game(.baseball),
                                            .game(.hockey)]
-    @AppStorage(StringManager.shared.storageFFMockData) private var useMockData: Bool = true
+    @AppStorage(StringManager.shared.storageFFMockData) private var useMockData: Bool = false
     @State private var games: [Game] = []
     @State private var lastUpdate = Date.distantPast
     @State private var showSettingsSheet = false

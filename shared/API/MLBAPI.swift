@@ -12,11 +12,12 @@ fileprivate let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, ca
 
 struct MLBAPI {
     static let baseURL = "https://statsapi.mlb.com/api/v1/"
-    /// <#Description#>
+    
+    /// MLB Stats API version 1 schedule
     /// - Parameters:
-    ///   - teamID: <#teamID description#>
-    ///   - useMockData: <#useMockData description#>
-    /// - Returns: <#description#>
+    ///   - teamID: Int id of team to get schedule for
+    ///   - useMockData: If local JSON file should be used instead of making network call, defaults to false
+    /// - Returns: Optional BaseballResponse
     static func games(useMockData: Bool = false) async -> BaseballResponse? {
         let userTeam = UserDefaults.standard.integer(forKey: StoreManager.shared.appStorageBaseball)
         guard var url = URL(string: "https://statsapi.mlb.com/api/v1/schedule") else {
@@ -49,9 +50,9 @@ struct MLBAPI {
             return nil
         }
     }
-    /// <#Description#>
-    /// - Parameter useMockData: <#useMockData description#>
-    /// - Returns: <#description#>
+    /// MLB Stats API version 1 teams
+    /// - Parameter useMockData: If local JSON file should be used instead of making network call, defaults to false
+    /// - Returns: Optional QuickTypeTeams
     static func teams(useMockData: Bool = false) async -> QuickTypeTeams? {
         guard let url = URL(string: "https://statsapi.mlb.com/api/v1/teams") else {
             logger.error("Unable to create URL")
