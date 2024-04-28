@@ -40,6 +40,7 @@ class ImageManager {
     /// MLS URL Ex :- https://images.mlssoccer.com/image/upload/assets/logos/TOR.svg
     /// NBA URL Ex :- https://cdn.nba.com/logos/nba/1610612745/primary/L/logo.svg
     /// MLB URL Ex :- https://www.mlbstatic.com/team-logos/team-cap-on-light/147.svg
+    
     public func teamLogo(for sport: YeType, id: Int) -> Image? {
         switch sport {
         case .event:
@@ -61,5 +62,21 @@ class ImageManager {
             }
         }
     }
+    
+    public func mlbCrestName(for id: Int) -> String? {
+        switch id {
+        case 108...121:
+            return "\(SM.shared.baseballPrefix)\(id)"
+        case 134...147:
+            return "\(SM.shared.baseballPrefix)\(id)"
+        case 158:
+            return "\(SM.shared.baseballPrefix)\(id)"
+        case 586:
+            return "\(SM.shared.baseballPrefix)\(id)"
+        default:
+            return nil
+        }
+    }
+    
     private init() {}
 }

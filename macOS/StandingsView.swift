@@ -20,7 +20,7 @@ struct StandingsView: View {
                 }
                 ForEach(0..<18, id: \.self) { row in
                     GridRow {
-                        Text("Name")
+                        Text("\(table[row].team.name ?? "")")
                         Text("##")
                     }
                 }

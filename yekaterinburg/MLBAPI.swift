@@ -65,7 +65,8 @@ struct MLBAPI {
             if useMockData {
                 data = try Data(contentsOf: mockURL!)
             } else {
-                let request = URLRequest(url: url)
+                var request = URLRequest(url: url)
+                request.cachePolicy = .returnCacheDataElseLoad
                 let (baseballData, _) = try await URLSession.shared.data(for: request)
                 data = baseballData
             }

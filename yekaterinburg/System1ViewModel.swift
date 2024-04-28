@@ -26,6 +26,8 @@ class System1ViewModel: ObservableObject {
                       useMockData: Bool = false,
                       includePastGames: Bool = false,
                       loadLocalGames: Bool = false) async -> [Game] {
+        // TODO: Helper functions
+        // FIXME: Concurrent mutation of games
         var games: [Game] = []
         /// Calcio
         if sources.contains(.game(.calcio)) && FFM.shared.ff3.enabled {
