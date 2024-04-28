@@ -12,6 +12,8 @@ public typealias SM = StringManager
 /// Manager for user facing strings
 public class StringManager {
     static let shared = StringManager()
+    let manageFavoritesButtonTitle = "Manage favorite teams"
+    let favoriteColumnName = "Favorite"
     let baseballPrefix = "mlb"
     let basketballPrefix = "nba"
     let hockeyPrefix = "nhl"
@@ -34,7 +36,7 @@ public class StringManager {
     let settingsButtonTitle = "Settings"
     let openAppleNewsButtonTitle = "Open Apple News"
     let refreshButtonTitle = "Refresh"
-    let idColumnName = "Id"
+    let idColumnName = "ID"
     let nameColumnName = "Name"
     let parentOrgColumnName = "Parent organization"
     let sportColumnName = "Sport"

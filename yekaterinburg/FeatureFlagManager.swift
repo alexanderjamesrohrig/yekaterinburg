@@ -42,4 +42,6 @@ public class FeatureFlagManager {
     let ff4 = FeatureFlag(title: "HOCKEY", enabled: false, id: 4)
     /// Basketball features flag
     let ff5 = FeatureFlag(title: "BASKETBALL", enabled: false, id: 5)
+    /// Select multiple favorites feature flag
+    let ff6 = FeatureFlag(title: "MULTI_FAVORITE", enabled: true, id: 6)
 }

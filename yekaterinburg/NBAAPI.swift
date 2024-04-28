@@ -38,11 +38,7 @@ struct NBAAPI {
                 data = nbaData
             }
             let decoded = try decoder.decode(BasketballTeamsResponse.self, from: data)
-            if FeatureFlagManager.shared.printFullResponses {
-                print(decoded)
-            } else {
-                logger.info("Teams :- \(decoded.data.count)")
-            }
+            logger.info("Teams :- \(decoded.data.count)")
             return decoded
         } catch {
             logger.error("Unable to decode API data")

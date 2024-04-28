@@ -23,6 +23,7 @@ import OSLog
     @StateObject private var viewModel = System1ViewModel()
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.openURL) private var openURL
+    @Environment(\.openWindow) var openWindow
     
     var body: some View {
         ZStack {
@@ -32,8 +33,16 @@ import OSLog
             } else if viewModel.state == .loading {
                 ProgressView()
             } else if viewModel.state == .noGames {
-                Text(SM.shared.noGamesText)
-                    .foregroundStyle(.regularMaterial)
+                VStack {
+                    Text(SM.shared.noGamesText)
+                        .foregroundStyle(.regularMaterial)
+                    Button {
+                        openWindow(id: WindowManager.shared.teams)
+                    } label: {
+                        Text(SM.shared.manageFavoritesButtonTitle)
+                    }
+
+                }
             }
         }
         .sheet(isPresented: $showDebugSheet) {
@@ -76,7 +85,8 @@ import OSLog
             switch scenePhase {
             case .inactive:
                 logger.info("Switched to inactive scene state")
-                // TODO: save only created games
+                // TODO: Save only created games
+                // TODO: Save favorited Teams 
             default:
                 logger.info("Switched to other scene state")
             }

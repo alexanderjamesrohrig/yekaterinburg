@@ -115,7 +115,7 @@ struct GameAdapter {
     
     static func getCallLetters(from content: BaseballResponse.GameContent?) -> String {
         guard let media = content?.media?.epg else {
-            logger.error("EPG is empty")
+            logger.debug("EPG is empty")
             return ""
         }
         var returnString = ""
@@ -132,6 +132,22 @@ struct GameAdapter {
                         returnString.append(SM.shared.or)
                     }
                 }
+            }
+        }
+        return returnString
+    }
+    
+    static func getNHLBroadcasts(_ broadcasts: [HockeyScheduleResponse.Broadcast]?) -> String {
+        guard let broadcasts else {
+            logger.debug("Empty broadcast information")
+            return ""
+        }
+        var returnString = ""
+        let lastIndex = broadcasts.count - 1
+        for i in 0 ..< broadcasts.count {
+            returnString.append(broadcasts[i].network ?? "")
+            if i != lastIndex {
+                returnString.append(SM.shared.or)
             }
         }
         return returnString

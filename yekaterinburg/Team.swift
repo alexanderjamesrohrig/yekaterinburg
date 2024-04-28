@@ -11,10 +11,12 @@ import OSLog
 fileprivate let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "Team")
 
 struct Team: Identifiable {
-    let id: Int
+    let id = UUID()
+    let sportSpecificID: Int
     let name: String
     let parentOrgName: String
     let sport: YeType
+    var favorite: Bool = false
     
     static var all: [Team] {
         get async {
@@ -40,12 +42,7 @@ struct Team: Identifiable {
                 do {
                     let data = try Data(contentsOf: url!) // LOCAL JSON FILE
                     let decoded = try? JSONDecoder().decode(QuickTypeTeams.self, from: data)
-                    if FeatureFlagManager.shared.printFullResponses {
-                        logger.info("Printing full responses")
-                        print(decoded ?? "")
-                    } else {
-                        logger.info("Teams :- \(decoded?.teams.count ?? 0)")
-                    }
+                    logger.info("Teams :- \(decoded?.teams.count ?? 0)")
                     if let d = decoded {
                         for x in d.teams {
                             teams.append(Team(quickType: x))
@@ -67,13 +64,13 @@ struct Team: Identifiable {
     /// Initialize Team object with response from MLB API
     /// - Parameter quickType: Object representing team from MLB API
     init(quickType: TeamElement) {
-        self.id = quickType.id
+        self.sportSpecificID = quickType.id
         self.name = quickType.name
         self.parentOrgName = quickType.parentOrgName ?? ""
         self.sport = .game(.baseball)
     }
     init(id: Int, name: String, parentOrgName: String = "", sport: YeType) {
-        self.id = id
+        self.sportSpecificID = id
         self.name = name
         self.parentOrgName = parentOrgName
         self.sport = sport

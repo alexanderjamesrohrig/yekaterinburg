@@ -11,12 +11,18 @@ import OSLog
 class StoreManager {
     static let shared = StoreManager()
     private let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "StoreManager")
+    let appStorageBaseball = "app_storage_baseball_team"
+    let appStorageBasketball = "app_storage_basketball_team"
+    let appStorageHockey = "app_storage_hockey_team"
+    let appStorageCalcio = "app_storage_calcio_team"
+    let appStorageCF = "app_storage_college_football_team"
     private func fileURL(withName name: String = "store") throws -> URL {
         try FileManager.default.url(for: .documentDirectory,
                                     in: .userDomainMask,
                                     appropriateFor: nil,
                                     create: false).appendingPathComponent("\(name).data")
     }
+    
     /// Loads array of Game objects from user's document directory, games.data
     /// - Returns: Array of Game objects
     func loadGames() async -> [Game] {
@@ -34,6 +40,7 @@ class StoreManager {
         }
         return games
     }
+    
     /// Saves array of Game objects to file in user's document directory, games.data
     /// - Parameter games: Array of Game objects to save
     func save(games: [Game]) async {
@@ -51,10 +58,6 @@ class StoreManager {
             logger.error("Unable to write file")
         }
     }
-    let appStorageBaseball = "app_storage_baseball_team"
-    let appStorageBasketball = "app_storage_basketball_team"
-    let appStorageHockey = "app_storage_hockey_team"
-    let appStorageCalcio = "app_storage_calcio_team"
-    let appStorageCF = "app_storage_college_football_team"
+    
     private init() {}
 }

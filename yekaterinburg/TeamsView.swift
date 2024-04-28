@@ -6,17 +6,21 @@
 //
 
 import SwiftUI
+import OSLog
 
 struct TeamsView: View {
     
-    @State private var teams: [Team] = []
-    @State private var sortOrder = [KeyPathComparator(\Team.id)]
+    private let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "TeamsView")
+    @StateObject private var viewModel = TeamsViewModel()
     
     var body: some View {
         // TODO: Right click to set as favorite
-        Table(teams, sortOrder: $sortOrder) {
-            TableColumn(SM.shared.idColumnName, value: \.id) { team in
-                Text(verbatim: "\(team.id)")
+        Table(viewModel.teams, sortOrder: $viewModel.sortOrder) {
+            TableColumn(SM.shared.favoriteColumnName) { team in
+                Toggle("", isOn: $viewModel.teams[viewModel.firstIndex(team)].favorite)
+            }
+            TableColumn(SM.shared.idColumnName, value: \.sportSpecificID) { team in
+                Text(verbatim: "\(team.sportSpecificID)")
                     .monospaced()
             }
             TableColumn(SM.shared.nameColumnName, value: \.name)
@@ -25,11 +29,11 @@ struct TeamsView: View {
                 displayName(for: teamRow.sport)
             }
         }
-        .onChange(of: sortOrder) { _, newSort in
-            teams.sort(using: newSort)
+        .onChange(of: viewModel.sortOrder) { _, newSort in
+            viewModel.teams.sort(using: newSort)
         }
         .task {
-            teams = await Team.all
+            viewModel.teams = await Team.all
         }
     }
     

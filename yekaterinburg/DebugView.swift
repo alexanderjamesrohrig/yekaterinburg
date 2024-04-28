@@ -20,9 +20,17 @@ struct DebugView: View {
         VStack(alignment: .leading) {
             Text(GeneralSecretary.shared.appVersion)
             Toggle("USE_MOCK_DATA", isOn: $useMockData)
-            Text("FEATURE_FLAGS:")
             Toggle(FeatureFlagManager.shared.titleFF1, isOn: $ff1)
             Toggle(FeatureFlagManager.shared.titleFF2, isOn: $ff2)
+            Button("CLEAR_APP_STORAGE") {
+                UserDefaults.standard.removeObject(forKey: FeatureFlagManager.shared.appStorageFF1)
+                UserDefaults.standard.removeObject(forKey: FeatureFlagManager.shared.appStorageFF1)
+                UserDefaults.standard.removeObject(forKey: StoreManager.shared.appStorageBaseball)
+                UserDefaults.standard.removeObject(forKey: StoreManager.shared.appStorageBasketball)
+                UserDefaults.standard.removeObject(forKey: StoreManager.shared.appStorageCF)
+                UserDefaults.standard.removeObject(forKey: StoreManager.shared.appStorageCalcio)
+            }
+            Divider()
             Button("DISMISS") {
                 dismiss()
             }

@@ -86,7 +86,7 @@ class System1ViewModel: ObservableObject {
                                            awayPoints: gameFromAPI.awayTeam?.score ?? 0,
                                            date: DateAdapter.dateFromAPI(date: gameFromAPI.startTimeUTC ?? ""),
                                            status: gameFromAPI.gameState ?? "",
-                                           televisionOptions: gameFromAPI.tvBroadcasts?.first?.network ?? "",
+                                           televisionOptions: GameAdapter.getNHLBroadcasts(gameFromAPI.tvBroadcasts),
                                            radioOptions: "",
                                            venue: "",
                                            type: .game(.hockey))
