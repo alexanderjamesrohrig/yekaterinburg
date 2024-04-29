@@ -24,6 +24,28 @@ enum YeType: Hashable, Codable{
         case calcio
         case football
     }
+    
+    var idPrefix: String {
+        switch self {
+        case .event:
+            return "EVE"
+        case .game(let game):
+            switch game {
+            case .baseball:
+                return "BAS"
+            case .collegeFootball:
+                return "CFB"
+            case .hockey:
+                return "HOC"
+            case .basketball:
+                return "BKT"
+            case .calcio:
+                return "WFB"
+            case .football:
+                return "FTB"
+            }
+        }
+    }
 }
 
 struct Game: Identifiable, Codable {

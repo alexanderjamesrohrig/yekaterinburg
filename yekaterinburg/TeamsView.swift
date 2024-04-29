@@ -12,6 +12,7 @@ struct TeamsView: View {
     
     private let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "TeamsView")
     @StateObject private var viewModel = TeamsViewModel()
+    @Environment(\.controlActiveState) private var controlActiveState
     
     var body: some View {
         Table(viewModel.teams, sortOrder: $viewModel.sortOrder) {
@@ -30,6 +31,18 @@ struct TeamsView: View {
         }
         .onChange(of: viewModel.sortOrder) { _, newSort in
             viewModel.teams.sort(using: newSort)
+        }
+        .onChange(of: controlActiveState) { fromState, toState in
+            switch toState {
+            case .key, .active:
+                logger.info("View key window or active")
+            case .inactive:
+                logger.info("View inactive")
+                let favoriteTeams = viewModel.teams.filter({ $0.favorite })
+                StoreManager.shared.saveFavorite(teams: favoriteTeams)
+            @unknown default:
+                logger.warning("Found unknown state")
+            }
         }
         .task {
             viewModel.teams = await Team.all

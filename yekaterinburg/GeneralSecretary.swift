@@ -19,7 +19,7 @@ class GeneralSecretary {
         let dictionary = Bundle.main.infoDictionary
         let version = dictionary?["CFBundleShortVersionString"]
         let build = dictionary?["CFBundleVersion"]
-        return "VERSION_\(version ?? "VERSION UNAVAILABLE")_BUILD_\(build ?? "BUILD UNAVAILABLE")"
+        return "VERSION_\(version ?? "VERSION UNAVAILABLE")"
     }
     let url = URL(string: "https://www.alexanderrohrig.com/RSC")!
     private init() {}

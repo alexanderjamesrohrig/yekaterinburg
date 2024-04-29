@@ -11,8 +11,8 @@ import OSLog
 fileprivate let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "Team")
 
 public typealias Teams = [Team]
-public struct Team: Identifiable, Codable {
-    public var id = UUID()
+public struct Team: Identifiable, Codable, Hashable {
+    public let id: String
     let sportSpecificID: Int
     let name: String
     let parentOrgName: String
@@ -22,6 +22,9 @@ public struct Team: Identifiable, Codable {
     static var all: [Team] {
         get async {
             var teams: [Team] = []
+            let favorites = StoreManager.shared.loadFavorite()
+            // FIXME: Do not add teams from APIs if they already exist as favorites
+            teams.append(contentsOf: favorites)
             if FeatureFlagManager.shared.ff1.enabled {
                 logger.info("Teams from all sources")
                 if let mlbTeams = await MLBAPI.teams(useMockData: true) {
@@ -65,12 +68,21 @@ public struct Team: Identifiable, Codable {
     /// Initialize Team object with response from MLB API
     /// - Parameter quickType: Object representing team from MLB API
     init(quickType: TeamElement) {
+        self.id = "\(YeType.game(.baseball).hashValue)_\(quickType.id)"
         self.sportSpecificID = quickType.id
         self.name = quickType.name
         self.parentOrgName = quickType.parentOrgName ?? ""
         self.sport = .game(.baseball)
     }
+    
+    /// Initialize Team object
+    /// - Parameters:
+    ///   - id: String sport specific ID that will be used to create unique team ID
+    ///   - name: String name of team
+    ///   - parentOrgName: String name of parent organization of team, defaults to empty
+    ///   - sport: YeType of sport that team competes in
     init(id: Int, name: String, parentOrgName: String = "", sport: YeType) {
+        self.id = "\(sport.idPrefix)\(id)"
         self.sportSpecificID = id
         self.name = name
         self.parentOrgName = parentOrgName
