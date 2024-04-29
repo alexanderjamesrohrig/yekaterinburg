@@ -29,6 +29,7 @@ struct DebugView: View {
                 UserDefaults.standard.removeObject(forKey: StoreManager.shared.appStorageBasketball)
                 UserDefaults.standard.removeObject(forKey: StoreManager.shared.appStorageCF)
                 UserDefaults.standard.removeObject(forKey: StoreManager.shared.appStorageCalcio)
+                UserDefaults.standard.removeObject(forKey: StoreManager.shared.appStorageFavorites)
             }
             Button("PRINT_FAVORITES") {
                 if let favs = UserDefaults.standard.data(forKey: StoreManager.shared.appStorageFavorites) {

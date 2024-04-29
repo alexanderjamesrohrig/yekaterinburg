@@ -45,7 +45,7 @@ class System1ViewModel: ObservableObject {
         }
         /// Baseball
         if sources.contains(.game(.baseball)) {
-            let datesAndGamesFromAPI = await MLBAPI.games(useMockData: useMockData)
+            let datesAndGamesFromAPI = await MLBAPI.games(season: 2024, teamIDs: 117, 121)
             if let dates = datesAndGamesFromAPI?.dates {
                 for d in dates {
                     for g in d.games {

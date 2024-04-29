@@ -82,6 +82,7 @@ import OSLog
             lastUpdate = Date.now
         }
         .onChange(of: scenePhase) { _, phase in
+            logger.info("\(GeneralSecretary.shared.appVersion)")
             switch scenePhase {
             case .inactive:
                 logger.info("Switched to inactive scene state")

@@ -15,19 +15,22 @@ struct MLBAPI {
     
     /// MLB Stats API version 1 schedule
     /// - Parameters:
-    ///   - teamID: Int id of team to get schedule for
     ///   - useMockData: If local JSON file should be used instead of making network call, defaults to false
+    ///   - season: Int year of season, Ex: 2024
+    ///   - teamID: Int id of team to get schedule for
     /// - Returns: Optional BaseballResponse
-    static func games(useMockData: Bool = false) async -> BaseballResponse? {
-        let userTeam = UserDefaults.standard.integer(forKey: StoreManager.shared.appStorageBaseball)
-        guard var url = URL(string: "https://statsapi.mlb.com/api/v1/schedule") else {
+    static func games(useMockData: Bool = false, season: Int, teamIDs: Int...) async -> BaseballResponse? {
+        guard var url = URL(string: "https://statsapi.mlb.com/api/v1/schedule"),
+              !teamIDs.isEmpty else {
             logger.error("Unable to create URL")
             return nil
         }
+        let mergedIDs = teamIDs.map{ String($0) }.joined(separator: ",")
+        logger.debug("\(mergedIDs)")
         let urlParameters = [
             URLQueryItem(name: "sportId", value: "1"),
-            URLQueryItem(name: "teamId", value: "\(userTeam)"),
-            URLQueryItem(name: "season", value: "2024"),
+            URLQueryItem(name: "teamId", value: mergedIDs),
+            URLQueryItem(name: "season", value: "\(season)"),
             URLQueryItem(name: "hydrate", value: "game(content(media(epg)))")
         ]
         url = url.appending(queryItems: urlParameters)
