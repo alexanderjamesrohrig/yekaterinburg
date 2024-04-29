@@ -10,8 +10,9 @@ import OSLog
 
 fileprivate let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "Team")
 
-struct Team: Identifiable {
-    let id = UUID()
+public typealias Teams = [Team]
+public struct Team: Identifiable, Codable {
+    public var id = UUID()
     let sportSpecificID: Int
     let name: String
     let parentOrgName: String
@@ -21,7 +22,7 @@ struct Team: Identifiable {
     static var all: [Team] {
         get async {
             var teams: [Team] = []
-            if FeatureFlagManager.shared.teamsFromAllAPISources {
+            if FeatureFlagManager.shared.ff1.enabled {
                 logger.info("Teams from all sources")
                 if let mlbTeams = await MLBAPI.teams(useMockData: true) {
                     logger.info("\(mlbTeams.teams.count) MLB teams")

@@ -14,7 +14,6 @@ struct TeamsView: View {
     @StateObject private var viewModel = TeamsViewModel()
     
     var body: some View {
-        // TODO: Right click to set as favorite
         Table(viewModel.teams, sortOrder: $viewModel.sortOrder) {
             TableColumn(SM.shared.favoriteColumnName) { team in
                 Toggle("", isOn: $viewModel.teams[viewModel.firstIndex(team)].favorite)
