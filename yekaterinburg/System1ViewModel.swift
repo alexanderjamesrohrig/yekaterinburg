@@ -26,6 +26,7 @@ class System1ViewModel: ObservableObject {
                       useMockData: Bool = false,
                       includePastGames: Bool = false,
                       loadLocalGames: Bool = false) async -> [Game] {
+        let favoriteTeams = StoreManager.shared.loadFavorite()
         // TODO: Helper functions
         // FIXME: Concurrent mutation of games
         var games: [Game] = []
@@ -45,7 +46,8 @@ class System1ViewModel: ObservableObject {
         }
         /// Baseball
         if sources.contains(.game(.baseball)) {
-            let datesAndGamesFromAPI = await MLBAPI.games(season: 2024, teamIDs: 117, 121)
+            let favoriteBaseballTeams = favoriteTeams.filter({ $0.sport == .game(.baseball)}).map({ $0.sportSpecificID })
+            let datesAndGamesFromAPI = await MLBAPI.games(season: 2024, teamIDs: favoriteBaseballTeams)
             if let dates = datesAndGamesFromAPI?.dates {
                 for d in dates {
                     for g in d.games {

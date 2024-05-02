@@ -11,7 +11,7 @@ import OSLog
 fileprivate let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "Team")
 
 public typealias Teams = [Team]
-public struct Team: Identifiable, Codable, Hashable {
+public struct Team: Identifiable, Codable, Hashable, Equatable {
     public let id: String
     let sportSpecificID: Int
     let name: String
@@ -29,16 +29,30 @@ public struct Team: Identifiable, Codable, Hashable {
                 logger.info("Teams from all sources")
                 if let mlbTeams = await MLBAPI.teams(useMockData: true) {
                     logger.info("\(mlbTeams.teams.count) MLB teams")
-                    teams.append(contentsOf: TeamAdapter.getTeamsFromMLB(mlbTeams))
+                    let teamsAdapted = TeamAdapter.getTeamsFromMLB(mlbTeams)
+                    for tA in teamsAdapted {
+                        if !favorites.contains(where: { $0.id == tA.id }) {
+                            teams.append(tA)
+                        }
+                    }
                 }
                 if FFM.shared.ff5.enabled, let nbaTeams = await NBAAPI.teams() {
                     logger.info("\(nbaTeams.data.count) NBA teams")
-                    teams.append(contentsOf: TeamAdapter.getTeamsFromNBA(nbaTeams))
+                    let teamsAdapted = TeamAdapter.getTeamsFromNBA(nbaTeams)
+                    for tA in teamsAdapted {
+                        if !favorites.contains(where: { $0.id == tA.id }) {
+                            teams.append(tA)
+                        }
+                    }
                 }
                 if FFM.shared.ff4.enabled, let nhlTeams = await NHLAPI.teams() {
                     let teamsAdapted = TeamAdapter.getTeamsFromNHL(nhlTeams)
                     logger.info("\(teamsAdapted.count) NHL teams")
-                    teams.append(contentsOf: teamsAdapted)
+                    for tA in teamsAdapted {
+                        if !favorites.contains(where: { $0.id == tA.id }) {
+                            teams.append(tA)
+                        }
+                    }
                 }
                 return teams
             } else {
@@ -63,6 +77,10 @@ public struct Team: Identifiable, Codable, Hashable {
                 }
             }
         }
+    }
+    
+    public static func ==(lhs: Team, rhs: Team) -> Bool {
+        lhs.id == rhs.id
     }
     
     /// Initialize Team object with response from MLB API

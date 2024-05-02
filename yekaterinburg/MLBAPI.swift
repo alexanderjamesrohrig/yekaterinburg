@@ -19,7 +19,8 @@ struct MLBAPI {
     ///   - season: Int year of season, Ex: 2024
     ///   - teamID: Int id of team to get schedule for
     /// - Returns: Optional BaseballResponse
-    static func games(useMockData: Bool = false, season: Int, teamIDs: Int...) async -> BaseballResponse? {
+    static func games(useMockData: Bool = false, season: Int, teamIDs: [Int]) async -> BaseballResponse? {
+        logger.debug("Getting games for teams \(teamIDs)")
         guard var url = URL(string: "https://statsapi.mlb.com/api/v1/schedule"),
               !teamIDs.isEmpty else {
             logger.error("Unable to create URL")

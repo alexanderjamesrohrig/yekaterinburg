@@ -92,6 +92,13 @@ import OSLog
                 logger.info("Switched to other scene state")
             }
         }
+        .onAppear {
+            if UserDefaults.standard.float(forKey: StoreManager.shared.appStorageOpenedAppSinceMajorUpdate) != GeneralSecretary.shared.majorVersion {
+                openWindow(id: WindowManager.shared.whatsNew)
+                UserDefaults.standard.setValue(GeneralSecretary.shared.majorVersion,
+                                               forKey: StoreManager.shared.appStorageOpenedAppSinceMajorUpdate)
+            }
+        }
     }
     
     @ViewBuilder private func gamesListView() -> some View {

@@ -17,6 +17,7 @@ class StoreManager {
     let appStorageCalcio = "app_storage_calcio_team"
     let appStorageCF = "app_storage_college_football_team"
     let appStorageFavorites = "app_storage_favorite_teams"
+    let appStorageOpenedAppSinceMajorUpdate = "app_storage_opened_at_version"
     private func fileURL(withName name: String = "store") throws -> URL {
         try FileManager.default.url(for: .documentDirectory,
                                     in: .userDomainMask,
