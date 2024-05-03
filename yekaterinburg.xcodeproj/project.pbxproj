@@ -107,11 +107,11 @@
 		08AD6A252BE0498D008EBB94 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D99CCE2AB37AB3004C7D43 /* Team.swift */; };
 		08AD6A262BE04998008EBB94 /* NBAAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D25E8F2AE6EE7F004EB8DB /* NBAAPI.swift */; };
 		08AD6A272BE0499E008EBB94 /* NHLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E024812BDBF7D100C5AB65 /* NHLAPI.swift */; };
-		08AD6A282BE049A9008EBB94 /* nhle-franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E0247D2BDBF6AD00C5AB65 /* nhle-franchise.swift */; };
+		08AD6A282BE049A9008EBB94 /* HockeyFranchiseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E0247D2BDBF6AD00C5AB65 /* HockeyFranchiseResponse.swift */; };
 		08AD6A292BE049AA008EBB94 /* BasketballTeamsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087C2E112B85703200AFAB34 /* BasketballTeamsResponse.swift */; };
-		08AD6A2A2BE049AF008EBB94 /* nhle-franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E0247D2BDBF6AD00C5AB65 /* nhle-franchise.swift */; };
-		08AD6A2B2BE049B1008EBB94 /* nhle-schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E024922BDC025600C5AB65 /* nhle-schedule.swift */; };
-		08AD6A2C2BE049B1008EBB94 /* nhle-schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E024922BDC025600C5AB65 /* nhle-schedule.swift */; };
+		08AD6A2A2BE049AF008EBB94 /* HockeyFranchiseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E0247D2BDBF6AD00C5AB65 /* HockeyFranchiseResponse.swift */; };
+		08AD6A2B2BE049B1008EBB94 /* HockeyScheduleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E024922BDC025600C5AB65 /* HockeyScheduleResponse.swift */; };
+		08AD6A2C2BE049B1008EBB94 /* HockeyScheduleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E024922BDC025600C5AB65 /* HockeyScheduleResponse.swift */; };
 		08AD6A2D2BE049C8008EBB94 /* BasketballResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D25E912AE6EF16004EB8DB /* BasketballResponse.swift */; };
 		08AD6A2E2BE049C9008EBB94 /* BasketballResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D25E912AE6EF16004EB8DB /* BasketballResponse.swift */; };
 		08AD6A2F2BE049CE008EBB94 /* BasketballTeamsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087C2E112B85703200AFAB34 /* BasketballTeamsResponse.swift */; };
@@ -149,7 +149,7 @@
 		08DA48FD2B7288BC0097F36C /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DA48FC2B7288BC0097F36C /* WindowManager.swift */; };
 		08DA49002B728A520097F36C /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DA48FF2B728A520097F36C /* ImageManager.swift */; };
 		08DB5A882AD97C00001D55B5 /* InProgressGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB5A872AD97C00001D55B5 /* InProgressGameView.swift */; };
-		08E0247E2BDBF6AD00C5AB65 /* nhle-franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E0247D2BDBF6AD00C5AB65 /* nhle-franchise.swift */; };
+		08E0247E2BDBF6AD00C5AB65 /* HockeyFranchiseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E0247D2BDBF6AD00C5AB65 /* HockeyFranchiseResponse.swift */; };
 		08E024822BDBF7D100C5AB65 /* NHLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E024812BDBF7D100C5AB65 /* NHLAPI.swift */; };
 		08E0248A2BDBFB1500C5AB65 /* nhle-franchise.json in Resources */ = {isa = PBXBuildFile; fileRef = 08E024892BDBFB1500C5AB65 /* nhle-franchise.json */; };
 		08E0248B2BDBFB1500C5AB65 /* nhle-franchise.json in Resources */ = {isa = PBXBuildFile; fileRef = 08E024892BDBFB1500C5AB65 /* nhle-franchise.json */; };
@@ -157,7 +157,7 @@
 		08E0248F2BDC01B200C5AB65 /* nhle-schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = 08E0248E2BDC01B200C5AB65 /* nhle-schedule.json */; };
 		08E024902BDC01B200C5AB65 /* nhle-schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = 08E0248E2BDC01B200C5AB65 /* nhle-schedule.json */; };
 		08E024912BDC01B200C5AB65 /* nhle-schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = 08E0248E2BDC01B200C5AB65 /* nhle-schedule.json */; };
-		08E024932BDC025600C5AB65 /* nhle-schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E024922BDC025600C5AB65 /* nhle-schedule.swift */; };
+		08E024932BDC025600C5AB65 /* HockeyScheduleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E024922BDC025600C5AB65 /* HockeyScheduleResponse.swift */; };
 		08E325392BA4E30A00104E85 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E325382BA4E30A00104E85 /* BackgroundView.swift */; };
 		08E3253A2BA4ECBB00104E85 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E325382BA4E30A00104E85 /* BackgroundView.swift */; };
 		08ECA8F72A9250C7000570A8 /* SCHEDULE.json in Resources */ = {isa = PBXBuildFile; fileRef = 08ECA8F62A9250C7000570A8 /* SCHEDULE.json */; };
@@ -274,11 +274,11 @@
 		08DB5A872AD97C00001D55B5 /* InProgressGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InProgressGameView.swift; sourceTree = "<group>"; };
 		08DFB4452AC08B7200B95434 /* SmallNextGameTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallNextGameTwoView.swift; sourceTree = "<group>"; };
 		08DFB4472AC0922100B95434 /* SmallGameInProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallGameInProgressView.swift; sourceTree = "<group>"; };
-		08E0247D2BDBF6AD00C5AB65 /* nhle-franchise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "nhle-franchise.swift"; sourceTree = "<group>"; };
+		08E0247D2BDBF6AD00C5AB65 /* HockeyFranchiseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HockeyFranchiseResponse.swift; sourceTree = "<group>"; };
 		08E024812BDBF7D100C5AB65 /* NHLAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NHLAPI.swift; sourceTree = "<group>"; };
 		08E024892BDBFB1500C5AB65 /* nhle-franchise.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "nhle-franchise.json"; sourceTree = "<group>"; };
 		08E0248E2BDC01B200C5AB65 /* nhle-schedule.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = "nhle-schedule.json"; sourceTree = "<group>"; };
-		08E024922BDC025600C5AB65 /* nhle-schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "nhle-schedule.swift"; sourceTree = "<group>"; };
+		08E024922BDC025600C5AB65 /* HockeyScheduleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HockeyScheduleResponse.swift; sourceTree = "<group>"; };
 		08E325372BA4CD5C00104E85 /* YeEvents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = YeEvents.json; sourceTree = "<group>"; };
 		08E325382BA4E30A00104E85 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		08E85C3D2ADDB9AA00A065E9 /* MediumNextGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumNextGameView.swift; sourceTree = "<group>"; };
@@ -363,8 +363,8 @@
 				08DA48FA2B7287140097F36C /* ToolbarStatus.swift */,
 				08A587862AB5F5B400BA4BE9 /* RohrigView.swift */,
 				08D25E912AE6EF16004EB8DB /* BasketballResponse.swift */,
-				08E024922BDC025600C5AB65 /* nhle-schedule.swift */,
-				08E0247D2BDBF6AD00C5AB65 /* nhle-franchise.swift */,
+				08E024922BDC025600C5AB65 /* HockeyScheduleResponse.swift */,
+				08E0247D2BDBF6AD00C5AB65 /* HockeyFranchiseResponse.swift */,
 				087C2E112B85703200AFAB34 /* BasketballTeamsResponse.swift */,
 				08D99CD22AB38064004C7D43 /* QuickTypeTeam.swift */,
 				0886D3AD2B81178F00F997B1 /* BaseballResponse.swift */,
@@ -725,7 +725,7 @@
 				08022E752B7863E7009F572E /* ColorManager.swift in Sources */,
 				0886D3A32B8106DE00F997B1 /* WorldFootballAPI.swift in Sources */,
 				08A5878F2AB61F1800BA4BE9 /* MLBAPI.swift in Sources */,
-				08E024932BDC025600C5AB65 /* nhle-schedule.swift in Sources */,
+				08E024932BDC025600C5AB65 /* HockeyScheduleResponse.swift in Sources */,
 				0805EA0E2AD1968F00D17753 /* SampleManager.swift in Sources */,
 				0805EA122AD198EA00D17753 /* FutureGameView.swift in Sources */,
 				08E024822BDBF7D100C5AB65 /* NHLAPI.swift in Sources */,
@@ -748,7 +748,7 @@
 				0882AF9C2AE2B14300EF4E0E /* CollegeFootballResponse.swift in Sources */,
 				08D99CCF2AB37AB3004C7D43 /* Team.swift in Sources */,
 				086A50BB2BDEB30800C9D91D /* WorldFootballCompetitionsResponse.swift in Sources */,
-				08E0247E2BDBF6AD00C5AB65 /* nhle-franchise.swift in Sources */,
+				08E0247E2BDBF6AD00C5AB65 /* HockeyFranchiseResponse.swift in Sources */,
 				08D25E902AE6EE7F004EB8DB /* NBAAPI.swift in Sources */,
 				083CBD2E2B82587100D151F7 /* DebugView.swift in Sources */,
 				08A2B1882B86B7ED000B770F /* TeamAdapter.swift in Sources */,
@@ -766,7 +766,7 @@
 			files = (
 				08AD6A102BE0463C008EBB94 /* CollegeFootballResponse.swift in Sources */,
 				08AD6A132BE04655008EBB94 /* HockeyResponse.swift in Sources */,
-				08AD6A282BE049A9008EBB94 /* nhle-franchise.swift in Sources */,
+				08AD6A282BE049A9008EBB94 /* HockeyFranchiseResponse.swift in Sources */,
 				083CBD302B82587100D151F7 /* DebugView.swift in Sources */,
 				086A50C62BDED07600C9D91D /* TeamsViewModel.swift in Sources */,
 				08AFEC2D2B8182470028A39A /* YekaterinburgTVApp.swift in Sources */,
@@ -775,7 +775,7 @@
 				08AD6A202BE046D6008EBB94 /* CFDAPI.swift in Sources */,
 				086A50BF2BDEB30800C9D91D /* WorldFootballTeamsResponse.swift in Sources */,
 				08F0B9592BB3785A0066102B /* MarchUpcomingGameView.swift in Sources */,
-				08AD6A2B2BE049B1008EBB94 /* nhle-schedule.swift in Sources */,
+				08AD6A2B2BE049B1008EBB94 /* HockeyScheduleResponse.swift in Sources */,
 				08AD6A2D2BE049C8008EBB94 /* BasketballResponse.swift in Sources */,
 				08AD6A292BE049AA008EBB94 /* BasketballTeamsResponse.swift in Sources */,
 				083CBCC62B824A2400D151F7 /* Game.swift in Sources */,
@@ -817,10 +817,10 @@
 				08D499C22BD852570091597F /* YeTests.swift in Sources */,
 				08AD6A332BE049DF008EBB94 /* MLBAPI.swift in Sources */,
 				086A50BD2BDEB30800C9D91D /* WorldFootballCompetitionsResponse.swift in Sources */,
-				08AD6A2A2BE049AF008EBB94 /* nhle-franchise.swift in Sources */,
+				08AD6A2A2BE049AF008EBB94 /* HockeyFranchiseResponse.swift in Sources */,
 				08AD6A112BE0463D008EBB94 /* CollegeFootballResponse.swift in Sources */,
 				08D499DB2BD8550D0091597F /* Game.swift in Sources */,
-				08AD6A2C2BE049B1008EBB94 /* nhle-schedule.swift in Sources */,
+				08AD6A2C2BE049B1008EBB94 /* HockeyScheduleResponse.swift in Sources */,
 				086A50C32BDEB30800C9D91D /* WorldFootballStandingsResponse.swift in Sources */,
 				08AD6A322BE049DD008EBB94 /* CFDAPI.swift in Sources */,
 				08AD6A342BE049E1008EBB94 /* WorldFootballAPI.swift in Sources */,
