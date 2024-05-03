@@ -31,10 +31,10 @@ struct yekaterinburgApp: App {
 //        Window(SM.shared.standingsTitle, id: WindowManager.shared.standings) {
 //            
 //        }
-//        Settings {
-//            SettingsView()
-//                .frame(width: 500, height: 500)
-//        }
+        Settings {
+            SettingsView()
+                .frame(width: 500, height: 500)
+        }
         #endif
     }
 }

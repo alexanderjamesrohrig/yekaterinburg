@@ -49,9 +49,7 @@ struct TeamAdapter {
             return []
         }
         for x in teamsData {
-            let teamToAdd = Team(id: x.id,
-                                 name: x.fullName ?? "",
-                                 sport: .game(.hockey))
+            let teamToAdd = Team(id: x.id, name: x.fullName ?? "")
             list.append(teamToAdd)
         }
         return list

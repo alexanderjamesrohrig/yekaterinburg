@@ -44,8 +44,9 @@ public class StringManager {
     let teamsWindowTitle = "Teams"
     let whatsNewWindowTitle = "What's new"
     let noGamesText = "No games to show"
+    let dismissButtonTitle = "Dismiss"
+    // MARK: What's new
     let whatsNew1_1_0Title = "Baseball schedule and channel listing"
     let whatsNew1_1_0Body = "Choose your favorite teams in Window > Teams to see their schedule and where to watch the games."
-    let dismissButtonTitle = "Dismiss"
     private init() {}
 }

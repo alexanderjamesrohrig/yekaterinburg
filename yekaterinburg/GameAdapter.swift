@@ -48,7 +48,7 @@ struct GameAdapter {
                     awayPoints: game.visitor_team_score ?? 0,
                     date: date,
                     status: status,
-                    televisionOptions: "MSG+", // TODO: Television
+                    televisionOptions: "", // TODO: Television
                     radioOptions: "", // TODO: Radio
                     venue: "", // TODO: Venue
                     type: .game(.basketball))

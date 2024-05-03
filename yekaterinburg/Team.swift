@@ -15,6 +15,7 @@ public struct Team: Identifiable, Codable, Hashable, Equatable {
     public let id: String
     let sportSpecificID: Int
     let name: String
+    let code: String?
     let parentOrgName: String
     let sport: YeType
     var favorite: Bool = false
@@ -83,6 +84,80 @@ public struct Team: Identifiable, Codable, Hashable, Equatable {
         lhs.id == rhs.id
     }
     
+    static func nhlCode(from id: Int) -> String {
+        // TODO: Finish codes
+        switch id {
+        case 1:
+            return "MTL"
+        case 5:
+            return "TOR"
+        case 6:
+            return "BOS"
+        case 10:
+            return "NYR"
+        case 11:
+            return "CHI"
+        case 12:
+            return "DET"
+        case 13:
+            return "CLE"
+        case 14:
+            return "LAK"
+        case 15:
+            return "DAL"
+        case 16:
+            return "PHI"
+        case 17:
+            return "PIT"
+        case 18:
+            return "STL"
+        case 19:
+            return "BUF"
+        case 20:
+            return "VAN"
+        case 21:
+            return "CGY"
+        case 22:
+            return "NYI"
+        case 23:
+            return "NJD"
+        case 24:
+            return "WSH"
+        case 25:
+            return "EDM"
+        case 26:
+            return "CAR"
+        case 27:
+            return "COL"
+        case 28:
+            return "ARI" // TODO: Might change with new Utah club
+        case 29:
+            return "SJS"
+        case 30:
+            return "OTT"
+        case 31:
+            return "TBL"
+        case 32:
+            return "ANA"
+        case 33:
+            return "FLA"
+        case 34:
+            return "NSH"
+        case 35:
+            return "WPG"
+        case 36:
+            return "CBJ"
+        case 37:
+            return "MIN"
+        case 38:
+            return "VGK"
+        case 39:
+            return "SEA"
+        default:
+            return ""
+        }
+    }
+    
     /// Initialize Team object with response from MLB API
     /// - Parameter quickType: Object representing team from MLB API
     init(quickType: TeamElement) {
@@ -91,6 +166,7 @@ public struct Team: Identifiable, Codable, Hashable, Equatable {
         self.name = quickType.name
         self.parentOrgName = quickType.parentOrgName ?? ""
         self.sport = .game(.baseball)
+        self.code = ""
     }
     
     /// Initialize Team object
@@ -99,11 +175,27 @@ public struct Team: Identifiable, Codable, Hashable, Equatable {
     ///   - name: String name of team
     ///   - parentOrgName: String name of parent organization of team, defaults to empty
     ///   - sport: YeType of sport that team competes in
-    init(id: Int, name: String, parentOrgName: String = "", sport: YeType) {
+    ///   - code: String short name that could replace sport specific ID
+    init(id: Int, name: String, parentOrgName: String = "", sport: YeType, code: String = "") {
         self.id = "\(sport.idPrefix)\(id)"
         self.sportSpecificID = id
         self.name = name
         self.parentOrgName = parentOrgName
         self.sport = sport
+        self.code = code
+    }
+    
+    /// Initialize Team for a hockey team and generate code
+    /// - Parameters:
+    ///   - id: String sport specific ID that will be used to create unique team ID and get team code
+    ///   - name: String name of team
+    ///   - parentOrgName: String name of parent organization of team, defaults to empty
+    init(id: Int, name: String, parentOrgName: String = "") {
+        self.id = "\(YeType.game(.hockey).idPrefix)\(id)"
+        self.sportSpecificID = id
+        self.name = name
+        self.parentOrgName = parentOrgName
+        self.sport = YeType.game(.hockey)
+        self.code = Team.nhlCode(from: id)
     }
 }

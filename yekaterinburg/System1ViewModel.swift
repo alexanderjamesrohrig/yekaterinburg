@@ -72,8 +72,10 @@ class System1ViewModel: ObservableObject {
         if sources.contains(.game(.hockey)) && FFM.shared.ff4.enabled {
             // TODO: User selected team
             // TODO: Current season
+            let favoriteHockeyTeams = favoriteTeams.filter({ $0.sport == .game(.hockey) }).map({ $0.code })
+            // FIXME: Unable to get more than 1 hockey club
             let gamesFromAPI = await NHLAPI.schedule(useMockData: useMockData,
-                                                     club: "NYR",
+                                                     club: (favoriteHockeyTeams.first ?? "") ?? "",
                                                      season: "20232024")?.games
             if let gamesFromAPI {
                 for gameFromAPI in gamesFromAPI {
@@ -102,7 +104,8 @@ class System1ViewModel: ObservableObject {
         }
         /// Basketball
         if sources.contains(.game(.basketball)) && FFM.shared.ff5.enabled {
-            let gamesFromAPI = await NBAAPI.games(useMockData: useMockData)?.data
+            let favoriteBasketballTeams = favoriteTeams.filter({ $0.sport == .game(.basketball) }).map({ $0.sportSpecificID })
+            let gamesFromAPI = await NBAAPI.games(useMockData: useMockData, teamIDs: favoriteBasketballTeams)?.data
             if let gamesFromAPI {
                 for g in gamesFromAPI {
                     let adaptedGame = GameAdapter.getGameFrom(g)

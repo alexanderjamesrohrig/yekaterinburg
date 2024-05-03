@@ -48,18 +48,21 @@ struct NBAAPI {
     /// Gets next 7 games in specified season for specified team.
     /// - Parameter useMockData: If local JSON file should be used instead of making network call, defaults to false
     /// - Returns: Optional object from API
-    static func games(useMockData: Bool = false) async -> BasketballResponse? {
-        let userTeam = UserDefaults.standard.integer(forKey: StoreManager.shared.appStorageBasketball)
+    static func games(useMockData: Bool = false, teamIDs: [Int]) async -> BasketballResponse? {
         guard var url = URL(string: "https://api.balldontlie.io/v1/games") else {
             logger.error("Unable to create URL")
             return nil
         }
-        let urlParameters = [
+        var urlParameters = [
             URLQueryItem(name: "seasons[]", value: "2023"),
-            URLQueryItem(name: "team_ids[]", value: "\(userTeam)"),
+//            URLQueryItem(name: "team_ids[]", value: "\(userTeam)"),
             URLQueryItem(name: "per_page", value: "7"),
             URLQueryItem(name: "start_date", value: "\(DateAdapter.dateForAPI(date: Date.now))"),
         ]
+        for id in teamIDs {
+            let item = URLQueryItem(name: "team_ids[]", value: "\(id)")
+            urlParameters.append(item)
+        }
         url = url.appending(queryItems: urlParameters)
         let mockURL = Bundle.main.url(forResource: "balldontlie", withExtension: "json")
         let decoder = JSONDecoder()
