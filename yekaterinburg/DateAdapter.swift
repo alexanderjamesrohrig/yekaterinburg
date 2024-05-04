@@ -62,6 +62,7 @@ struct DateAdapter {
     /// - Parameter date: <#date description#>
     /// - Returns: <#description#>
     static func yeFormatWithTime(from date: Date) -> String {
+        // FIXME: User 24 vs 12 hour setting
         let df = DateFormatter()
         df.dateFormat = "MMM d, HH:MM"
         return df.string(from: date)
@@ -86,6 +87,13 @@ struct DateAdapter {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let toDate = dateFormatter.date(from: date)
         return toDate ?? Date.now
+    }
+    /// Medium date and short time Date Formatter
+    static var mediumDateShortTime: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        return dateFormatter
     }
     private init() {}
 }

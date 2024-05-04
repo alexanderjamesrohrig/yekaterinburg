@@ -171,7 +171,7 @@ public struct Team: Identifiable, Codable, Hashable, Equatable {
     
     /// Initialize Team object
     /// - Parameters:
-    ///   - id: String sport specific ID that will be used to create unique team ID
+    ///   - id: Int sport specific ID that will be used to create unique team ID
     ///   - name: String name of team
     ///   - parentOrgName: String name of parent organization of team, defaults to empty
     ///   - sport: YeType of sport that team competes in
@@ -187,7 +187,7 @@ public struct Team: Identifiable, Codable, Hashable, Equatable {
     
     /// Initialize Team for a hockey team and generate code
     /// - Parameters:
-    ///   - id: String sport specific ID that will be used to create unique team ID and get team code
+    ///   - id: Int sport specific ID that will be used to create unique team ID and get team code
     ///   - name: String name of team
     ///   - parentOrgName: String name of parent organization of team, defaults to empty
     init(id: Int, name: String, parentOrgName: String = "") {
@@ -197,5 +197,19 @@ public struct Team: Identifiable, Codable, Hashable, Equatable {
         self.parentOrgName = parentOrgName
         self.sport = YeType.game(.hockey)
         self.code = Team.nhlCode(from: id)
+    }
+    
+    /// Initialize Team for a hard coded basketball team
+    /// - Parameters:
+    ///   - id: Int sport specific ID that will be used to create unique team ID and get team code
+    ///   - name: String name of team
+    ///   - code: String three letter code for team
+    init(id: Int, name: String, code: String) {
+        self.id = "\(YeType.game(.basketball).idPrefix)\(id)"
+        self.sportSpecificID = id
+        self.name = name
+        self.parentOrgName = ""
+        self.sport = YeType.game(.basketball)
+        self.code = code
     }
 }

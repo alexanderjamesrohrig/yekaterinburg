@@ -15,7 +15,7 @@ class GeneralSecretary {
     let companyName = "The Rohrig Software Company"
     let companyLocation = "Navy Pier Ct New York"
     let copyright = "Copyright ⅯⅯⅩⅩⅣ"
-    let majorVersion: Float = 1.0
+    let majorVersion: Float = 1.1
     var appVersion: String {
         let dictionary = Bundle.main.infoDictionary
         let version = dictionary?["CFBundleShortVersionString"]

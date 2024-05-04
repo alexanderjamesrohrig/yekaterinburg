@@ -73,22 +73,24 @@ class System1ViewModel: ObservableObject {
             // TODO: User selected team
             // TODO: Current season
             let favoriteHockeyTeams = favoriteTeams.filter({ $0.sport == .game(.hockey) }).map({ $0.code })
+            let firstID = favoriteHockeyTeams.first ?? ""
+            let firstIDUnwrapped = firstID ?? ""
             // FIXME: Unable to get more than 1 hockey club
             let gamesFromAPI = await NHLAPI.schedule(useMockData: useMockData,
-                                                     club: (favoriteHockeyTeams.first ?? "") ?? "",
+                                                     club: firstIDUnwrapped,
                                                      season: "20232024")?.games
             if let gamesFromAPI {
                 for gameFromAPI in gamesFromAPI {
                     let adaptedGame = Game(gameID: gameFromAPI.id,
                                            homeTeam: gameFromAPI.homeTeam?.id ?? 0,
-                                           homeTeamName: gameFromAPI.homeTeam?.abbrev ?? "",
+                                           homeTeamName: gameFromAPI.homeTeam?.placeName?.en ?? "",
                                            homeTeamCode: gameFromAPI.homeTeam?.abbrev ?? "",
                                            homePoints: gameFromAPI.homeTeam?.score ?? 0,
                                            awayTeam: gameFromAPI.awayTeam?.id ?? 0,
-                                           awayTeamName: gameFromAPI.awayTeam?.abbrev ?? "",
+                                           awayTeamName: gameFromAPI.awayTeam?.placeName?.en ?? "",
                                            awayTeamCode: gameFromAPI.awayTeam?.abbrev ?? "",
                                            awayPoints: gameFromAPI.awayTeam?.score ?? 0,
-                                           date: DateAdapter.dateFromAPI(date: gameFromAPI.startTimeUTC ?? ""),
+                                           date: gameFromAPI.startTimeUTC ?? Date.distantPast,
                                            status: gameFromAPI.gameState ?? "",
                                            televisionOptions: GameAdapter.getNHLBroadcasts(gameFromAPI.tvBroadcasts),
                                            radioOptions: "",

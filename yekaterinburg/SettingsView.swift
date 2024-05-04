@@ -21,49 +21,14 @@ struct SettingsView: View {
     
     var body: some View {
         Form {
-            if !FFM.shared.ff6.enabled {
-                Section(SM.shared.favoriteTeamsSectionTitle) {
-                    HStack {
-                        Stepper(SM.shared.baseballLabel, value: $baseballTeam)
-                        Image("\(SM.shared.baseballPrefix)\(baseballTeam)")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 50, height: 50)
-                        Text("#\(baseballTeam)")
-                            .monospaced()
-                    }
-                    LabeledContent(SM.shared.basketballLabel, value: SM.shared.comingSoon)
-                    if FFM.shared.ff5.enabled {
-                        HStack {
-                            Stepper(SM.shared.basketballLabel, value: $basketballTeam)
-                            Image("\(SM.shared.basketballPrefix)\(basketballTeam)")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 50, height: 50)
-                            Text("#\(basketballTeam)")
-                                .monospaced()
-                        }
-                    }
-                    LabeledContent(SM.shared.soccerLabel, value: SM.shared.comingSoon)
-                    if FFM.shared.ff3.enabled {
-                        HStack {
-                            Stepper(SM.shared.soccerLabel, value: $calcioTeam)
-                            Image("\(SM.shared.worldFootballPrefix)\(calcioTeam)")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 50, height: 50)
-                            Text("#\(calcioTeam)")
-                                .monospaced()
-                        }
-                    }
-                    // TODO: Select favorite hockey team
-                    LabeledContent(SM.shared.hockeyLabel, value: SM.shared.comingSoon)
-                    LabeledContent(SM.shared.footballLabel, value: SM.shared.comingSoon)
-                }
+            if FFM.shared.ff6.enabled {
+                LabeledContent(SM.shared.hockeyLabel, value: SM.shared.comingSoon)
+                LabeledContent(SM.shared.basketballLabel, value: SM.shared.comingSoon)
             }
-            RohrigView()
         }
         .padding()
+        RohrigView()
+            .padding()
     }
 }
 

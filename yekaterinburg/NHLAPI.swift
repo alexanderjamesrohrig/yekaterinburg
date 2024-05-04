@@ -63,6 +63,7 @@ struct NHLAPI {
         }
         let mockURL = Bundle.main.url(forResource: "nhle-schedule", withExtension: "json")
         let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
         do {
             var data = Data()
             if useMockData {

@@ -49,7 +49,7 @@ struct tvView: View {
                                 Label(game.radioOptions, systemImage: ImageManager.shared.radio)
                                     .foregroundStyle(.thickMaterial)
                             }
-                            Text(DateAdapter.yeFormatWithTime(from: game.date))
+                            Text(game.date, formatter: DateAdapter.mediumDateShortTime)
                                 .foregroundStyle(.ultraThickMaterial)
                                 .monospacedDigit()
                         }

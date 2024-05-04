@@ -120,7 +120,7 @@ import OSLog
                     Text(game.televisionOptions)
                         .foregroundStyle(.regularMaterial)
                         .fontDesign(.rounded)
-                    Text(DateAdapter.yeFormatWithTime(from: game.date))
+                    Text(game.date, formatter: DateAdapter.mediumDateShortTime)
                         .monospacedDigit()
                         .fontDesign(.rounded)
                 }
