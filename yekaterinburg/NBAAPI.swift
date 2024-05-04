@@ -83,5 +83,10 @@ struct NBAAPI {
             return nil
         }
     }
+    
+    static func channels(useMockData: Bool = false) -> NBAChannelsResponse? {
+        // TOOD: Add channels API call
+    }
+    
     private init() {}
 }

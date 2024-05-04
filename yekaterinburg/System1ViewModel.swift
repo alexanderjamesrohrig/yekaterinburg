@@ -81,7 +81,25 @@ class System1ViewModel: ObservableObject {
                                                      season: "20232024")?.games
             if let gamesFromAPI {
                 for gameFromAPI in gamesFromAPI {
-                    let adaptedGame = Game(gameID: gameFromAPI.id,
+                    var adaptedGame = Game()
+                    if UserDefaults.standard.bool(forKey: StoreManager.shared.appStoragePreferFrench) {
+                        adaptedGame = Game(gameID: gameFromAPI.id,
+                                           homeTeam: gameFromAPI.homeTeam?.id ?? 0,
+                                           homeTeamName: gameFromAPI.homeTeam?.placeName?.fr ?? gameFromAPI.homeTeam?.placeName?.en ?? "",
+                                           homeTeamCode: gameFromAPI.homeTeam?.abbrev ?? "",
+                                           homePoints: gameFromAPI.homeTeam?.score ?? 0,
+                                           awayTeam: gameFromAPI.awayTeam?.id ?? 0,
+                                           awayTeamName: gameFromAPI.awayTeam?.placeName?.fr ?? gameFromAPI.awayTeam?.placeName?.en ?? "",
+                                           awayTeamCode: gameFromAPI.awayTeam?.abbrev ?? "",
+                                           awayPoints: gameFromAPI.awayTeam?.score ?? 0,
+                                           date: gameFromAPI.startTimeUTC ?? Date.distantPast,
+                                           status: gameFromAPI.gameState ?? "",
+                                           televisionOptions: GameAdapter.getNHLBroadcasts(gameFromAPI.tvBroadcasts),
+                                           radioOptions: "",
+                                           venue: "",
+                                           type: .game(.hockey))
+                    } else {
+                        adaptedGame = Game(gameID: gameFromAPI.id,
                                            homeTeam: gameFromAPI.homeTeam?.id ?? 0,
                                            homeTeamName: gameFromAPI.homeTeam?.placeName?.en ?? "",
                                            homeTeamCode: gameFromAPI.homeTeam?.abbrev ?? "",
@@ -96,6 +114,7 @@ class System1ViewModel: ObservableObject {
                                            radioOptions: "",
                                            venue: "",
                                            type: .game(.hockey))
+                    }
                     if adaptedGame.date > twoDaysAgo {
                         DispatchQueue.main.async {
                             games.append(adaptedGame)

@@ -155,7 +155,7 @@ final class BaseballAPITests: XCTestCase {
     }
     
     func testSchedule() async throws {
-        let schedule = await API.games(useMockData: true)
+        let schedule = await API.games(useMockData: true, season: 2024, teamIDs: [117])
         if let games = schedule?.totalGames {
             XCTAssert(games == 194)
         } else {

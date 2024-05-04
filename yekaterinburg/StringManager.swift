@@ -45,6 +45,12 @@ public class StringManager {
     let whatsNewWindowTitle = "What's new"
     let noGamesText = "No games to show"
     let dismissButtonTitle = "Dismiss"
+    let preferFrenchTeamNames = "Prefer french names"
+    let preferFrenchTeamNamesFootnote = "When available, team names will be shown in french"
+    let showNBAGames = "Show today's NBA games"
+    let showNBAGamesFootnote = "All NBA games on TV today will be shown"
+    let showPopularEvents = "Show popular events"
+    let showPopularEventsFootnote = "Show popular sporting events like The Masters or The US Open"
     // MARK: What's new
     let whatsNew1_1_0Title = "Baseball schedule and channel listing"
     let whatsNew1_1_0Body = "Choose your favorite teams in Window > Teams to see their schedule and where to watch the games."

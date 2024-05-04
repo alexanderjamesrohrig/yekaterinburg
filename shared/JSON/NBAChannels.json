@@ -1,0 +1,714 @@
+{
+  "includeTestGames": false,
+  "channels": {
+    "lastUpdated": "2024-05-04T12:50:40.602Z",
+    "gameDate": "2024-05-03",
+    "leagueId": "00",
+    "games": [
+      {
+        "gameId": "0042300136",
+        "gameStatus": 3,
+        "gameState": 3,
+        "streams": [
+          {
+            "rank": 0,
+            "productionId": "g0042300136cle1000445orl",
+            "uniqueName": "NSS-ESPN",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-espn.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-espn.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-espn.png"
+            },
+            "title": "ESPN & In-Arena Show",
+            "description": "Follow in-arena action during halftime and game breaks",
+            "categoryData": {
+              "categoryId": 44560,
+              "categoryName": "Broadcasts",
+              "categoryRank": 1,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 1,
+            "productionId": "g0042300136cle1000783orl",
+            "uniqueName": "NSS-ESPN-Studio",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-espn-studio.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-espn-studio.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-espn-studio.png"
+            },
+            "title": "ESPN",
+            "description": "Pre-game, halftime, and post game analysis",
+            "categoryData": {
+              "categoryId": 44560,
+              "categoryName": "Broadcasts",
+              "categoryRank": 1,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 2,
+            "productionId": "g0042300136cle1000469orl",
+            "uniqueName": "NSS-Team-ORL",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": "ORL",
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-team-orl.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-team-orl.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-team-orl.png"
+            },
+            "title": "Magic & In-Arena Show",
+            "description": "Local telecast with home arena halftime show",
+            "categoryData": {
+              "categoryId": 44560,
+              "categoryName": "Broadcasts",
+              "categoryRank": 1,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": 1610612753,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 3,
+            "productionId": "g0042300136cle1000453orl",
+            "uniqueName": "NSS-Team-CLE",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": "CLE",
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-team-cle.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-team-cle.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-team-cle.png"
+            },
+            "title": "Cavaliers & In-Arena Show",
+            "description": "Local telecast with home arena halftime show",
+            "categoryData": {
+              "categoryId": 44560,
+              "categoryName": "Broadcasts",
+              "categoryRank": 1,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": 1610612739,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 4,
+            "productionId": "g0042300136cle1000808orl",
+            "uniqueName": "NSS-ORL-Studio",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-orl-studio.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-orl-studio.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-orl-studio.png"
+            },
+            "title": "Magic",
+            "description": "Local telecast with pre, post, and halftime analysis",
+            "categoryData": {
+              "categoryId": 44560,
+              "categoryName": "Broadcasts",
+              "categoryRank": 1,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 5,
+            "productionId": "g0042300136cle1000792orl",
+            "uniqueName": "NSS-CLE-Studio",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-cle-studio.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-cle-studio.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-cle-studio.png"
+            },
+            "title": "Cavaliers",
+            "description": "Local telecast with pre, post, and halftime analysis",
+            "categoryData": {
+              "categoryId": 44560,
+              "categoryName": "Broadcasts",
+              "categoryRank": 1,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 6,
+            "productionId": "g0042300136cle1000444orl",
+            "uniqueName": "NSS-Mobile-View",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-mobile-view.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-mobile-view.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-mobile-view.png"
+            },
+            "title": "Mobile View",
+            "description": "Optimal in-arena viewing experience for mobile devices",
+            "categoryData": {
+              "categoryId": 44560,
+              "categoryName": "Broadcasts",
+              "categoryRank": 1,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 7,
+            "productionId": "g0042300136cle1000440orl",
+            "uniqueName": "NSS-Spanish-ESPN",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-spanish-espn.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-spanish-espn.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-spanish-espn.png"
+            },
+            "title": "Spanish (ESPN)",
+            "description": "ESPN Deportes",
+            "categoryData": {
+              "categoryId": 44563,
+              "categoryName": "Languages",
+              "categoryRank": 4,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 8,
+            "productionId": "g0042300136cle1000436orl",
+            "uniqueName": "NSS-Portuguese-ESPN",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-portuguese-espn.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-portuguese-espn.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-portuguese-espn.png"
+            },
+            "title": "Portuguese",
+            "description": "ESPN Deportes",
+            "categoryData": {
+              "categoryId": 44563,
+              "categoryName": "Languages",
+              "categoryRank": 4,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 9,
+            "productionId": "g0042300136cle1000755orl",
+            "uniqueName": "NSS-Radio-Team-CLE",
+            "status": "Over",
+            "isRadio": true,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-radio-team-cle.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-radio-team-cle.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-radio-team-cle.png"
+            },
+            "title": "Cavaliers Radio",
+            "description": "",
+            "categoryData": {
+              "categoryId": 44596,
+              "categoryName": "Audio",
+              "categoryRank": 5,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 10,
+            "productionId": "g0042300136cle1000771orl",
+            "uniqueName": "NSS-Radio-Team-ORL",
+            "status": "Over",
+            "isRadio": true,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-radio-team-orl.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-radio-team-orl.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-radio-team-orl.png"
+            },
+            "title": "Magic Radio",
+            "description": "",
+            "categoryData": {
+              "categoryId": 44596,
+              "categoryName": "Audio",
+              "categoryRank": 5,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 11,
+            "productionId": "g0042300136cle1000839orl",
+            "uniqueName": "NSS-Spanish-Radio-Team-CLE",
+            "status": "Over",
+            "isRadio": true,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-spanish-radio-team-cle.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-spanish-radio-team-cle.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-spanish-radio-team-cle.png"
+            },
+            "title": "Cavaliers Radio - Spanish",
+            "description": "",
+            "categoryData": {
+              "categoryId": 44596,
+              "categoryName": "Audio",
+              "categoryRank": 5,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          }
+        ]
+      },
+      {
+        "gameId": "0042300176",
+        "gameStatus": 3,
+        "gameState": 3,
+        "streams": [
+          {
+            "rank": 0,
+            "productionId": "g0042300176lac1000445dal",
+            "uniqueName": "NSS-ESPN",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-espn.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-espn.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-espn.png"
+            },
+            "title": "ESPN & In-Arena Show",
+            "description": "Follow in-arena action during halftime and game breaks",
+            "categoryData": {
+              "categoryId": 44560,
+              "categoryName": "Broadcasts",
+              "categoryRank": 1,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 1,
+            "productionId": "g0042300176lac1000783dal",
+            "uniqueName": "NSS-ESPN-Studio",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-espn-studio.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-espn-studio.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-espn-studio.png"
+            },
+            "title": "ESPN",
+            "description": "Pre-game, halftime, and post game analysis",
+            "categoryData": {
+              "categoryId": 44560,
+              "categoryName": "Broadcasts",
+              "categoryRank": 1,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 2,
+            "productionId": "g0042300176lac1000454dal",
+            "uniqueName": "NSS-Team-DAL",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": "DAL",
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-team-dal.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-team-dal.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-team-dal.png"
+            },
+            "title": "Mavericks & In-Arena Show",
+            "description": "Local telecast with home arena halftime show",
+            "categoryData": {
+              "categoryId": 44560,
+              "categoryName": "Broadcasts",
+              "categoryRank": 1,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": 1610612742,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 3,
+            "productionId": "g0042300176lac1000460dal",
+            "uniqueName": "NSS-Team-LAC",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": "LAC",
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-team-lac.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-team-lac.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-team-lac.png"
+            },
+            "title": "Clippers & In-Arena Show",
+            "description": "Local telecast with home arena halftime show",
+            "categoryData": {
+              "categoryId": 44560,
+              "categoryName": "Broadcasts",
+              "categoryRank": 1,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": 1610612746,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 4,
+            "productionId": "g0042300176lac1000793dal",
+            "uniqueName": "NSS-DAL-Studio",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-dal-studio.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-dal-studio.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-dal-studio.png"
+            },
+            "title": "Mavericks",
+            "description": "Local telecast with pre, post, and halftime analysis",
+            "categoryData": {
+              "categoryId": 44560,
+              "categoryName": "Broadcasts",
+              "categoryRank": 1,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 5,
+            "productionId": "g0042300176lac1000799dal",
+            "uniqueName": "NSS-LAC-Studio",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-lac-studio.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-lac-studio.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-lac-studio.png"
+            },
+            "title": "Clippers",
+            "description": "Local telecast with pre, post, and halftime analysis",
+            "categoryData": {
+              "categoryId": 44560,
+              "categoryName": "Broadcasts",
+              "categoryRank": 1,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 6,
+            "productionId": "g0042300176lac1000444dal",
+            "uniqueName": "NSS-Mobile-View",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-mobile-view.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-mobile-view.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-mobile-view.png"
+            },
+            "title": "Mobile View",
+            "description": "Optimal in-arena viewing experience for mobile devices",
+            "categoryData": {
+              "categoryId": 44560,
+              "categoryName": "Broadcasts",
+              "categoryRank": 1,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 7,
+            "productionId": "g0042300176lac1000869dal",
+            "uniqueName": "NSS-ClipperVision-ShotIQ",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": "LAC",
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-clippervision-shotiq.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-clippervision-shotiq.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-clippervision-shotiq.png"
+            },
+            "title": "CourtVision",
+            "description": "Layered graphics showing real-time statistics",
+            "categoryData": {
+              "categoryId": 44561,
+              "categoryName": "Featured",
+              "categoryRank": 2,
+              "isFeatureCategory": true
+            },
+            "inMarketTeamId": 1610612746,
+            "isLocalAccess": true
+          },
+          {
+            "rank": 8,
+            "productionId": "g0042300176lac1000440dal",
+            "uniqueName": "NSS-Spanish-ESPN",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-spanish-espn.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-spanish-espn.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-spanish-espn.png"
+            },
+            "title": "Spanish (ESPN)",
+            "description": "ESPN Deportes",
+            "categoryData": {
+              "categoryId": 44563,
+              "categoryName": "Languages",
+              "categoryRank": 4,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 9,
+            "productionId": "g0042300176lac1000442dal",
+            "uniqueName": "NSS-Spanish-Movistar",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-spanish-movistar.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-spanish-movistar.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-spanish-movistar.png"
+            },
+            "title": "Spanish (Movistar)",
+            "description": "Movistar",
+            "categoryData": {
+              "categoryId": 44563,
+              "categoryName": "Languages",
+              "categoryRank": 4,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 10,
+            "productionId": "g0042300176lac1000434dal",
+            "uniqueName": "NSS-Korean-SPOTV",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-korean-spotv.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-korean-spotv.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-korean-spotv.png"
+            },
+            "title": "Korean",
+            "description": "SPOTV",
+            "categoryData": {
+              "categoryId": 44563,
+              "categoryName": "Languages",
+              "categoryRank": 4,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 11,
+            "productionId": "g0042300176lac1000436dal",
+            "uniqueName": "NSS-Portuguese-ESPN",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-portuguese-espn.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-portuguese-espn.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-portuguese-espn.png"
+            },
+            "title": "Portuguese",
+            "description": "ESPN Deportes",
+            "categoryData": {
+              "categoryId": 44563,
+              "categoryName": "Languages",
+              "categoryRank": 4,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 12,
+            "productionId": "g0042300176lac1000872dal",
+            "uniqueName": "NSS-ClipperVision-Spanish",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": "LAC",
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-clippervision-spanish.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-clippervision-spanish.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-clippervision-spanish.png"
+            },
+            "title": "ClipperVision - Espanol",
+            "description": "Commentary and analysis in Spanish",
+            "categoryData": {
+              "categoryId": 44563,
+              "categoryName": "Languages",
+              "categoryRank": 4,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": 1610612746,
+            "isLocalAccess": true
+          },
+          {
+            "rank": 13,
+            "productionId": "g0042300176lac1000871dal",
+            "uniqueName": "NSS-ClipperVision-Korean",
+            "status": "Over",
+            "isRadio": false,
+            "inMarketTeamTricode": "LAC",
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-clippervision-korean.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-clippervision-korean.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-clippervision-korean.png"
+            },
+            "title": "ClipperVision - Korean",
+            "description": "Commentary and analysis in Korean",
+            "categoryData": {
+              "categoryId": 44563,
+              "categoryName": "Languages",
+              "categoryRank": 4,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": 1610612746,
+            "isLocalAccess": true
+          },
+          {
+            "rank": 14,
+            "productionId": "g0042300176lac1000756dal",
+            "uniqueName": "NSS-Radio-Team-DAL",
+            "status": "Over",
+            "isRadio": true,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-radio-team-dal.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-radio-team-dal.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-radio-team-dal.png"
+            },
+            "title": "Mavericks Radio",
+            "description": "",
+            "categoryData": {
+              "categoryId": 44596,
+              "categoryName": "Audio",
+              "categoryRank": 5,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 15,
+            "productionId": "g0042300176lac1000762dal",
+            "uniqueName": "NSS-Radio-Team-LAC",
+            "status": "Over",
+            "isRadio": true,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-radio-team-lac.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-radio-team-lac.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-radio-team-lac.png"
+            },
+            "title": "Clippers Radio",
+            "description": "",
+            "categoryData": {
+              "categoryId": 44596,
+              "categoryName": "Audio",
+              "categoryRank": 5,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 16,
+            "productionId": "g0042300176lac1000840dal",
+            "uniqueName": "NSS-Spanish-Radio-Team-DAL",
+            "status": "Over",
+            "isRadio": true,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-spanish-radio-team-dal.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-spanish-radio-team-dal.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-spanish-radio-team-dal.png"
+            },
+            "title": "Mavericks Radio - Spanish",
+            "description": "",
+            "categoryData": {
+              "categoryId": 44596,
+              "categoryName": "Audio",
+              "categoryRank": 5,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          },
+          {
+            "rank": 17,
+            "productionId": "g0042300176lac1000842dal",
+            "uniqueName": "NSS-Spanish-Radio-Team-LAC",
+            "status": "Over",
+            "isRadio": true,
+            "inMarketTeamTricode": null,
+            "logoMapping": "https://cdn.nba.com/logos/nba/streams/L/nss-spanish-radio-team-lac.png",
+            "logoMap": {
+              "logoMappingDark": "https://cdn.nba.com/logos/nba/streams/D/nss-spanish-radio-team-lac.png",
+              "logoMappingLight": "https://cdn.nba.com/logos/nba/streams/L/nss-spanish-radio-team-lac.png"
+            },
+            "title": "Clippers Radio - Spanish",
+            "description": "",
+            "categoryData": {
+              "categoryId": 44596,
+              "categoryName": "Audio",
+              "categoryRank": 5,
+              "isFeatureCategory": false
+            },
+            "inMarketTeamId": null,
+            "isLocalAccess": false
+          }
+        ]
+      }
+    ]
+  }
+}
