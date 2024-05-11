@@ -84,8 +84,46 @@ struct NBAAPI {
         }
     }
     
-    static func channels(useMockData: Bool = false) -> NBAChannelsResponse? {
-        // TOOD: Add channels API call
+    static func channels(useMockData: Bool = false) async -> NBAChannelsResponse? {
+        // TODO: Add channels API call
+        guard let url = URL(string: "https://cdn.nba.com/static/json/liveData/channels/v2/channels_00.json") else {
+            logger.error("Unable to create URL")
+            return nil
+        }
+        let mockURL = Bundle.main.url(forResource: "NBAChannels", withExtension: "json")
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        do {
+            var data = Data()
+            if useMockData {
+                data = try Data(contentsOf: mockURL!)
+            } else {
+                let request = URLRequest(url: url)
+                let (channelData, _) = try await URLSession.shared.data(for: request)
+                data = channelData
+            }
+            let decoded = try decoder.decode(NBAChannelsResponse.self, from: data)
+            logger.debug("Found \(decoded.channels?.games?.count ?? 0) games")
+            return decoded
+        } catch {
+            logger.error("Unable to decode API data")
+            return nil
+        }
+    }
+    
+    static func channelsString(from response: [NBAChannelsResponse.NBAGameStream]?) -> String {
+        guard let response else {
+            return ""
+        }
+        var returnString = ""
+        let lastIndex = response.count - 1
+        for i in 0 ..< response.count {
+            returnString.append(response[i].uniqueName ?? "")
+            if i != lastIndex {
+                returnString.append(SM.shared.or)
+            }
+        }
+        return returnString
     }
     
     private init() {}

@@ -138,6 +138,7 @@ struct GameAdapter {
     }
     
     static func getNHLBroadcasts(_ broadcasts: [HockeyScheduleResponse.Broadcast]?) -> String {
+        // TODO: Maybe show first 2 or 3, Ex: "TNT, truTV, and 3 others"
         guard let broadcasts else {
             logger.debug("Empty broadcast information")
             return ""
@@ -151,6 +152,24 @@ struct GameAdapter {
             }
         }
         return returnString
+    }
+    
+    static func game(from nbaGame: NBAChannelsResponse.NBAStaticGame) -> Game {
+        Game(gameID: nbaGame.gameId ?? 0,
+             homeTeam: 0,
+             homeTeamName: "Home",
+             homeTeamCode: "",
+             homePoints: 0,
+             awayTeam: 0,
+             awayTeamName: "Away",
+             awayTeamCode: "",
+             awayPoints: 0,
+             date: Date.now,
+             status: "\(nbaGame.gameStatus ?? 0)",
+             televisionOptions: NBAAPI.channelsString(from: nbaGame.streams),
+             radioOptions: "",
+             venue: "",
+             type: .game(.basketball))
     }
     
     private init() {}

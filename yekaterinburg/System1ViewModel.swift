@@ -127,18 +127,19 @@ class System1ViewModel: ObservableObject {
         }
         /// Basketball
         if sources.contains(.game(.basketball)) && FFM.shared.ff5.enabled {
-            let favoriteBasketballTeams = favoriteTeams.filter({ $0.sport == .game(.basketball) }).map({ $0.sportSpecificID })
-            let gamesFromAPI = await NBAAPI.games(useMockData: useMockData, teamIDs: favoriteBasketballTeams)?.data
-            if let gamesFromAPI {
-                for g in gamesFromAPI {
-                    let adaptedGame = GameAdapter.getGameFrom(g)
-                    if adaptedGame.date > twoDaysAgo {
-                        DispatchQueue.main.async {
-                            games.append(adaptedGame)
-                        }
-                    }
-                }
-            }
+            await games.append(contentsOf: nbaGamesToday())
+//            let favoriteBasketballTeams = favoriteTeams.filter({ $0.sport == .game(.basketball) }).map({ $0.sportSpecificID })
+//            let gamesFromAPI = await NBAAPI.games(useMockData: useMockData, teamIDs: favoriteBasketballTeams)?.data
+//            if let gamesFromAPI {
+//                for g in gamesFromAPI {
+//                    let adaptedGame = GameAdapter.getGameFrom(g)
+//                    if adaptedGame.date > twoDaysAgo {
+//                        DispatchQueue.main.async {
+//                            games.append(adaptedGame)
+//                        }
+//                    }
+//                }
+//            }
         }
         let inAppGames = SampleManager.shared.localEvents
         for x in inAppGames {
@@ -160,6 +161,18 @@ class System1ViewModel: ObservableObject {
             state = .success
         }
         return games
+    }
+    
+    func nbaGamesToday() async -> [Game]{
+        let games = await NBAAPI.channels(useMockData: true)?.channels?.games
+        guard let games else {
+            return []
+        }
+        var foundGames: [Game] = []
+        for g in games {
+            foundGames.append(GameAdapter.game(from: g))
+        }
+        return foundGames
     }
     
     func save(_ games: [Game]) {
