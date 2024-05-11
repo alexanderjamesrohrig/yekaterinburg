@@ -19,7 +19,7 @@ class GeneralSecretary {
     var appVersion: String {
         let dictionary = Bundle.main.infoDictionary
         let version = dictionary?["CFBundleShortVersionString"]
-        let build = dictionary?["CFBundleVersion"]
+        let _ = dictionary?["CFBundleVersion"]
         return "VERSION_\(version ?? "VERSION UNAVAILABLE")"
     }
     let url = URL(string: "https://www.alexanderrohrig.com/RSC")!

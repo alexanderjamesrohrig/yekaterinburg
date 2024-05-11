@@ -47,14 +47,16 @@ class System1ViewModel: ObservableObject {
         /// Baseball
         if sources.contains(.game(.baseball)) {
             let favoriteBaseballTeams = favoriteTeams.filter({ $0.sport == .game(.baseball)}).map({ $0.sportSpecificID })
-            let datesAndGamesFromAPI = await MLBAPI.games(season: 2024, teamIDs: favoriteBaseballTeams)
-            if let dates = datesAndGamesFromAPI?.dates {
-                for d in dates {
-                    for g in d.games {
-                        let adaptedGame = GameAdapter.getGameFrom(baseballGame: g)
-                        if adaptedGame.date > twoDaysAgo {
-                            DispatchQueue.main.async {
-                                games.append(adaptedGame)
+            if favoriteBaseballTeams.count > 0 {
+                let datesAndGamesFromAPI = await MLBAPI.games(season: 2024, teamIDs: favoriteBaseballTeams)
+                if let dates = datesAndGamesFromAPI?.dates {
+                    for d in dates {
+                        for g in d.games {
+                            let adaptedGame = GameAdapter.getGameFrom(baseballGame: g)
+                            if adaptedGame.date > twoDaysAgo {
+                                DispatchQueue.main.async {
+                                    games.append(adaptedGame)
+                                }
                             }
                         }
                     }
