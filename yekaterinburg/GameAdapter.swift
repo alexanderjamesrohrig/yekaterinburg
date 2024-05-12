@@ -155,7 +155,7 @@ struct GameAdapter {
     }
     
     static func game(from nbaGame: NBAChannelsResponse.NBAStaticGame) -> Game {
-        Game(gameID: nbaGame.gameId ?? 0,
+        Game(gameID: Int(nbaGame.gameId ?? "") ?? 0,
              homeTeam: 0,
              homeTeamName: "Home",
              homeTeamCode: "",
@@ -170,6 +170,55 @@ struct GameAdapter {
              radioOptions: "",
              venue: "",
              type: .game(.basketball))
+    }
+    
+    static func games(from: ScoreboardV2) -> [Game] {
+        // TODO: Convert to Game
+        var games: [Game] = []
+        let numberOfGames = from.resultSets?[NBAAPI.ResultSets.gameHeader.rawValue].rowSet?.count
+        logger.debug("Games :- \(numberOfGames ?? 0)")
+        guard let numberOfGames else {
+            return games
+        }
+        for gameIndex in 0 ..< numberOfGames {
+            let gameHeaderInfo = from.resultSets?[NBAAPI.ResultSets.gameHeader.rawValue].rowSet?[gameIndex]
+            let gameIDString = gameHeaderInfo?[NBAAPI.GameHeaderKey.gameID.rawValue].toString() ?? ""
+            logger.debug("ID :- \(gameIDString)")
+            let awayTeamInfoIndex = (gameIndex * 2)
+            logger.debug("Away index :- \(awayTeamInfoIndex)")
+            let awayTeamInfo = from.resultSets?[NBAAPI.ResultSets.lineScore.rawValue].rowSet?[awayTeamInfoIndex]
+            let homeTeamInfoIndex = (gameIndex * 2) + 1
+            logger.debug("Home index :- \(homeTeamInfoIndex)")
+            let homeTeamInfo = from.resultSets?[NBAAPI.ResultSets.lineScore.rawValue].rowSet?[homeTeamInfoIndex]
+            let gameDateString = gameHeaderInfo?[NBAAPI.GameHeaderKey.gameDateEST.rawValue].toString() ?? ""
+            logger.debug("Date :- \(gameDateString)")
+            let gameDate = try? Date.init(gameDateString, strategy: .iso8601)
+            var broadcasts = gameHeaderInfo?[NBAAPI.GameHeaderKey.nationalTVBroadcaster.rawValue].toString() ?? ""
+            if let awayBroadcast = gameHeaderInfo?[NBAAPI.GameHeaderKey.awayTVBroadcaster.rawValue].toString() {
+                broadcasts.append("\(StringManager.shared.or)\(awayBroadcast)")
+            }
+            if let homeBroadcast = gameHeaderInfo?[NBAAPI.GameHeaderKey.homeTVBroadcaster.rawValue].toString() {
+                broadcasts.append("\(StringManager.shared.or)\(homeBroadcast)")
+            }
+            logger.debug("Broadcasts :- \(gameDateString)")
+            let gameAtIndex = Game(gameID: Int(gameIDString) ?? 0,
+                                   homeTeam: homeTeamInfo?[NBAAPI.LineScoreKey.teamID.rawValue].toInt() ?? 0,
+                                   homeTeamName: homeTeamInfo?[NBAAPI.LineScoreKey.teamCityName.rawValue].toString() ?? "",
+                                   homeTeamCode: homeTeamInfo?[NBAAPI.LineScoreKey.teamAbbreviation.rawValue].toString() ?? "",
+                                   homePoints: 0,
+                                   awayTeam: awayTeamInfo?[NBAAPI.LineScoreKey.teamID.rawValue].toInt() ?? 0,
+                                   awayTeamName: awayTeamInfo?[NBAAPI.LineScoreKey.teamCityName.rawValue].toString() ?? "",
+                                   awayTeamCode: awayTeamInfo?[NBAAPI.LineScoreKey.teamAbbreviation.rawValue].toString() ?? "",
+                                   awayPoints: 0,
+                                   date: gameDate ?? Date.now,
+                                   status: gameHeaderInfo?[NBAAPI.GameHeaderKey.gameStatusText.rawValue].toString() ?? "",
+                                   televisionOptions: broadcasts,
+                                   radioOptions: "",
+                                   venue: gameHeaderInfo?[NBAAPI.GameHeaderKey.arenaName.rawValue].toString() ?? "",
+                                   type: .game(.basketball))
+            games.append(gameAtIndex)
+        }
+        return games
     }
     
     private init() {}

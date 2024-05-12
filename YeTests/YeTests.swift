@@ -91,6 +91,33 @@ final class BasketballAPITests: XCTestCase {
         }
         XCTAssert(firstCity == "Atlanta")
     }
+    
+    func testChannels() async throws {
+        let gamesWithChannels = await API.channels(useMockData: true)
+        XCTAssert(gamesWithChannels?.channels?.gameDate == "2024-05-03")
+        XCTAssert(gamesWithChannels?.channels?.games?.count == 2)
+        XCTAssert(gamesWithChannels?.channels?.games?.first?.gameId == "0042300136")
+        XCTAssert(gamesWithChannels?.channels?.games?.first?.streams?.first?.rank == 0)
+        XCTAssert(gamesWithChannels?.channels?.games?.first?.streams?.first?.uniqueName == "NSS-ESPN")
+    }
+    
+    func testScoreboardV2() async throws {
+        let games = await API.scoreboardV2(useMockData: true)
+        XCTAssert(games?.resource == "scoreboardV2")
+    }
+    
+    func testScorboardV2ToGames() async throws {
+        let response = await API.scoreboardV2(useMockData: true)
+        guard let response else {
+            XCTFail()
+            return
+        }
+        let games = GameAdapter.games(from: response)
+        XCTAssert(games.count == 2)
+        let firstGame = games.first
+        XCTAssert(firstGame?.awayTeamName == "Oklahoma City")
+        XCTAssert(firstGame?.awayTeamCode == "OKC")
+    }
 }
 
 final class HockeyAPITests: XCTestCase {

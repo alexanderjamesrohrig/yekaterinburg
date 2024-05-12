@@ -84,6 +84,12 @@
 		0886D3A92B810AB300F997B1 /* StateSecretManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0886D3A82B810AB300F997B1 /* StateSecretManager.swift */; };
 		0886D3AE2B81178F00F997B1 /* BaseballResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0886D3AD2B81178F00F997B1 /* BaseballResponse.swift */; };
 		0886D3B12B811B9B00F997B1 /* statsapi.json in Resources */ = {isa = PBXBuildFile; fileRef = 0886D3B02B811B9B00F997B1 /* statsapi.json */; };
+		088FB5652BEFC978000D6747 /* NBAScoreboardV2.json in Resources */ = {isa = PBXBuildFile; fileRef = 088FB5642BEFC978000D6747 /* NBAScoreboardV2.json */; };
+		088FB5662BEFC978000D6747 /* NBAScoreboardV2.json in Resources */ = {isa = PBXBuildFile; fileRef = 088FB5642BEFC978000D6747 /* NBAScoreboardV2.json */; };
+		088FB5672BEFC978000D6747 /* NBAScoreboardV2.json in Resources */ = {isa = PBXBuildFile; fileRef = 088FB5642BEFC978000D6747 /* NBAScoreboardV2.json */; };
+		088FB5692BEFC9C5000D6747 /* NBAScoreboardV2Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088FB5682BEFC9C5000D6747 /* NBAScoreboardV2Response.swift */; };
+		088FB56A2BEFC9C5000D6747 /* NBAScoreboardV2Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088FB5682BEFC9C5000D6747 /* NBAScoreboardV2Response.swift */; };
+		088FB56B2BEFC9C5000D6747 /* NBAScoreboardV2Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088FB5682BEFC9C5000D6747 /* NBAScoreboardV2Response.swift */; };
 		089334FB2BDD4E7E00F4F972 /* ci_pre_xcodebuild.sh in Resources */ = {isa = PBXBuildFile; fileRef = 089334FA2BDD4E7E00F4F972 /* ci_pre_xcodebuild.sh */; };
 		089334FC2BDD4E7E00F4F972 /* ci_pre_xcodebuild.sh in Resources */ = {isa = PBXBuildFile; fileRef = 089334FA2BDD4E7E00F4F972 /* ci_pre_xcodebuild.sh */; };
 		089334FE2BDD564600F4F972 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 089334FD2BDD564600F4F972 /* Config.xcconfig */; };
@@ -254,6 +260,8 @@
 		0886D3AB2B810EF000F997B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0886D3AD2B81178F00F997B1 /* BaseballResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseballResponse.swift; sourceTree = "<group>"; };
 		0886D3B02B811B9B00F997B1 /* statsapi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = statsapi.json; sourceTree = "<group>"; };
+		088FB5642BEFC978000D6747 /* NBAScoreboardV2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NBAScoreboardV2.json; sourceTree = "<group>"; };
+		088FB5682BEFC9C5000D6747 /* NBAScoreboardV2Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAScoreboardV2Response.swift; sourceTree = "<group>"; };
 		089334FA2BDD4E7E00F4F972 /* ci_pre_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_pre_xcodebuild.sh; sourceTree = "<group>"; };
 		089334FD2BDD564600F4F972 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		08A136182BE66EF200E9C682 /* NBAChannelsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAChannelsResponse.swift; sourceTree = "<group>"; };
@@ -426,6 +434,7 @@
 				08D99CD22AB38064004C7D43 /* QuickTypeTeam.swift */,
 				086A50B52BDEB30800C9D91D /* WorldFootballCompetitionsResponse.swift */,
 				08A136182BE66EF200E9C682 /* NBAChannelsResponse.swift */,
+				088FB5682BEFC9C5000D6747 /* NBAScoreboardV2Response.swift */,
 			);
 			name = "Response Objects";
 			sourceTree = "<group>";
@@ -545,6 +554,7 @@
 				0886D3A42B81079200F997B1 /* football-data.json */,
 				0886D3B02B811B9B00F997B1 /* statsapi.json */,
 				08A1361B2BE670F400E9C682 /* NBAChannels.json */,
+				088FB5642BEFC978000D6747 /* NBAScoreboardV2.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -692,6 +702,7 @@
 			files = (
 				08D499EE2BDABE2E0091597F /* football-data_standings.json in Resources */,
 				089334FB2BDD4E7E00F4F972 /* ci_pre_xcodebuild.sh in Resources */,
+				088FB5652BEFC978000D6747 /* NBAScoreboardV2.json in Resources */,
 				08D499E82BD865F10091597F /* football-data_teams.json in Resources */,
 				08E0248F2BDC01B200C5AB65 /* nhle-schedule.json in Resources */,
 				08E0248A2BDBFB1500C5AB65 /* nhle-franchise.json in Resources */,
@@ -728,6 +739,7 @@
 				08AFEC342B8182490028A39A /* Preview Assets.xcassets in Resources */,
 				087C2E102B856FEB00AFAB34 /* teams.json in Resources */,
 				083CBD032B824DB500D151F7 /* nhl-schedule.json in Resources */,
+				088FB5662BEFC978000D6747 /* NBAScoreboardV2.json in Resources */,
 				083CBD172B824DCE00D151F7 /* TEST.json in Resources */,
 				083CBD002B824DB000D151F7 /* collegefootballdata-games.json in Resources */,
 				083CBD062B824DB900D151F7 /* balldontlie.json in Resources */,
@@ -743,6 +755,7 @@
 			files = (
 				08D499F02BDABE2E0091597F /* football-data_standings.json in Resources */,
 				08A1361E2BE670F400E9C682 /* NBAChannels.json in Resources */,
+				088FB5672BEFC978000D6747 /* NBAScoreboardV2.json in Resources */,
 				089335002BDD564600F4F972 /* Config.xcconfig in Resources */,
 				08D499E92BD865F10091597F /* football-data_teams.json in Resources */,
 				08E024912BDC01B200C5AB65 /* nhle-schedule.json in Resources */,
@@ -786,6 +799,7 @@
 				08E024932BDC025600C5AB65 /* HockeyScheduleResponse.swift in Sources */,
 				0805EA0E2AD1968F00D17753 /* SampleManager.swift in Sources */,
 				0805EA122AD198EA00D17753 /* FutureGameView.swift in Sources */,
+				088FB5692BEFC9C5000D6747 /* NBAScoreboardV2Response.swift in Sources */,
 				08E024822BDBF7D100C5AB65 /* NHLAPI.swift in Sources */,
 				0875168B2B83E96300018712 /* EventView.swift in Sources */,
 				08DB5A882AD97C00001D55B5 /* InProgressGameView.swift in Sources */,
@@ -825,6 +839,7 @@
 				08AD6A102BE0463C008EBB94 /* CollegeFootballResponse.swift in Sources */,
 				08AD6A132BE04655008EBB94 /* HockeyResponse.swift in Sources */,
 				08AD6A282BE049A9008EBB94 /* HockeyFranchiseResponse.swift in Sources */,
+				088FB56A2BEFC9C5000D6747 /* NBAScoreboardV2Response.swift in Sources */,
 				083CBD302B82587100D151F7 /* DebugView.swift in Sources */,
 				086A50C62BDED07600C9D91D /* TeamsViewModel.swift in Sources */,
 				08AFEC2D2B8182470028A39A /* YekaterinburgTVApp.swift in Sources */,
@@ -897,6 +912,7 @@
 				08AD6A262BE04998008EBB94 /* NBAAPI.swift in Sources */,
 				0807E5DF2BE66D0000DF1CFA /* FeatureFlagManager.swift in Sources */,
 				08AD6A122BE04654008EBB94 /* HockeyResponse.swift in Sources */,
+				088FB56B2BEFC9C5000D6747 /* NBAScoreboardV2Response.swift in Sources */,
 				08AD6A312BE049D4008EBB94 /* BaseballResponse.swift in Sources */,
 				0807E5DB2BE66CD200DF1CFA /* GameAdapter.swift in Sources */,
 			);
