@@ -22,7 +22,7 @@ struct ContentViewiOS: View {
     @State private var showAddScheduledGameSheet = false
     private let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "ContentViewiOS")
     private let apiSources: Set<YeType> = [.game(.basketball)]
-    let viewModel = System1ViewModel()
+    @StateObject private var viewModel = System1ViewModel()
     
     var body: some View {
         List(games) { game in

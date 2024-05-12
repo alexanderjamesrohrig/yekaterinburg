@@ -54,5 +54,6 @@ public class StringManager {
     // MARK: What's new
     let whatsNew1_1_0Title = "Baseball schedule and channel listing"
     let whatsNew1_1_0Body = "Choose your favorite teams in Window > Teams to see their schedule and where to watch the games."
+    let whatsNew1_1_1Title = "Hockey schedule and channel listing"
     private init() {}
 }

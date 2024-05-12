@@ -12,7 +12,6 @@ import OSLog
     
     private let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "ContentView")
     private let apiSources: Set<YeType> = [.game(.basketball),
-                                           .game(.calcio),
                                            .game(.baseball),
                                            .game(.hockey)]
     @AppStorage(StringManager.shared.storageFFMockData) private var useMockData: Bool = false
@@ -61,6 +60,9 @@ import OSLog
             #endif
             ToolbarButton(action: {
                 Task {
+                    if games.isEmpty {
+                        viewModel.state = .loading
+                    }
                     games = await viewModel.getGamesFrom(sources: apiSources, useMockData: useMockData)
                     lastUpdate = Date.now
                 }

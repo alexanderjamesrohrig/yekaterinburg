@@ -18,9 +18,9 @@ struct WhatsNewView: View {
             Text(GeneralSecretary.shared.appName)
             ScrollView {
                 HStack(alignment: .firstTextBaseline) {
-                    Image(systemName: ImageManager.shared.baseball)
+                    Image(systemName: ImageManager.shared.hockey)
                     VStack(alignment: .leading) {
-                        Text(SM.shared.whatsNew1_1_0Title)
+                        Text(SM.shared.whatsNew1_1_1Title)
                             .font(.headline)
                         Text(SM.shared.whatsNew1_1_0Body)
                     }

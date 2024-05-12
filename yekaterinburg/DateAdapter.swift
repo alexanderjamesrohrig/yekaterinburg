@@ -41,6 +41,15 @@ struct DateAdapter {
         let toDate = dateFormatter.date(from: date)
         return toDate ?? Date.now
     }
+    /// Adapted String from ScoreboardV2 response to Date
+    /// - Parameter scoreboardV2Response: String in format 2024-05-11T00:00:00
+    /// - Returns: Date object
+    static func dateFrom(_ scoreboardV2Response: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.init(abbreviation: "EST")
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        return formatter.date(from: scoreboardV2Response) ?? Date.now
+    }
     /// Returns Date given String ISO (Ex. 2024-02-11T00:48:28Z) date
     static func dateFromISO(date: String) -> Date {
         return dateFromAPI(date: date)

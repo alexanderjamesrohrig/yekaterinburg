@@ -7,14 +7,20 @@
 
 import Foundation
 import OSLog
-// FIXME: Concurrecny issue
-class System1ViewModel: ObservableObject {
+
+@MainActor class System1ViewModel: ObservableObject {
     enum State {
         case loading, error, noGames, success, unknown
     }
     private let logger = Logger(subsystem: GeneralSecretary.shared.subsystem, category: "System1ViewModel")
     var twoDaysAgo: Date {
         Calendar.autoupdatingCurrent.date(byAdding: .day, value: -2, to: Date.now) ?? Date.now
+    }
+    var nbaEnabled: Bool {
+        let ff = FFM.shared.ff5.enabled
+        let setting = UserDefaults.standard.bool(forKey: StoreManager.shared.appStorageShowNBAGames)
+        logger.debug("NBA :- \(ff) && \(setting)")
+        return ff && setting
     }
     var games: [Game] = []
     @Published var state: State = .unknown
@@ -37,9 +43,7 @@ class System1ViewModel: ObservableObject {
                 for g in gamesFromAPI {
                     let adaptedGame = GameAdapter.getGameFrom(footballGame: g)
                     if adaptedGame.date > twoDaysAgo {
-                        DispatchQueue.main.async {
-                            games.append(adaptedGame)
-                        }
+                        games.append(adaptedGame)
                     }
                 }
             }
@@ -54,9 +58,7 @@ class System1ViewModel: ObservableObject {
                         for g in d.games {
                             let adaptedGame = GameAdapter.getGameFrom(baseballGame: g)
                             if adaptedGame.date > twoDaysAgo {
-                                DispatchQueue.main.async {
-                                    games.append(adaptedGame)
-                                }
+                                games.append(adaptedGame)
                             }
                         }
                     }
@@ -118,28 +120,14 @@ class System1ViewModel: ObservableObject {
                                            type: .game(.hockey))
                     }
                     if adaptedGame.date > twoDaysAgo {
-                        DispatchQueue.main.async {
-                            games.append(adaptedGame)
-                        }
+                        games.append(adaptedGame)
                     }
                 }
             }
         }
         /// Basketball
-        if sources.contains(.game(.basketball)) && FFM.shared.ff5.enabled {
+        if sources.contains(.game(.basketball)) && nbaEnabled {
             await games.append(contentsOf: nbaGamesToday())
-//            let favoriteBasketballTeams = favoriteTeams.filter({ $0.sport == .game(.basketball) }).map({ $0.sportSpecificID })
-//            let gamesFromAPI = await NBAAPI.games(useMockData: useMockData, teamIDs: favoriteBasketballTeams)?.data
-//            if let gamesFromAPI {
-//                for g in gamesFromAPI {
-//                    let adaptedGame = GameAdapter.getGameFrom(g)
-//                    if adaptedGame.date > twoDaysAgo {
-//                        DispatchQueue.main.async {
-//                            games.append(adaptedGame)
-//                        }
-//                    }
-//                }
-//            }
         }
         let inAppGames = SampleManager.shared.localEvents
         for x in inAppGames {
@@ -164,15 +152,11 @@ class System1ViewModel: ObservableObject {
     }
     
     func nbaGamesToday() async -> [Game]{
-        let games = await NBAAPI.channels(useMockData: true)?.channels?.games
-        guard let games else {
+        let response = await NBAAPI.scoreboardV2(useMockData: false)
+        guard let response else {
             return []
         }
-        var foundGames: [Game] = []
-        for g in games {
-            foundGames.append(GameAdapter.game(from: g))
-        }
-        return foundGames
+        return GameAdapter.games(from: response)
     }
     
     func save(_ games: [Game]) {

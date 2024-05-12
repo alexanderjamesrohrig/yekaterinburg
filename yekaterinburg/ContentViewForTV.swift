@@ -15,7 +15,7 @@ struct ContentViewForTV: View {
     @State private var showScheduleSheet = false
     @State private var showSettingsSheet = false
     @State var games: [Game] = []
-    private let viewModel = System1ViewModel()
+    @StateObject private var viewModel = System1ViewModel()
     
     var body: some View {
         Text(GeneralSecretary.shared.appName)

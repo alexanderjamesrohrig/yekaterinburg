@@ -192,12 +192,14 @@ struct GameAdapter {
             let homeTeamInfo = from.resultSets?[NBAAPI.ResultSets.lineScore.rawValue].rowSet?[homeTeamInfoIndex]
             let gameDateString = gameHeaderInfo?[NBAAPI.GameHeaderKey.gameDateEST.rawValue].toString() ?? ""
             logger.debug("Date :- \(gameDateString)")
-            let gameDate = try? Date.init(gameDateString, strategy: .iso8601)
+            let gameDate = DateAdapter.dateFrom(gameDateString)
             var broadcasts = gameHeaderInfo?[NBAAPI.GameHeaderKey.nationalTVBroadcaster.rawValue].toString() ?? ""
-            if let awayBroadcast = gameHeaderInfo?[NBAAPI.GameHeaderKey.awayTVBroadcaster.rawValue].toString() {
+            if let awayBroadcast = gameHeaderInfo?[NBAAPI.GameHeaderKey.awayTVBroadcaster.rawValue].toString(),
+               !awayBroadcast.isEmpty{
                 broadcasts.append("\(StringManager.shared.or)\(awayBroadcast)")
             }
-            if let homeBroadcast = gameHeaderInfo?[NBAAPI.GameHeaderKey.homeTVBroadcaster.rawValue].toString() {
+            if let homeBroadcast = gameHeaderInfo?[NBAAPI.GameHeaderKey.homeTVBroadcaster.rawValue].toString(),
+               !homeBroadcast.isEmpty {
                 broadcasts.append("\(StringManager.shared.or)\(homeBroadcast)")
             }
             logger.debug("Broadcasts :- \(gameDateString)")
@@ -210,7 +212,7 @@ struct GameAdapter {
                                    awayTeamName: awayTeamInfo?[NBAAPI.LineScoreKey.teamCityName.rawValue].toString() ?? "",
                                    awayTeamCode: awayTeamInfo?[NBAAPI.LineScoreKey.teamAbbreviation.rawValue].toString() ?? "",
                                    awayPoints: 0,
-                                   date: gameDate ?? Date.now,
+                                   date: gameDate,
                                    status: gameHeaderInfo?[NBAAPI.GameHeaderKey.gameStatusText.rawValue].toString() ?? "",
                                    televisionOptions: broadcasts,
                                    radioOptions: "",

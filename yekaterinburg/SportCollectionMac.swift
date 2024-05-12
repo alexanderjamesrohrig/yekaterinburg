@@ -15,8 +15,8 @@ struct SportCollectionMac: View {
     @State private var hockeyGames: [HockeyResponse.NHLDate.NHLGame] = []
     @State private var games: [Game] = []
     @State private var showAddScheduledGameSheet = false
+    @StateObject private var viewModel = System1ViewModel()
     private let apiSources: Set<YeType> = [.game(.basketball)]
-    private let viewModel = System1ViewModel()
     
     var body: some View {
         VStack {
